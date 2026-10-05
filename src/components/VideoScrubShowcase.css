@@ -4,7 +4,7 @@
 
 /* ── Outer section: slides over the above section with higher z-index & elevation ── */
 .vscrub-section {
-  height: 420vh;
+  height: 280vh;
   position: relative;
   z-index: 10;
   background: #0A0B0D;
