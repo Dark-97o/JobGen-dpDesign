@@ -27,14 +27,20 @@
   z-index: 0;
 }
 
-/* Diagonal grey band on top of the image covering only the right 20% */
+/* Diagonal band on top of the image covering the right side featuring the contact-bg image */
 .why-choose-section::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-color: #949494;
-  clip-path: polygon(85% 0%, 100% 0%, 100% 100%, 75% 100%);
-  -webkit-clip-path: polygon(85% 0%, 100% 0%, 100% 100%, 75% 100%);
+  background-color: #1A1C20;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    url('/contact-bg.jpg');
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  clip-path: polygon(80% 0%, 100% 0%, 100% 100%, 68% 100%);
+  -webkit-clip-path: polygon(80% 0%, 100% 0%, 100% 100%, 68% 100%);
   pointer-events: none;
   z-index: 1;
 }
