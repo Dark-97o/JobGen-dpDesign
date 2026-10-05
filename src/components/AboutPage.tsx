@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { VisionToLifeContact } from './VisionToLifeContact';
 import { ContactModal } from './ContactModal';
+import { MeetTheArchitect } from './MeetTheArchitect';
 import './AboutPage.css';
 
 interface AboutPageProps {
@@ -114,6 +115,9 @@ export function AboutPage({ onNavigateHome }: AboutPageProps) {
           </div>
         </div>
       </section>
+
+      {/* ── DESIGN LED BY A REGISTERED ARCHITECT & LICENSED BUILDER ── */}
+      <MeetTheArchitect variant="dark" />
 
       {/* ── SECTION 2: OUR PLANNING IS THOUGHTFUL ── */}
       <section className="about-planning-section" id="thoughtful-planning">
