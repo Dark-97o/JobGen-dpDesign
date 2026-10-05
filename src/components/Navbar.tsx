@@ -2,7 +2,12 @@ import { useState, useEffect } from 'react';
 import { ContactModal } from './ContactModal';
 import './Navbar.css';
 
-export function Navbar() {
+interface NavbarProps {
+  currentPage?: 'home' | 'about';
+  onNavigate?: (page: 'home' | 'about') => void;
+}
+
+export function Navbar({ currentPage = 'home', onNavigate }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -19,13 +24,33 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleHomeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate('home');
+    } else {
+      window.location.hash = '';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleAboutClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setActiveDropdown(null);
+    if (onNavigate) {
+      onNavigate('about');
+    } else {
+      window.location.hash = '#about-us';
+    }
+  };
+
   return (
     <>
-      <header className={`navbar-header ${scrolled ? 'scrolled' : 'transparent-hero'}`}>
+      <header className={`navbar-header ${scrolled || currentPage === 'about' ? 'scrolled' : 'transparent-hero'}`}>
         <div className="navbar-pill">
           
           {/* Minimalist Architectural Wordmark matching reference */}
-          <a href="#" className="navbar-logo">
+          <a href="#" className="navbar-logo" onClick={handleHomeClick}>
             <span className="logo-main-name">
               dp<span className="logo-accent">_</span>
             </span>
@@ -35,7 +60,13 @@ export function Navbar() {
           {/* Desktop Navigation with Dropdowns */}
           <nav className="navbar-links" aria-label="Main Navigation">
             {/* 1. Home */}
-            <a href="#" className="nav-item">Home</a>
+            <a 
+              href="#" 
+              className={`nav-item ${currentPage === 'home' ? 'active-page' : ''}`}
+              onClick={handleHomeClick}
+            >
+              Home
+            </a>
 
             {/* 2. About Us Dropdown */}
             <div 
@@ -44,15 +75,33 @@ export function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button 
-                className={`nav-item nav-dropdown-trigger ${activeDropdown === 'about' ? 'open' : ''}`}
+                className={`nav-item nav-dropdown-trigger ${activeDropdown === 'about' || currentPage === 'about' ? 'open active-page' : ''}`}
                 aria-expanded={activeDropdown === 'about'}
+                onClick={handleAboutClick}
               >
                 <span>About Us</span>
                 <span className="dropdown-chevron">▾</span>
               </button>
               <div className={`nav-dropdown-menu ${activeDropdown === 'about' ? 'visible' : ''}`}>
-                <a href="#architect" className="dropdown-link">About Us</a>
-                <a href="#architect" className="dropdown-link">Prasad Perera</a>
+                <a href="#about-us" className="dropdown-link" onClick={handleAboutClick}>About Us Page</a>
+                <a 
+                  href="#architect" 
+                  className="dropdown-link" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveDropdown(null);
+                    if (currentPage !== 'home' && onNavigate) {
+                      onNavigate('home');
+                      setTimeout(() => {
+                        document.getElementById('architect')?.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
+                    } else {
+                      document.getElementById('architect')?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  Prasad Perera
+                </a>
               </div>
             </div>
 

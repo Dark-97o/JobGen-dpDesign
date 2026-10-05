@@ -2,7 +2,11 @@ import { MapPin, Phone, Mail, Globe, ArrowUpRight, ArrowUp } from 'lucide-react'
 import { FooterSmoke } from './FooterSmoke';
 import './Footer.css';
 
-export function Footer() {
+interface FooterProps {
+  onNavigate?: (page: 'home' | 'about') => void;
+}
+
+export function Footer({ onNavigate }: FooterProps) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -179,33 +183,43 @@ export function Footer() {
             <ul className="footer-nav-list">
               <li>
                 <a 
-                  href="https://www.dpdesignstudio.com.au/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="footer-nav-item external"
+                  href="#" 
+                  className="footer-nav-item"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (onNavigate) {
+                      onNavigate('home');
+                    } else {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }}
                 >
                   <span className="item-bullet" />
                   <span>Home</span>
-                  <ArrowUpRight size={10.5} className="link-ext-arrow" />
                 </a>
               </li>
               <li>
                 <a 
-                  href="https://www.dpdesignstudio.com.au/about-us/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="footer-nav-item external"
+                  href="#about-us" 
+                  className="footer-nav-item"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (onNavigate) {
+                      onNavigate('about');
+                    } else {
+                      window.location.hash = '#about-us';
+                    }
+                  }}
                 >
                   <span className="item-bullet" />
-                  <span>About</span>
-                  <ArrowUpRight size={10.5} className="link-ext-arrow" />
+                  <span>About Us</span>
                 </a>
               </li>
               <li>
                 <a 
                   href="https://www.dpdesignstudio.com.au/contact-us/" 
                   target="_blank" 
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer" 
                   className="footer-nav-item external"
                 >
                   <span className="item-bullet" />
