@@ -22,9 +22,9 @@ export function AboutPage({ onNavigateHome }: AboutPageProps) {
 
   return (
     <div className="about-page">
-      {/* ── SECTION 1: ABOUT US HERO (WITH BACKGROUND VIDEO & STREAMLINED TEXT) ── */}
+      {/* ── SECTION 1: ABOUT US HERO (USING /page.mp4 & STREAMLINED TEXT) ── */}
       <section className="about-hero-section" id="about-intro">
-        {/* Cinematic Background Video */}
+        {/* Cinematic Background Video using page.mp4 */}
         <div className="about-hero-video-wrap">
           <video 
             autoPlay 
@@ -33,7 +33,7 @@ export function AboutPage({ onNavigateHome }: AboutPageProps) {
             playsInline 
             className="about-hero-video"
           >
-            <source src="/main.mp4" type="video/mp4" />
+            <source src="/page.mp4" type="video/mp4" />
           </video>
           <div className="about-hero-scrim" />
         </div>
@@ -91,15 +91,16 @@ export function AboutPage({ onNavigateHome }: AboutPageProps) {
         </div>
       </section>
 
-      {/* ── SECTION 2: MEET THE ARCHITECT (LIGHT THEME + BLUEPRINT SKETCH ON RIGHT) ── */}
+      {/* ── SECTION 2: MEET THE ARCHITECT (LIGHT THEME + BLACK HOUSE SKETCH ON RIGHT + NO BOX ON PHOTO) ── */}
       <MeetTheArchitect variant="light" />
 
-      {/* ── SECTION 3: OUR PLANNING IS THOUGHTFUL (HALF WHITE / HALF VIDEO WITH 45° SLANTED SEPARATION) ── */}
+      {/* ── SECTION 3: OUR PLANNING IS THOUGHTFUL (USING /house.mp4 + DPABOUT AS FADED BG BEHIND TEXT + 45° SLANTED SEPARATION) ── */}
       <section className="about-planning-slanted-section" id="thoughtful-planning">
         <div className="planning-slanted-wrapper">
           
-          {/* Left Half: Pure White Architectural Content */}
+          {/* Left Half: White Area with dpabout.jpg faded behind text */}
           <div className="planning-left-white">
+            <div className="planning-dpabout-bg-overlay" aria-hidden="true" />
             <div className="planning-white-inner">
               <h2 className="about-section-heading">
                 Our planning is thoughtful, giving you a unique living space where you can bond with your family.
@@ -141,7 +142,7 @@ export function AboutPage({ onNavigateHome }: AboutPageProps) {
             </div>
           </div>
 
-          {/* Right Half: Looping Architectural Video with 45 Degree Slanted Separation */}
+          {/* Right Half: Looping house.mp4 Video with 45 Degree Slanted Separation */}
           <div className="planning-right-video-half">
             <video 
               autoPlay 
@@ -150,7 +151,7 @@ export function AboutPage({ onNavigateHome }: AboutPageProps) {
               playsInline 
               className="planning-bg-video"
             >
-              <source src="/archi1.mp4" type="video/mp4" />
+              <source src="/house.mp4" type="video/mp4" />
             </video>
             <div className="planning-video-overlay" />
             <div className="slanted-separator-line" aria-hidden="true" />
@@ -159,18 +160,21 @@ export function AboutPage({ onNavigateHome }: AboutPageProps) {
         </div>
       </section>
 
-      {/* ── SECTION 4: DP DESIGN STUDIO SERVICES (FULL-WIDTH ARCHITECTURAL BAND, CARDS REMOVED) ── */}
+      {/* ── SECTION 4: DP DESIGN STUDIO SERVICES (COMPACT BAND WITH DP LOGO) ── */}
       <section className="about-services-band-section" id="services-scope">
         <div className="container about-container">
           <div className="services-band-inner">
-            <div className="services-band-header">
-              <h2 className="about-section-heading light-heading">dp Design Studio Services</h2>
-              <p className="services-band-lead">
+            <div className="services-band-header compact-header">
+              <div className="services-logo-badge">
+                <img src="/dplogo.png" alt="DP Design Studio Logo" className="services-dp-logo" />
+              </div>
+              <h2 className="about-section-heading compact-heading">dp Design Studio Services</h2>
+              <p className="services-band-lead compact-lead">
                 Whether you want a home designed from scratch or a renovation tailored to your lifestyle, <strong className="gold-text-emphasis">DP Design Studio — a Sydney interior design studio &amp; architectural services firm — has you covered</strong>.
               </p>
             </div>
 
-            <div className="services-band-grid">
+            <div className="services-band-grid compact-grid">
               <div className="services-band-col">
                 <p>
                   Our process begins by getting to know you and understanding what you want from your space. From there, we initiate the design and investigation phases, obtain all relevant permits, carefully select trusted tradespeople, and project manage every detail through to completion — including a follow-up after the work is done.
@@ -182,17 +186,11 @@ export function AboutPage({ onNavigateHome }: AboutPageProps) {
                 </p>
               </div>
             </div>
-
-            <div className="services-band-bottom-statement">
-              <span className="statement-gold-star">✦</span>
-              <span className="statement-text">We can help you to achieve your dream.</span>
-              <span className="statement-gold-star">✦</span>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ── SECTION 5: CHOOSE DP DESIGN STUDIO FOR YOUR NEXT PROJECT (BAND WITH IMAGE FADING FROM LEFT TO RIGHT) ── */}
+      {/* ── SECTION 5: CHOOSE DP DESIGN STUDIO FOR YOUR NEXT PROJECT (BAND WITH IMAGE FADING FROM LEFT, JUST TEXT ON RIGHT — NO CONTAINER) ── */}
       <section className="about-choose-band-section" id="choose-dp-design">
         {/* Left Image Fading Throughout Toward the Right Side */}
         <div className="choose-band-bg-image-wrapper">
@@ -205,7 +203,8 @@ export function AboutPage({ onNavigateHome }: AboutPageProps) {
         </div>
 
         <div className="container about-container choose-band-container">
-          <div className="choose-band-content-right">
+          {/* JUST TEXT — NO BOXED CONTAINER */}
+          <div className="choose-band-pure-text-right">
             <h2 className="about-section-heading">
               Choose dp Design Studio for Your Next Project
             </h2>

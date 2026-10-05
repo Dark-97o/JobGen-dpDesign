@@ -22,7 +22,7 @@
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   SECTION 1: HERO (LESS TEXT HEAVY WITH BACKGROUND VIDEO)
+   SECTION 1: HERO (LESS TEXT HEAVY WITH BACKGROUND VIDEO /page.mp4)
    ────────────────────────────────────────────────────────────────────────── */
 .about-hero-section {
   position: relative;
@@ -222,7 +222,7 @@
 
 /* ──────────────────────────────────────────────────────────────────────────
    SECTION 3: OUR PLANNING IS THOUGHTFUL
-   Half White & Half Video with 45° Slanted Separation
+   Half White (with dpabout.jpg faded behind text) & Half Video (house.mp4) with 45° Slanted Separation
    ────────────────────────────────────────────────────────────────────────── */
 .about-planning-slanted-section {
   position: relative;
@@ -235,13 +235,13 @@
 .planning-slanted-wrapper {
   display: flex;
   position: relative;
-  min-height: 620px;
+  min-height: 640px;
   width: 100%;
 }
 
-/* Left Half: Pure White Architectural Container */
+/* Left Half: White Area with dpabout.jpg faded behind text */
 .planning-left-white {
-  width: 54%;
+  width: 55%;
   background-color: #FFFFFF;
   padding: clamp(60px, 8vh, 100px) clamp(24px, 4vw, 60px) clamp(60px, 8vh, 100px) clamp(24px, 6vw, 100px);
   display: flex;
@@ -252,9 +252,24 @@
   box-sizing: border-box;
 }
 
+/* Faded dpabout image background behind text */
+.planning-dpabout-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/dpabout.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.11;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: multiply;
+}
+
 .planning-white-inner {
   max-width: 580px;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .about-section-heading {
@@ -319,7 +334,7 @@
   margin-top: 8px;
 }
 
-/* Right Half: Video with 45 Degree Slanted Separation */
+/* Right Half: Looping house.mp4 Video with 45 Degree Slanted Separation */
 .planning-right-video-half {
   position: absolute;
   top: 0;
@@ -361,11 +376,11 @@
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   SECTION 4: DP DESIGN STUDIO SERVICES (FULL-WIDTH BAND)
+   SECTION 4: DP DESIGN STUDIO SERVICES (COMPACT BAND WITH DP LOGO)
    Cards removed, clean cohesive architectural band
    ────────────────────────────────────────────────────────────────────────── */
 .about-services-band-section {
-  padding: clamp(75px, 10vh, 110px) 0;
+  padding: clamp(48px, 6vh, 68px) 0;
   background-color: #F4F2EC;
   border-bottom: 1px solid var(--border-light, #E8E5DD);
   position: relative;
@@ -376,18 +391,35 @@
   margin: 0 auto;
 }
 
-.services-band-header {
+.services-band-header.compact-header {
   text-align: center;
   max-width: 860px;
-  margin: 0 auto 36px auto;
+  margin: 0 auto 28px auto;
 }
 
-.services-band-lead {
+.services-logo-badge {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.services-dp-logo {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
+}
+
+.compact-heading {
+  margin: 0 0 12px 0;
+}
+
+.services-band-lead.compact-lead {
   font-family: var(--font-sans, sans-serif);
-  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
-  line-height: 1.7;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.65;
   color: var(--text-secondary, #585A5E);
-  margin-top: 14px;
+  margin: 0;
 }
 
 .gold-text-emphasis {
@@ -395,46 +427,27 @@
   font-weight: 700;
 }
 
-.services-band-grid {
+.services-band-grid.compact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 36px;
+  gap: 32px;
   background: #FFFFFF;
   border: 1px solid var(--border-light, #E8E5DD);
-  border-radius: 16px;
-  padding: clamp(28px, 4vw, 44px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
-  margin-bottom: 28px;
+  border-radius: 14px;
+  padding: clamp(22px, 3vw, 32px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.03);
 }
 
 .services-band-col p {
-  font-size: 15px;
-  line-height: 1.75;
+  font-size: 14.5px;
+  line-height: 1.7;
   color: var(--text-secondary, #585A5E);
   margin: 0;
 }
 
-.services-band-bottom-statement {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  font-family: var(--font-display, 'Cinzel', serif);
-  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
-  font-weight: 700;
-  color: var(--text-primary, #121314);
-  letter-spacing: 0.02em;
-  text-align: center;
-  margin-top: 16px;
-}
-
-.statement-gold-star {
-  color: var(--gold-primary, #C5A059);
-}
-
 /* ──────────────────────────────────────────────────────────────────────────
    SECTION 5: CHOOSE DP DESIGN STUDIO FOR YOUR NEXT PROJECT
-   Full-width band with image fading from left to right, text on right
+   Full-width band with image fading from left to right, JUST TEXT on right (NO CONTAINER)
    ────────────────────────────────────────────────────────────────────────── */
 .about-choose-band-section {
   position: relative;
@@ -469,9 +482,9 @@
   inset: 0;
   background: linear-gradient(
     90deg, 
-    rgba(250, 249, 246, 0.08) 0%, 
-    rgba(250, 249, 246, 0.45) 45%, 
-    rgba(250, 249, 246, 0.92) 80%, 
+    rgba(250, 249, 246, 0.05) 0%, 
+    rgba(250, 249, 246, 0.35) 40%, 
+    rgba(250, 249, 246, 0.92) 75%, 
     #FAF9F6 100%
   );
   pointer-events: none;
@@ -484,16 +497,14 @@
   justify-content: flex-end;
 }
 
-.choose-band-content-right {
-  width: 56%;
-  max-width: 680px;
-  background: rgba(250, 249, 246, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: clamp(28px, 4vw, 44px);
-  border-radius: 18px;
-  border: 1px solid rgba(197, 160, 89, 0.25);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
+/* JUST TEXT — NO BOXED CONTAINER, NO BORDER, NO SHADOW */
+.choose-band-pure-text-right {
+  width: 54%;
+  max-width: 660px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
 }
 
 .choose-text-paragraph {
@@ -525,7 +536,7 @@
    SECTION 6: OUR BUILDING & CONSTRUCTION ARM (COMPACT RIBBON)
    ────────────────────────────────────────────────────────────────────────── */
 .about-compact-construction-section {
-  padding: clamp(40px, 6vh, 60px) 0;
+  padding: clamp(36px, 5vh, 52px) 0;
   background-color: #0F1011;
   color: #FFFFFF;
   border-top: 1px solid rgba(197, 160, 89, 0.25);
@@ -535,7 +546,7 @@
   background: linear-gradient(135deg, #181A1E 0%, #111215 100%);
   border: 1px solid rgba(197, 160, 89, 0.35);
   border-radius: 16px;
-  padding: clamp(24px, 3.5vw, 36px);
+  padding: clamp(20px, 3vw, 32px);
   box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6);
   display: grid;
   grid-template-columns: 1fr 1.25fr auto;
@@ -689,16 +700,16 @@
     display: none;
   }
 
-  .services-band-grid {
+  .services-band-grid.compact-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
   }
 
   .choose-band-bg-image-wrapper {
     display: none;
   }
 
-  .choose-band-content-right {
+  .choose-band-pure-text-right {
     width: 100%;
     max-width: 100%;
   }

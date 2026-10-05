@@ -17,26 +17,11 @@
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
-  margin-top: -45px;
+  margin-top: 0;
   padding: 80px 0 55px 0;
-  clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
-  -webkit-clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
+  clip-path: none;
+  -webkit-clip-path: none;
   overflow: hidden;
-}
-
-/* 4px grey line matching why-choose-us grey band on slanted top edge */
-.vision-contact-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background-color: #949494;
-  clip-path: polygon(0 40px, 100% 0, 100% 4px, 0 44px);
-  -webkit-clip-path: polygon(0 40px, 100% 0, 100% 4px, 0 44px);
-  pointer-events: none;
-  z-index: 3;
 }
 
 .vision-container {
