@@ -104,30 +104,59 @@ const PILLAR_SERVICES: PillarService[] = [
 
 export function ArchitecturalDesignSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hasStarted, setHasStarted] = useState(false);
   const [isEnded, setIsEnded] = useState(false);
   const [activePillar, setActivePillar] = useState<number | null>(0);
 
   useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage) return;
+
+    const checkAndPlay = () => {
+      if (hasStarted || !videoRef.current) return;
+      const rect = stage.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+
+      // Fully in screenview: both top and bottom edges are visible on screen
+      const isCompletelyInView = rect.top >= -10 && rect.bottom <= vh + 15;
+      // For smaller viewports where the stage itself is taller than screen height, trigger when it fills screen
+      const fillsViewport = rect.top <= 20 && rect.bottom >= vh - 20;
+
+      if (isCompletelyInView || fillsViewport) {
+        setHasStarted(true);
+        videoRef.current.play().catch(() => {});
+      }
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
-        if (entry.isIntersecting) {
-          if (!hasStarted && videoRef.current) {
-            setHasStarted(true);
-            videoRef.current.play().catch(() => {});
-          }
+        const rect = entry.boundingClientRect;
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+
+        const isFullyInView = 
+          (rect.top >= -15 && rect.bottom <= vh + 15) ||
+          entry.intersectionRatio >= 0.95 ||
+          (rect.height > vh && entry.intersectionRatio >= (vh / rect.height) * 0.9);
+
+        if (isFullyInView && !hasStarted && videoRef.current) {
+          setHasStarted(true);
+          videoRef.current.play().catch(() => {});
         }
       },
-      { threshold: 0.15 }
+      { threshold: [0, 0.25, 0.5, 0.75, 0.85, 0.9, 0.95, 1.0] }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    observer.observe(stage);
+    window.addEventListener('scroll', checkAndPlay, { passive: true });
+    checkAndPlay();
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', checkAndPlay);
+    };
   }, [hasStarted]);
 
   const handleVideoEnded = () => {
@@ -145,14 +174,13 @@ export function ArchitecturalDesignSection() {
       aria-label="Architectural Design Practice"
     >
       {/* 01. Upper Stage: Video Sketch + Frame + Headline + 3 Rounded Cards */}
-      <div className="archi-stage">
+      <div ref={stageRef} className="archi-stage">
         {/* Dedicated Video & Frame Viewport with seamless letterbox-free framing */}
         <div className="archi-video-viewport">
-          {/* Background Sketch Video */}
+          {/* Background Sketch Video: Plays only when fully in screenview */}
           <video
             ref={videoRef}
             src="/archi1.mp4"
-            autoPlay
             muted
             playsInline
             preload="auto"
