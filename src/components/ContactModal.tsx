@@ -27,14 +27,17 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis?.stop();
       window.addEventListener('keydown', handleKeyDown);
     } else {
       document.body.style.overflow = '';
+      (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis?.start();
       setSubmitted(false);
     }
 
     return () => {
       document.body.style.overflow = '';
+      (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis?.start();
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, onClose]);
@@ -56,7 +59,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       aria-modal="true"
       aria-labelledby="modal-consultation-title"
     >
-      <div className="contact-modal-container">
+      <div className="contact-modal-container" data-lenis-prevent>
         
         {/* Close Button */}
         <button 

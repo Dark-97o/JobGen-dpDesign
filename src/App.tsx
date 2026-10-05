@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AccreditationBand } from './components/AccreditationBand';
@@ -32,6 +34,51 @@ export function App() {
     return 'home';
   });
 
+  // Initialize Lenis Frictionless Smooth Scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential frictionless glide
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.05,
+      touchMultiplier: 1.6,
+      infinite: false,
+    });
+
+    (window as unknown as { lenis: Lenis }).lenis = lenis;
+
+    let rafId: number;
+    function raf(time: number) {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    }
+    rafId = requestAnimationFrame(raf);
+
+    // Frictionless in-page anchor scrolling
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest('a');
+      if (!target) return;
+      const href = target.getAttribute('href');
+      if (href && href.startsWith('#') && href.length > 1 && !href.startsWith('#about-us') && !href.startsWith('#/about-us')) {
+        const el = document.querySelector(href);
+        if (el) {
+          e.preventDefault();
+          lenis.scrollTo(el as HTMLElement, { offset: -70, duration: 1.25 });
+        }
+      }
+    };
+    document.addEventListener('click', handleAnchorClick);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      document.removeEventListener('click', handleAnchorClick);
+      lenis.destroy();
+      delete (window as unknown as { lenis?: Lenis }).lenis;
+    };
+  }, []);
+
   const handleNavigate = (page: 'home' | 'about') => {
     setCurrentPage(page);
     if (page === 'about') {
@@ -39,7 +86,12 @@ export function App() {
     } else {
       window.history.pushState({ page: 'home' }, 'DP Design Studio | Registered Architects Sydney', '#');
     }
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    const lenis = (window as unknown as { lenis?: Lenis }).lenis;
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
   };
 
   useEffect(() => {
@@ -57,7 +109,12 @@ export function App() {
       } else {
         setCurrentPage('home');
       }
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      const lenis = (window as unknown as { lenis?: Lenis }).lenis;
+      if (lenis) {
+        lenis.scrollTo(0, { immediate: true });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
     };
 
     window.addEventListener('popstate', handlePopState);

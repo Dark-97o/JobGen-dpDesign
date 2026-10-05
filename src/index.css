@@ -85,6 +85,16 @@ html {
   -ms-overflow-style: none; /* IE and Edge */
 }
 
+/* Frictionless Lenis Smooth Scrolling */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+html.lenis {
+  scroll-behavior: auto !important;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-canvas);
