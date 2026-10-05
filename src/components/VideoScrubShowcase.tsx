@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import './VideoScrubShowcase.css';
 
-const TOTAL_FRAMES = 36;
+const TOTAL_FRAMES = 41;
 
-// Format frame index: frame_000.webp ... frame_035.webp
+// Format frame index: frame_000.webp ... frame_040.webp (includes 5 extra end frames)
 const getFrameSrc = (index: number) => {
   const padded = String(index).padStart(3, '0');
   return `/frames/frame_${padded}.webp`;
@@ -182,10 +182,10 @@ export function VideoScrubShowcase() {
     };
   }, [renderFrame]);
 
-  // Bathroom design text appears near the 25th frame (25/35 ≈ 0.714 progress)
-  const kitchenOpacity = Math.max(0, Math.min(1, (0.72 - progress) / 0.10));
-  const bathroomOpacity = Math.max(0, Math.min(1, (progress - 0.64) / 0.10));
-  const isBathroomActive = progress >= 0.69;
+  // Bathroom design text appears near the 25th frame (25/40 = 0.625 progress)
+  const kitchenOpacity = Math.max(0, Math.min(1, (0.64 - progress) / 0.08));
+  const bathroomOpacity = Math.max(0, Math.min(1, (progress - 0.56) / 0.08));
+  const isBathroomActive = progress >= 0.60;
 
   return (
     <section
