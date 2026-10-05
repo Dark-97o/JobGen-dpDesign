@@ -160,15 +160,15 @@ export function AboutPage({ onNavigateHome }: AboutPageProps) {
         </div>
       </section>
 
-      {/* ── SECTION 4: DP DESIGN STUDIO SERVICES (COMPACT BAND WITH DP LOGO) ── */}
+      {/* ── SECTION 4: DP DESIGN STUDIO SERVICES (DARK THEME BAND WITH DP LOGO) ── */}
       <section className="about-services-band-section" id="services-scope">
         <div className="container about-container">
           <div className="services-band-inner">
             <div className="services-band-header compact-header">
-              <div className="services-logo-badge">
-                <img src="/dplogo.png" alt="DP Design Studio Logo" className="services-dp-logo" />
-              </div>
-              <h2 className="about-section-heading compact-heading">dp Design Studio Services</h2>
+              <h2 className="about-section-heading compact-heading services-title-with-logo">
+                <img src="/dplogo.png" alt="dp" className="services-inline-dp-logo" />
+                <span>Design Studio Services</span>
+              </h2>
               <p className="services-band-lead compact-lead">
                 Whether you want a home designed from scratch or a renovation tailored to your lifestyle, <strong className="gold-text-emphasis">DP Design Studio — a Sydney interior design studio &amp; architectural services firm — has you covered</strong>.
               </p>

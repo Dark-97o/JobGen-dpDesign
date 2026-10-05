@@ -222,13 +222,15 @@
 
 /* ──────────────────────────────────────────────────────────────────────────
    SECTION 3: OUR PLANNING IS THOUGHTFUL
-   Half White (with dpabout.jpg faded behind text) & Half Video (house.mp4) with 45° Slanted Separation
+/* ──────────────────────────────────────────────────────────────────────────
+   SECTION 3: OUR PLANNING IS THOUGHTFUL
+   Blending seamlessly with section above (#FAF9F6) & Half Video (house.mp4) with 45° Slanted Separation
    ────────────────────────────────────────────────────────────────────────── */
 .about-planning-slanted-section {
   position: relative;
-  background-color: #FFFFFF;
+  background-color: #FAF9F6;
   overflow: hidden;
-  border-top: 1px solid var(--border-light, #E8E5DD);
+  border-top: none;
   border-bottom: 1px solid var(--border-light, #E8E5DD);
 }
 
@@ -239,10 +241,10 @@
   width: 100%;
 }
 
-/* Left Half: White Area with dpabout.jpg faded behind text */
+/* Left Half: Alabaster Area blended with section above and dpabout.jpg faded behind text */
 .planning-left-white {
   width: 55%;
-  background-color: #FFFFFF;
+  background-color: #FAF9F6;
   padding: clamp(60px, 8vh, 100px) clamp(24px, 4vw, 60px) clamp(60px, 8vh, 100px) clamp(24px, 6vw, 100px);
   display: flex;
   align-items: center;
@@ -259,7 +261,7 @@
   background-image: url('/dpabout.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.11;
+  opacity: 0.12;
   pointer-events: none;
   z-index: 0;
   mix-blend-mode: multiply;
@@ -376,78 +378,104 @@
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   SECTION 4: DP DESIGN STUDIO SERVICES (COMPACT BAND WITH DP LOGO)
-   Cards removed, clean cohesive architectural band
+   SECTION 4: DP DESIGN STUDIO SERVICES (DARK THEME BAND WITH INLINE DP LOGO)
    ────────────────────────────────────────────────────────────────────────── */
 .about-services-band-section {
-  padding: clamp(48px, 6vh, 68px) 0;
-  background-color: #F4F2EC;
-  border-bottom: 1px solid var(--border-light, #E8E5DD);
+  padding: clamp(54px, 7vh, 78px) 0;
+  background-color: #0A0B0D;
   position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(197, 160, 89, 0.2);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.about-services-band-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 850px;
+  height: 100%;
+  background: radial-gradient(ellipse at top, rgba(197, 160, 89, 0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .services-band-inner {
   max-width: 1100px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .services-band-header.compact-header {
   text-align: center;
   max-width: 860px;
-  margin: 0 auto 28px auto;
+  margin: 0 auto 30px auto;
 }
 
-.services-logo-badge {
-  display: flex;
+.services-title-with-logo {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  margin-bottom: 14px;
+  gap: 16px;
+  color: #FFFFFF !important;
+  margin: 0 0 16px 0;
 }
 
-.services-dp-logo {
-  height: 42px;
-  width: auto;
+.services-inline-dp-logo {
+  width: 48px;
+  height: 48px;
   object-fit: contain;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
+  filter: drop-shadow(0 4px 14px rgba(197, 160, 89, 0.35));
+  transition: transform 0.3s ease;
+  vertical-align: middle;
+}
+
+.services-title-with-logo:hover .services-inline-dp-logo {
+  transform: scale(1.08) rotate(3deg);
 }
 
 .compact-heading {
-  margin: 0 0 12px 0;
+  margin: 0 0 14px 0;
 }
 
 .services-band-lead.compact-lead {
   font-family: var(--font-sans, sans-serif);
   font-size: clamp(1rem, 1.3vw, 1.15rem);
   line-height: 1.65;
-  color: var(--text-secondary, #585A5E);
+  color: rgba(255, 255, 255, 0.78);
   margin: 0;
 }
 
-.gold-text-emphasis {
-  color: var(--text-primary, #121314);
-  font-weight: 700;
+.services-band-lead .gold-text-emphasis {
+  color: #E0C58A;
+  font-weight: 600;
 }
 
 .services-band-grid.compact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  background: #FFFFFF;
-  border: 1px solid var(--border-light, #E8E5DD);
+  gap: 28px;
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(197, 160, 89, 0.22);
   border-radius: 14px;
-  padding: clamp(22px, 3vw, 32px);
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.03);
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
 .services-band-col p {
-  font-size: 14.5px;
-  line-height: 1.7;
-  color: var(--text-secondary, #585A5E);
+  font-size: 14.8px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.72);
   margin: 0;
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
    SECTION 5: CHOOSE DP DESIGN STUDIO FOR YOUR NEXT PROJECT
-   Full-width band with image fading from left to right, JUST TEXT on right (NO CONTAINER)
+   Full-width band with image extending throughout, continuing faded behind text
    ────────────────────────────────────────────────────────────────────────── */
 .about-choose-band-section {
   position: relative;
@@ -457,12 +485,11 @@
   border-bottom: 1px solid var(--border-light, #E8E5DD);
 }
 
+/* Background image spanning full width, continuing under the text */
 .choose-band-bg-image-wrapper {
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 58%;
+  inset: 0;
+  width: 100%;
   height: 100%;
   overflow: hidden;
   z-index: 0;
@@ -472,20 +499,20 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: left center;
   display: block;
 }
 
-/* Smooth gradient fade across toward the right */
+/* Gradient fade allowing the image to continue subtly underneath the text */
 .choose-band-gradient-fade {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     90deg, 
-    rgba(250, 249, 246, 0.05) 0%, 
-    rgba(250, 249, 246, 0.35) 40%, 
-    rgba(250, 249, 246, 0.92) 75%, 
-    #FAF9F6 100%
+    rgba(250, 249, 246, 0.15) 0%, 
+    rgba(250, 249, 246, 0.42) 32%, 
+    rgba(250, 249, 246, 0.78) 58%, 
+    rgba(250, 249, 246, 0.88) 100%
   );
   pointer-events: none;
 }
@@ -706,7 +733,12 @@
   }
 
   .choose-band-bg-image-wrapper {
-    display: none;
+    display: block;
+    opacity: 0.35;
+  }
+
+  .choose-band-gradient-fade {
+    background: rgba(250, 249, 246, 0.86);
   }
 
   .choose-band-pure-text-right {
