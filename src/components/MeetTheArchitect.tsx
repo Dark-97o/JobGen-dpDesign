@@ -28,7 +28,7 @@ export function MeetTheArchitect({ variant = 'light' }: MeetTheArchitectProps) {
             <div className="mta-bg-sketch-wrap" aria-hidden="true">
               <svg 
                 className="mta-bg-sketch-svg" 
-                viewBox="0 0 760 840" 
+                viewBox="0 60 760 675" 
                 fill="none" 
                 xmlns="http://www.w3.org/2000/svg"
               >

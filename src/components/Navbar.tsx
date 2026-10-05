@@ -68,42 +68,14 @@ export function Navbar({ currentPage = 'home', onNavigate }: NavbarProps) {
               Home
             </a>
 
-            {/* 2. About Us Dropdown */}
-            <div 
-              className="nav-dropdown-wrapper"
-              onMouseEnter={() => setActiveDropdown('about')}
-              onMouseLeave={() => setActiveDropdown(null)}
+            {/* 2. About Us */}
+            <a 
+              href="#about-us" 
+              className={`nav-item ${currentPage === 'about' ? 'active-page' : ''}`}
+              onClick={handleAboutClick}
             >
-              <button 
-                className={`nav-item nav-dropdown-trigger ${activeDropdown === 'about' || currentPage === 'about' ? 'open active-page' : ''}`}
-                aria-expanded={activeDropdown === 'about'}
-                onClick={handleAboutClick}
-              >
-                <span>About Us</span>
-                <span className="dropdown-chevron">▾</span>
-              </button>
-              <div className={`nav-dropdown-menu ${activeDropdown === 'about' ? 'visible' : ''}`}>
-                <a href="#about-us" className="dropdown-link" onClick={handleAboutClick}>About Us Page</a>
-                <a 
-                  href="#architect" 
-                  className="dropdown-link" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setActiveDropdown(null);
-                    if (currentPage !== 'home' && onNavigate) {
-                      onNavigate('home');
-                      setTimeout(() => {
-                        document.getElementById('architect')?.scrollIntoView({ behavior: 'smooth' });
-                      }, 100);
-                    } else {
-                      document.getElementById('architect')?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                >
-                  Prasad Perera
-                </a>
-              </div>
-            </div>
+              About Us
+            </a>
 
             {/* 3. Services Dropdown */}
             <div 

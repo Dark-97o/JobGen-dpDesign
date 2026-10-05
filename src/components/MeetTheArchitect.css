@@ -23,23 +23,23 @@
   z-index: 0;
 }
 
-/* Black House Architectural Elevation Sketch — Scaled down and positioned lower below Prasad image */
+/* Black House Architectural Elevation Sketch — Brought more downward, attached to the bottom */
 .mta-bg-sketch-wrap {
   position: absolute;
-  bottom: -28px;
+  bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
-  width: 108%;
+  width: 110%;
   max-width: 440px;
-  height: 320px;
+  height: 290px;
   pointer-events: none;
   z-index: 1;
   opacity: 0.85;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  mask-image: linear-gradient(to top, black 75%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, black 75%, transparent 100%);
+  mask-image: linear-gradient(to top, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 80%, transparent 100%);
 }
 
 .mta-bg-sketch-svg {
@@ -284,8 +284,8 @@
     transform: translateX(-50%);
     width: 100%;
     max-width: 380px;
-    height: 280px;
-    bottom: -16px;
+    height: 250px;
+    bottom: -32px;
     opacity: 0.85;
     justify-content: center;
   }
