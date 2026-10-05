@@ -162,12 +162,20 @@ export function VideoScrubShowcase() {
       animationFrameId.current = requestAnimationFrame(() => {
         setProgress(pct);
 
-        const targetFrame = Math.min(
-          TOTAL_FRAMES - 1,
-          Math.max(0, Math.floor(pct * (TOTAL_FRAMES - 1)))
-        );
+        // Snappy scrub from kitchen (frame 0) to bathroom (frame 35) in the first 30% of scroll (~1 scroll),
+        // then hold and gently advance through the 5 end frames (36-40) for the remaining 3 scrolls
+        const transitionEndPct = 0.30;
+        let targetFrame: number;
 
-        renderFrame(targetFrame);
+        if (pct < transitionEndPct) {
+          const scrubProgress = pct / transitionEndPct;
+          targetFrame = Math.round(scrubProgress * 35);
+        } else {
+          const holdProgress = (pct - transitionEndPct) / (1 - transitionEndPct);
+          targetFrame = 35 + Math.min(5, Math.floor(holdProgress * 6));
+        }
+
+        renderFrame(Math.min(TOTAL_FRAMES - 1, Math.max(0, targetFrame)));
       });
     };
 
@@ -182,10 +190,10 @@ export function VideoScrubShowcase() {
     };
   }, [renderFrame]);
 
-  // Bathroom design text appears near the 25th frame (25/40 = 0.625 progress)
-  const kitchenOpacity = Math.max(0, Math.min(1, (0.64 - progress) / 0.08));
-  const bathroomOpacity = Math.max(0, Math.min(1, (progress - 0.56) / 0.08));
-  const isBathroomActive = progress >= 0.60;
+  // Quick crossfade during the snappy transition into bathroom
+  const kitchenOpacity = Math.max(0, Math.min(1, (0.22 - progress) / 0.08));
+  const bathroomOpacity = Math.max(0, Math.min(1, (progress - 0.16) / 0.08));
+  const isBathroomActive = progress >= 0.20;
 
   return (
     <section
