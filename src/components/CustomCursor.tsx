@@ -80,8 +80,6 @@ export function CustomCursor() {
       <div className="custom-pointer-scale-wrap">
         {/* Stroke circle: half black, half white, constantly rotating */}
         <div className="custom-pointer-stroke-ring" />
-        {/* Blue in the middle */}
-        <div className="custom-pointer-blue-center" />
       </div>
     </div>
   );

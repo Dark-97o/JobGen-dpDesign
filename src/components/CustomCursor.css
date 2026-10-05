@@ -1,15 +1,15 @@
 /* ==========================================================================
-   CUSTOM POINTER: ROTATING HALF-BLACK HALF-WHITE STROKE CIRCLE WITH BLUE CENTER
+   CUSTOM POINTER: COMPACT ROTATING HALF-BLACK HALF-WHITE STROKE CIRCLE
    ========================================================================== */
 
 .custom-pointer-circle {
   position: fixed;
   top: 0;
   left: 0;
-  width: 22px;
-  height: 22px;
-  margin-top: -11px;
-  margin-left: -11px;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  margin-left: -7px;
   pointer-events: none;
   z-index: 999999;
   opacity: 0;
@@ -42,14 +42,14 @@
   transform: scale(0.85);
 }
 
-/* Half black, half white stroke circle constantly rotating */
+/* Half-black, half-white stroke circle constantly rotating */
 .custom-pointer-stroke-ring {
   position: absolute;
   inset: 0;
   border-radius: 50%;
   background: conic-gradient(#000000 0deg 180deg, #FFFFFF 180deg 360deg);
-  mask: radial-gradient(circle, transparent 60%, #000 63%);
-  -webkit-mask: radial-gradient(circle, transparent 60%, #000 63%);
+  mask: radial-gradient(circle, transparent 58%, #000 62%);
+  -webkit-mask: radial-gradient(circle, transparent 58%, #000 62%);
   filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.45));
   animation: pointerStrokeSpin 1.8s linear infinite;
   will-change: transform;
@@ -62,19 +62,6 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-/* Vibrant blue core in the middle */
-.custom-pointer-blue-center {
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #38A5FF 0%, #0066FF 100%);
-  box-shadow: 
-    0 0 7px 1.5px rgba(0, 118, 255, 0.85),
-    0 0 0 0.5px rgba(255, 255, 255, 0.4);
-  pointer-events: none;
 }
 
 /* Hide native cursor on desktop to let the rotating pointer shine */
