@@ -162,9 +162,9 @@ export function VideoScrubShowcase() {
       animationFrameId.current = requestAnimationFrame(() => {
         setProgress(pct);
 
-        // Fluid scrub from kitchen (frame 0) to bathroom (frame 35) in the first 55% of scroll (~1 scroll),
-        // followed by a well-proportioned hold across the 5 end frames (36-40) without overstaying
-        const transitionEndPct = 0.55;
+        // Fluid scrub from kitchen (frame 0) to bathroom (frame 35) in the first 60% of scroll (~1 scroll),
+        // followed by a crisp, perfectly timed hold that unpins smoothly without lingering
+        const transitionEndPct = 0.60;
         let targetFrame: number;
 
         if (pct < transitionEndPct) {
@@ -191,9 +191,9 @@ export function VideoScrubShowcase() {
   }, [renderFrame]);
 
   // Smooth crossfade timed with the arrival of the bathroom
-  const kitchenOpacity = Math.max(0, Math.min(1, (0.48 - progress) / 0.10));
-  const bathroomOpacity = Math.max(0, Math.min(1, (progress - 0.40) / 0.10));
-  const isBathroomActive = progress >= 0.45;
+  const kitchenOpacity = Math.max(0, Math.min(1, (0.52 - progress) / 0.10));
+  const bathroomOpacity = Math.max(0, Math.min(1, (progress - 0.44) / 0.10));
+  const isBathroomActive = progress >= 0.48;
 
   return (
     <section
