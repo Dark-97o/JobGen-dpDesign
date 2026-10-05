@@ -1,24 +1,51 @@
 /* ==========================================================================
    MEET THE ARCHITECT — LEADERSHIP & ACCREDITATIONS
-   "Design Led by a Registered Architect and Licensed Builder"
+   Light theme with blueprint grid and architect elevation sketch
    ========================================================================== */
 
 .mta-section {
   position: relative;
-  padding: clamp(80px, 12vh, 120px) 0;
+  padding: clamp(90px, 12vh, 130px) 0;
   overflow: hidden;
-}
-
-.mta-light {
   background-color: #FAF9F6;
   color: var(--text-primary, #121314);
 }
 
-.mta-dark {
-  background-color: #0F1011;
-  color: #FFFFFF;
-  border-top: 1px solid rgba(197, 160, 89, 0.2);
-  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+/* Background Technical Grid */
+.mta-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Architect Blueprint Sketch on the Right Side */
+.mta-bg-sketch-wrap {
+  position: absolute;
+  top: 0;
+  right: -40px;
+  width: 58%;
+  max-width: 720px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  color: #C5A059;
+  opacity: 0.28;
+  mask-image: linear-gradient(to left, black 40%, transparent 95%);
+  -webkit-mask-image: linear-gradient(to left, black 40%, transparent 95%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.mta-bg-sketch-svg {
+  width: 100%;
+  height: 90%;
+  max-height: 700px;
 }
 
 .mta-container {
@@ -27,6 +54,8 @@
   margin: 0 auto;
   padding: 0 clamp(16px, 4vw, 40px);
   box-sizing: border-box;
+  position: relative;
+  z-index: 2;
 }
 
 .mta-grid {
@@ -36,16 +65,16 @@
   align-items: center;
 }
 
-/* Portrait Photography Frame with Machined Corner Brackets */
+/* Portrait Photography Frame with Machined Corner Brackets — JUST IMAGE, NO TEXT */
 .mta-media-frame {
   position: relative;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 
-    0 24px 60px -10px rgba(18, 19, 20, 0.2),
-    0 6px 20px rgba(197, 160, 89, 0.1);
-  border: 1.5px solid rgba(197, 160, 89, 0.4);
-  background: #0A0B0D;
+    0 24px 60px -10px rgba(18, 19, 20, 0.14),
+    0 6px 20px rgba(197, 160, 89, 0.08);
+  border: 1.5px solid rgba(197, 160, 89, 0.35);
+  background: #FFFFFF;
 }
 
 .mta-portrait-img {
@@ -59,94 +88,18 @@
 }
 
 .mta-media-frame:hover .mta-portrait-img {
-  transform: scale(1.025);
+  transform: scale(1.02);
 }
 
-.mta-photo-overlay-badge {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 30px 24px 20px 24px;
-  background: linear-gradient(180deg, transparent 0%, rgba(10, 11, 13, 0.92) 100%);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  z-index: 3;
-}
-
-.mta-badge-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: rgba(197, 160, 89, 0.2);
-  color: var(--gold-light, #E0C58A);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.mta-badge-name {
-  display: block;
-  font-family: var(--font-display, 'Cinzel', serif);
-  font-size: 14px;
-  font-weight: 700;
-  color: #FFFFFF;
-  letter-spacing: 0.08em;
-}
-
-.mta-badge-role {
-  display: block;
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  color: var(--gold-light, #E0C58A);
-  letter-spacing: 0.04em;
-}
-
-/* Content Column */
-.mta-eyebrow-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(197, 160, 89, 0.12);
-  border: 1px solid rgba(197, 160, 89, 0.35);
-  padding: 6px 14px;
-  border-radius: 9999px;
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--gold-deep, #9E7D3B);
-  margin-bottom: 20px;
-}
-
-.mta-dark .mta-eyebrow-pill {
-  color: var(--gold-light, #E0C58A);
-}
-
-.mta-pill-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--gold-primary, #C5A059);
-}
-
+/* Headline */
 .mta-heading {
   font-family: var(--font-display, 'Cinzel', serif);
   font-size: clamp(2.1rem, 3.8vw, 3.2rem);
   font-weight: 700;
   line-height: 1.18;
   letter-spacing: -0.02em;
-  margin: 0 0 24px 0;
-}
-
-.mta-light .mta-heading {
   color: var(--text-primary, #121314);
-}
-
-.mta-dark .mta-heading {
-  color: #FFFFFF;
+  margin: 0 0 24px 0;
 }
 
 .mta-gold-emphasis {
@@ -159,23 +112,12 @@
   font-family: var(--font-sans, sans-serif);
   font-size: clamp(15px, 1.25vw, 16.5px);
   line-height: 1.75;
-  margin: 0 0 16px 0;
-}
-
-.mta-light .mta-body-text p {
   color: var(--text-secondary, #585A5E);
-}
-
-.mta-dark .mta-body-text p {
-  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 16px 0;
 }
 
 .mta-body-text strong {
   color: var(--text-primary, #121314);
-}
-
-.mta-dark .mta-body-text strong {
-  color: #FFFFFF;
 }
 
 /* Stats Bento Grid */
@@ -187,19 +129,15 @@
 }
 
 .mta-stat-item {
-  background: #FFFFFF;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-light, #E8E5DD);
   border-radius: 14px;
   padding: 18px 16px;
   text-align: center;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
   transition: transform 0.25s ease, border-color 0.25s ease;
-}
-
-.mta-dark .mta-stat-item {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(197, 160, 89, 0.25);
-  box-shadow: none;
 }
 
 .mta-stat-item:hover {
@@ -223,14 +161,7 @@
   font-size: 12.5px;
   font-weight: 500;
   line-height: 1.4;
-}
-
-.mta-light .mta-stat-label {
   color: var(--text-secondary, #585A5E);
-}
-
-.mta-dark .mta-stat-label {
-  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Accreditations List */
@@ -251,14 +182,7 @@
   font-size: 13.5px;
   font-weight: 600;
   letter-spacing: 0.04em;
-}
-
-.mta-light .mta-cred-item {
   color: var(--text-primary, #121314);
-}
-
-.mta-dark .mta-cred-item {
-  color: rgba(255, 255, 255, 0.9);
 }
 
 .mta-cred-icon {
@@ -312,12 +236,8 @@
   text-decoration: none;
   border: 1px solid var(--border-medium, #D6D2C4);
   color: var(--text-primary, #121314);
+  background: rgba(255, 255, 255, 0.6);
   transition: all 0.2s ease;
-}
-
-.mta-dark .mta-phone-btn {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #FFFFFF;
 }
 
 .mta-phone-btn:hover {
@@ -334,9 +254,14 @@
   }
 
   .mta-photo-col {
-    max-width: 480px;
+    max-width: 440px;
     margin: 0 auto;
     width: 100%;
+  }
+
+  .mta-bg-sketch-wrap {
+    width: 80%;
+    opacity: 0.18;
   }
 }
 
