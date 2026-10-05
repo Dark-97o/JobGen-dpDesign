@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Globe, ArrowUpRight, ArrowUp } from 'lucide-react';
+import { FooterSmoke } from './FooterSmoke';
 import './Footer.css';
 
 export function Footer() {
@@ -8,6 +9,22 @@ export function Footer() {
 
   return (
     <footer className="architect-footer">
+      {/* Interactive WebGL2 Smoke Animation (Daylo Builders) */}
+      <FooterSmoke 
+        background="#0A0B0E"
+        color1="#C5A059"
+        color2="#8C7449"
+        speed={24}
+        size={115}
+        angle={-150}
+        hover={45}
+        reach={250}
+        opacity={0.65}
+      />
+
+      {/* Subtle architectural gradient scrim overlay */}
+      <div className="footer-smoke-scrim" />
+
       {/* Top Gold Horizon Accent Line */}
       <div className="footer-top-line" />
 
