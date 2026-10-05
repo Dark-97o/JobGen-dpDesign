@@ -1,58 +1,136 @@
-import { useState } from 'react';
-import { Layers, Menu, X, ArrowRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ContactModal } from './ContactModal';
 import './Navbar.css';
 
-const GithubIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-    <path d="M9 18c-4.51 2-5-2-7-2" />
-  </svg>
-);
+export function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
-export const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      // Pop out only when scrolled past the hero section
+      const heroThreshold = Math.max(window.innerHeight - 80, 450);
+      setScrolled(window.scrollY > heroThreshold);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Check initial scroll position
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="navbar-wrapper">
-      <div className="container navbar-container">
-        <a href="#" className="navbar-brand">
-          <div className="brand-icon">
-            <Layers size={22} className="brand-svg" />
+    <>
+      <header className={`navbar-header ${scrolled ? 'scrolled' : 'transparent-hero'}`}>
+        <div className="navbar-pill">
+          
+          {/* Minimalist Architectural Wordmark matching reference */}
+          <a href="#" className="navbar-logo">
+            <span className="logo-main-name">
+              dp<span className="logo-accent">_</span>
+            </span>
+            <span className="logo-subline">DESIGN STUDIO</span>
+          </a>
+
+          {/* Desktop Navigation with Dropdowns */}
+          <nav className="navbar-links" aria-label="Main Navigation">
+            {/* 1. Home */}
+            <a href="#" className="nav-item">Home</a>
+
+            {/* 2. About Us Dropdown */}
+            <div 
+              className="nav-dropdown-wrapper"
+              onMouseEnter={() => setActiveDropdown('about')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <button 
+                className={`nav-item nav-dropdown-trigger ${activeDropdown === 'about' ? 'open' : ''}`}
+                aria-expanded={activeDropdown === 'about'}
+              >
+                <span>About Us</span>
+                <span className="dropdown-chevron">▾</span>
+              </button>
+              <div className={`nav-dropdown-menu ${activeDropdown === 'about' ? 'visible' : ''}`}>
+                <a href="#architect" className="dropdown-link">About Us</a>
+                <a href="#architect" className="dropdown-link">Prasad Perera</a>
+              </div>
+            </div>
+
+            {/* 3. Services Dropdown */}
+            <div 
+              className="nav-dropdown-wrapper"
+              onMouseEnter={() => setActiveDropdown('services')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <button 
+                className={`nav-item nav-dropdown-trigger ${activeDropdown === 'services' ? 'open' : ''}`}
+                aria-expanded={activeDropdown === 'services'}
+              >
+                <span>Services</span>
+                <span className="dropdown-chevron">▾</span>
+              </button>
+              <div className={`nav-dropdown-menu ${activeDropdown === 'services' ? 'visible' : ''}`}>
+                <a href="#architectural-design" className="dropdown-link">Architectural Design</a>
+                <a href="#kitchens" className="dropdown-link">Kitchen Design</a>
+                <a href="#bathrooms" className="dropdown-link">Bathroom Design</a>
+              </div>
+            </div>
+
+            {/* 4. Areas We Serve Dropdown */}
+            <div 
+              className="nav-dropdown-wrapper"
+              onMouseEnter={() => setActiveDropdown('areas')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <button 
+                className={`nav-item nav-dropdown-trigger ${activeDropdown === 'areas' ? 'open' : ''}`}
+                aria-expanded={activeDropdown === 'areas'}
+              >
+                <span>Areas We Serve</span>
+                <span className="dropdown-chevron">▾</span>
+              </button>
+              <div className={`nav-dropdown-menu ${activeDropdown === 'areas' ? 'visible' : ''}`}>
+                <a href="#areas" className="dropdown-link">Parramatta</a>
+                <a href="#areas" className="dropdown-link">All Areas We Serve</a>
+              </div>
+            </div>
+
+            {/* 5. Blogs */}
+            <a href="#blogs" className="nav-item">Blogs</a>
+
+            {/* 6. Contact */}
+            <a href="#contact" className="nav-item">Contact</a>
+          </nav>
+
+          {/* Action Group: Sleek Compact Book Now Pill (reveals 1300 373 374 on hover, opens Contact Modal on click) */}
+          <div className="navbar-actions">
+            <button 
+              type="button"
+              className="nav-book-pill" 
+              onClick={() => setIsContactModalOpen(true)}
+              aria-label="Book a Consultation - Call 1300 373 374"
+            >
+              <span className="book-pill-inner">
+                {/* Default State: Book Now */}
+                <span className="book-pill-label book-pill-default">
+                  Book Now
+                </span>
+                {/* Hover State: Phone Number */}
+                <span className="book-pill-label book-pill-hover">
+                  1300 373 374
+                </span>
+              </span>
+            </button>
           </div>
-          <span className="brand-text">
-            Job<span className="text-gradient">Gen</span>
-          </span>
-        </a>
 
-        <nav className={`navbar-links ${mobileMenuOpen ? 'open' : ''}`}>
-          <a href="#features" onClick={() => setMobileMenuOpen(false)}>Features</a>
-          <a href="#preview" onClick={() => setMobileMenuOpen(false)}>Interactive Studio</a>
-          <a href="#architecture" onClick={() => setMobileMenuOpen(false)}>Architecture</a>
-        </nav>
-
-        <div className="navbar-actions">
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noreferrer"
-            className="icon-link"
-            aria-label="GitHub Repository"
-          >
-            <GithubIcon />
-          </a>
-          <a href="#preview" className="btn btn-primary nav-cta">
-            <span>Explore App</span>
-            <ArrowRight size={16} />
-          </a>
-          <button
-            className="mobile-toggle"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Navigation Menu"
-          >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {/* Pop-up Consultation Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
+    </>
   );
-};
+}

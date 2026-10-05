@@ -1,0 +1,155 @@
+/* Client Guides Section */
+.guides-section {
+  background-color: var(--bg-surface-warm);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.guides-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border-medium);
+  padding-bottom: 2rem;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.guides-title {
+  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  color: var(--text-primary);
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.guides-intro {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 54ch;
+  line-height: 1.65;
+}
+
+.guides-view-btn {
+  flex-shrink: 0;
+}
+
+/* Guides Grid */
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.guide-card {
+  height: 100%;
+}
+
+.guide-card-inner {
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background: #FFFFFF;
+}
+
+.guide-meta-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.guide-cat {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+.guide-time {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+}
+
+.guide-card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.guide-card-excerpt {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.8rem;
+}
+
+.guide-card-footer {
+  border-top: 1px solid var(--border-light);
+  padding-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.guide-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-tag {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.date-tag {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.guide-read-link {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold-deep);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.2s ease;
+}
+
+.guide-read-link:hover {
+  color: var(--text-primary);
+  gap: 8px;
+}
+
+.read-arrow {
+  transition: transform 0.2s ease;
+}
+
+.guide-read-link:hover .read-arrow {
+  transform: translateX(3px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .guides-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .guides-grid {
+    grid-template-columns: 1fr;
+  }
+}

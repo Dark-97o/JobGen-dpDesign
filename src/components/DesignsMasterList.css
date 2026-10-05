@@ -1,0 +1,211 @@
+/* Designs Master Section */
+.designs-master-section {
+  background-color: var(--bg-surface-warm);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.designs-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border-medium);
+  padding-bottom: 2rem;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.designs-title {
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  color: var(--text-primary);
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.designs-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 50ch;
+}
+
+.designs-callout {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  padding: 16px 22px;
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--gold-primary);
+  box-shadow: var(--shadow-subtle);
+}
+
+.callout-lead {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--gold-deep);
+  display: block;
+}
+
+.callout-text {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-top: 4px;
+}
+
+/* Services Matrix Grid */
+.services-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.matrix-card {
+  height: 100%;
+}
+
+.matrix-card-inner {
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.matrix-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.matrix-number {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold-deep);
+}
+
+.matrix-tag {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  background: var(--bg-surface-warm);
+  padding: 3px 6px;
+  border-radius: 2px;
+}
+
+.matrix-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.matrix-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 1.2rem;
+}
+
+.matrix-footer {
+  border-top: 1px solid var(--border-light);
+  padding-top: 10px;
+}
+
+.matrix-link {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold-deep);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.matrix-link:hover {
+  color: var(--text-primary);
+  gap: 10px;
+}
+
+.link-arrow {
+  transition: transform 0.2s ease;
+}
+
+.matrix-link:hover .link-arrow {
+  transform: translateX(3px);
+}
+
+/* Bottom CTA Banner */
+.designs-cta-banner {
+  background: var(--bg-dark);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-xl);
+  padding: 3rem 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+  box-shadow: var(--shadow-float);
+  color: #FFFFFF;
+}
+
+.banner-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--gold-primary);
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.banner-heading {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.banner-sub {
+  color: var(--text-secondary-on-dark);
+  font-size: 0.98rem;
+  max-width: 52ch;
+}
+
+.banner-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+  .services-matrix-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .services-matrix-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .designs-cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-matrix-grid {
+    grid-template-columns: 1fr;
+  }
+}

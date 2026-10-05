@@ -1,0 +1,243 @@
+/* ==========================================================================
+   RECENT PROJECTS — 2-ROW IMAGE CAROUSEL (CYCLE EVERY 1 SEC, NO TEXT)
+   Row 1: 1 Rectangle + 1 Square
+   Row 2: 1 Square + 1 Rectangle
+   Padding added to left and right, headline shifted slightly to the right
+   ========================================================================== */
+
+.portfolio-section {
+  position: relative;
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: 65px 0 90px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   YELLOW / GOLDEN MIST SPHERES ANIMATION BACKGROUND
+   ========================================================================== */
+.portfolio-mist-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.portfolio-mist-sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(75px);
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.portfolio-sphere-primary {
+  width: 520px;
+  height: 520px;
+  top: 8%;
+  right: 12%;
+  background: radial-gradient(
+    circle,
+    rgba(251, 188, 5, 0.35) 0%,
+    rgba(224, 197, 138, 0.22) 42%,
+    rgba(197, 160, 89, 0) 72%
+  );
+  animation: portfolioMistOne 13s infinite ease-in-out alternate;
+}
+
+.portfolio-sphere-secondary {
+  width: 460px;
+  height: 460px;
+  bottom: 6%;
+  left: 8%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.30) 0%,
+    rgba(240, 218, 165, 0.18) 46%,
+    rgba(197, 160, 89, 0) 72%
+  );
+  animation: portfolioMistTwo 17s infinite ease-in-out alternate;
+}
+
+.portfolio-sphere-tertiary {
+  width: 380px;
+  height: 380px;
+  top: 42%;
+  left: 42%;
+  background: radial-gradient(
+    circle,
+    rgba(224, 197, 138, 0.32) 0%,
+    rgba(197, 160, 89, 0.15) 50%,
+    rgba(197, 160, 89, 0) 75%
+  );
+  animation: portfolioMistThree 15s infinite ease-in-out alternate;
+}
+
+@keyframes portfolioMistOne {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+  50% { transform: translate(-45px, 35px) scale(1.15); opacity: 0.95; }
+  100% { transform: translate(30px, -25px) scale(0.92); opacity: 0.65; }
+}
+
+@keyframes portfolioMistTwo {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50% { transform: translate(50px, -40px) scale(1.12); opacity: 0.85; }
+  100% { transform: translate(-35px, 20px) scale(0.95); opacity: 0.55; }
+}
+
+@keyframes portfolioMistThree {
+  0% { transform: translate(0, 0) scale(0.95); opacity: 0.5; }
+  50% { transform: translate(-35px, 30px) scale(1.18); opacity: 0.8; }
+  100% { transform: translate(25px, -30px) scale(1); opacity: 0.55; }
+}
+
+/* Added generous padding to left and right */
+.portfolio-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 clamp(36px, 5.5vw, 84px);
+  box-sizing: border-box;
+}
+
+/* Shift headline a little towards the right */
+.portfolio-head-minimal {
+  position: relative;
+  margin-bottom: 34px;
+  text-align: left;
+  padding-left: clamp(18px, 2.8vw, 44px);
+}
+
+.portfolio-head-minimal .headline-watermark-text {
+  left: clamp(18px, 2.8vw, 44px);
+}
+
+.portfolio-title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif) !important;
+  font-size: clamp(2.3rem, 3.8vw, 3.4rem);
+  font-weight: 700;
+  color: #0E0F11;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  margin: 0;
+}
+
+/* Carousel Layout (2 Rows) */
+.projects-carousel-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+.carousel-row {
+  display: flex;
+  gap: 22px;
+  width: 100%;
+  height: 380px;
+}
+
+/* Carousel Slots: No text, overflow hidden, subtle luxury border & shadow */
+.carousel-slot {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #121417;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  user-select: none;
+}
+
+/* Row 1: 1 Rectangle (1.85) + 1 Square (1) */
+/* Row 2: 1 Square (1) + 1 Rectangle (1.85) */
+.slot-rectangle {
+  flex: 1.85;
+}
+
+.slot-square {
+  flex: 1;
+  max-width: 380px;
+}
+
+/* Carousel Image with Smooth 0.35s Fade */
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  animation: carouselImageFade 0.35s ease-in-out;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-slot:hover .carousel-img {
+  transform: scale(1.03);
+}
+
+@keyframes carouselImageFade {
+  0% {
+    opacity: 0.72;
+    transform: scale(1.015);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Adaptability */
+@media (max-width: 1024px) {
+  .portfolio-container {
+    padding: 0 clamp(24px, 4vw, 48px);
+  }
+
+  .portfolio-head-minimal {
+    padding-left: clamp(12px, 2vw, 24px);
+  }
+
+  .carousel-row {
+    height: 300px;
+    gap: 16px;
+  }
+  
+  .slot-square {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-section {
+    padding: 45px 0 65px 0;
+  }
+
+  .portfolio-container {
+    padding: 0 20px;
+  }
+
+  .portfolio-head-minimal {
+    padding-left: 0;
+  }
+
+  .carousel-row {
+    flex-direction: column;
+    height: auto;
+    gap: 16px;
+  }
+
+  .slot-rectangle,
+  .slot-square {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    height: 250px;
+  }
+}

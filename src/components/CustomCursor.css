@@ -1,0 +1,79 @@
+/* ==========================================================================
+   CUSTOM POINTER: 4PX BLACK CIRCLE STROKE WITH CENTER BLUR (NO SHADOWS/NO DOT)
+   ========================================================================== */
+
+/* Outer 4px stroke circle (16px compact diameter in pure black, no shadows) */
+.custom-pointer-circle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  margin-left: -8px;
+  border-radius: 50%;
+  border: 2px solid #000000;
+  pointer-events: none;
+  z-index: 999999;
+  opacity: 0;
+  box-shadow: none;
+  overflow: hidden;
+  will-change: transform;
+  transition: opacity 0.2s ease, width 0.22s cubic-bezier(0.16, 1, 0.3, 1), height 0.22s cubic-bezier(0.16, 1, 0.3, 1), margin 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Visibility */
+.custom-pointer-circle.visible {
+  opacity: 1;
+}
+
+/* Pure blur effect in the middle (transparent, no white dot/disc) */
+.custom-pointer-blur-core {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  background: transparent;
+}
+
+/* Interactive Hover State (Expands gently to 24px, remains clean black, no shadow) */
+.custom-pointer-circle.hovered {
+  width: 24px;
+  height: 24px;
+  margin-top: -12px;
+  margin-left: -12px;
+  border-color: #000000;
+  box-shadow: none;
+}
+
+.custom-pointer-circle.hovered .custom-pointer-blur-core {
+  background: transparent;
+}
+
+/* Click feedback */
+.custom-pointer-circle.clicked {
+  transform: scale(0.8) !important;
+}
+
+/* Hide native cursor on desktop to let the 4px circular blur pointer shine */
+@media (hover: hover) and (pointer: fine) {
+
+  html,
+  body,
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  [role="button"] {
+    cursor: none !important;
+  }
+}
+
+/* Disable custom cursor entirely on mobile / touch displays */
+@media (hover: none) or (pointer: coarse) {
+  .custom-pointer-circle {
+    display: none !important;
+  }
+}

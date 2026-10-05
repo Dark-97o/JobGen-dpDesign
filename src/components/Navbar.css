@@ -1,132 +1,303 @@
-.navbar-wrapper {
-  position: sticky;
+/* ==========================================================================
+   MINIMALIST ARCHITECTURAL NAVBAR WITH DROPDOWNS & DPLOGO
+   ========================================================================= */
+
+.navbar-header {
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;
-  background: rgba(7, 9, 14, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-subtle);
-  transition: all var(--transition-normal);
+  padding: 22px 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
 }
 
-.navbar-container {
+.navbar-pill {
+  pointer-events: auto;
+  width: 94%;
+  max-width: var(--container-max);
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  padding: 0 10px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+/* Transparent Hero State - completely reverted, transparent, no overlay, no border, no shadow */
+.navbar-header.transparent-hero {
+  padding: 22px 0;
+}
+
+.navbar-header.transparent-hero .navbar-pill {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid transparent;
+  box-shadow: none;
+  padding: 0 10px;
+}
+
+/* Scrolled Floating State - pops out only after scrolling past the hero */
+.navbar-header.scrolled {
+  padding: 12px 0;
+}
+
+.navbar-header.scrolled .navbar-pill {
+  /* Truly transparent frosted blur - NO heavy black overlay */
+  background: rgba(18, 20, 24, 0.22);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-full);
+  padding: 7px 22px;
+  animation: navPopOut 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes navPopOut {
+  from {
+    transform: translateY(-6px);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Minimalist Architectural Wordmark */
+.navbar-logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
   text-decoration: none;
-  color: var(--text-primary);
+  color: #FFFFFF;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.brand-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
-  border: 1px solid rgba(99, 102, 241, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-primary);
-  box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+.navbar-logo:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
 }
 
-.brand-text {
-  font-size: 1.25rem;
+.logo-main-name {
+  font-family: var(--font-sans);
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.02em;
+  color: #FFFFFF;
+  line-height: 1;
 }
 
+.logo-accent {
+  color: var(--gold-primary);
+  display: inline-block;
+  margin-left: 1px;
+}
+
+.logo-subline {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+}
+
+/* Navigation Links & Dropdowns */
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 22px;
 }
 
-.navbar-links a {
+.nav-item {
+  color: rgba(255, 255, 255, 0.88);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 400;
   text-decoration: none;
-  color: var(--text-secondary);
-  font-size: 0.925rem;
-  font-weight: 500;
-  transition: color var(--transition-fast);
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-.navbar-links a:hover {
-  color: var(--text-primary);
+.nav-item:hover, .nav-item.open {
+  color: #FFFFFF;
 }
 
+.dropdown-chevron {
+  font-size: 10px;
+  color: var(--gold-light);
+  transition: transform 0.25s ease;
+}
+
+.nav-dropdown-trigger.open .dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu Box */
+.nav-dropdown-wrapper {
+  position: relative;
+  padding: 8px 0;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  min-width: 210px;
+  background: rgba(10, 11, 13, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65), 0 0 15px rgba(197, 160, 89, 0.08);
+  border-radius: 8px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 120;
+}
+
+/* Invisible bridge so mouse does not lose hover over the gap */
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+}
+
+.nav-dropdown-menu.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-link {
+  padding: 10px 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.02em;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.dropdown-link:hover {
+  background: rgba(197, 160, 89, 0.12);
+  color: var(--gold-light);
+  transform: translateX(3px);
+}
+
+/* Navbar Actions: Smaller & Cooler Book Now Pill (Hover Phone Reveal) */
 .navbar-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
 }
 
-.icon-link {
-  color: var(--text-secondary);
+.nav-book-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  min-width: 116px;
+  padding: 0 15px;
+  background: rgba(197, 160, 89, 0.14);
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  border-radius: var(--radius-full);
+  color: #FFFFFF;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-book-pill:hover {
+  background: linear-gradient(135deg, #E0C58A 0%, #C5A059 100%);
+  border-color: #E0C58A;
+  box-shadow: 0 4px 20px rgba(197, 160, 89, 0.5);
+  transform: translateY(-1px);
+}
+
+.book-pill-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle);
-  background: var(--bg-card);
-  transition: all var(--transition-fast);
-  text-decoration: none;
 }
 
-.icon-link:hover {
-  color: var(--text-primary);
-  border-color: var(--border-medium);
-  background: var(--bg-card-hover);
+.book-pill-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  white-space: nowrap;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease;
 }
 
-.nav-cta {
-  padding: 0.6rem 1.1rem;
-  font-size: 0.875rem;
+/* Default State: "Book Now" */
+.book-pill-default {
+  transform: translateY(0);
+  opacity: 1;
+  color: #FFFFFF;
 }
 
-.mobile-toggle {
-  display: none;
-  background: none;
-  border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
-  padding: 0.4rem;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
+/* Hover State: "1300 373 374" */
+.book-pill-hover {
+  transform: translateY(120%);
+  opacity: 0;
+  color: #0E0F10;
+  font-weight: 700;
+  letter-spacing: 0.06em;
 }
 
-@media (max-width: 768px) {
-  .mobile-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.nav-book-pill:hover .book-pill-default {
+  transform: translateY(-120%);
+  opacity: 0;
+}
 
+.nav-book-pill:hover .book-pill-hover {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
   .navbar-links {
-    position: absolute;
-    top: 72px;
-    left: 0;
-    right: 0;
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-medium);
-    flex-direction: column;
-    padding: 1.5rem;
-    gap: 1.25rem;
-    display: none;
-  }
-
-  .navbar-links.open {
-    display: flex;
-  }
-
-  .nav-cta {
     display: none;
   }
 }
+

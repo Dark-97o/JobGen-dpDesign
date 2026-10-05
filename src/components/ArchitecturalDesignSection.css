@@ -1,0 +1,693 @@
+/* ==========================================================================
+   ARCHITECTURAL DESIGN SECTION
+   1. Bigger Headline with Architectural Authority
+   2. 3 Rounded Corner Rectangles (NOT pills):
+      - Different widths
+      - Dark background
+      - Left-aligned text
+      - Single line text only
+   3. Explore Button below cards, aligned left
+   4. Floating Golden Mist Spheres on top of archi1
+   5. 15 Vertical Pillars Accordion with Vertical Text & Expandable Image Backgrounds
+   ========================================================================== */
+
+.archi-design-section {
+  position: relative;
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: 30px 0 70px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   01. UPPER STAGE: VIDEO SKETCH + YOUTUBE + RIGHT CONTENT
+   ========================================================================== */
+
+.archi-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  aspect-ratio: 1920 / 904;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+/* Video & Frame Viewport */
+.archi-video-viewport {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Background Sketch Video */
+.archi-bg-video {
+  position: absolute;
+  top: -9.735%;
+  left: 0;
+  width: 100%;
+  height: 119.47%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+.archi-bg-video.video-static-last-frame {
+  object-fit: cover;
+}
+
+/* Floating Golden Mist Sphere Animation on top of archi1 */
+.archi-golden-mist-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.archi-mist-sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(65px);
+  will-change: transform, opacity;
+}
+
+.archi-sphere-primary {
+  width: 480px;
+  height: 480px;
+  top: 15%;
+  left: 36%;
+  background: radial-gradient(
+    circle,
+    rgba(224, 197, 138, 0.42) 0%,
+    rgba(197, 160, 89, 0.22) 45%,
+    rgba(197, 160, 89, 0) 72%
+  );
+  animation: floatingMistOne 12s infinite ease-in-out alternate;
+}
+
+.archi-sphere-secondary {
+  width: 380px;
+  height: 380px;
+  top: -8%;
+  right: 18%;
+  background: radial-gradient(
+    circle,
+    rgba(240, 218, 165, 0.35) 0%,
+    rgba(197, 160, 89, 0.16) 50%,
+    rgba(197, 160, 89, 0) 75%
+  );
+  animation: floatingMistTwo 16s infinite ease-in-out alternate;
+}
+
+.archi-sphere-tertiary {
+  width: 320px;
+  height: 320px;
+  bottom: 8%;
+  left: 20%;
+  background: radial-gradient(
+    circle,
+    rgba(224, 197, 138, 0.28) 0%,
+    rgba(197, 160, 89, 0.12) 55%,
+    rgba(197, 160, 89, 0) 75%
+  );
+  animation: floatingMistThree 14s infinite ease-in-out alternate;
+}
+
+@keyframes floatingMistOne {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+  50% { transform: translate(45px, -35px) scale(1.18); opacity: 0.95; }
+  100% { transform: translate(-30px, 25px) scale(0.92); opacity: 0.65; }
+}
+
+@keyframes floatingMistTwo {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50px, 40px) scale(1.12); opacity: 0.85; }
+  100% { transform: translate(35px, -20px) scale(0.96); opacity: 0.55; }
+}
+
+@keyframes floatingMistThree {
+  0% { transform: translate(0, 0) scale(0.95); opacity: 0.5; }
+  50% { transform: translate(40px, -25px) scale(1.15); opacity: 0.8; }
+  100% { transform: translate(-25px, 30px) scale(1); opacity: 0.55; }
+}
+
+/* YouTube Video inside inner frame */
+.archi-yt-frame-container {
+  position: absolute;
+  left: 4.22%;
+  top: 21.79%;
+  width: 43.23%;
+  height: 61.73%;
+  z-index: 3;
+  overflow: hidden;
+  background-color: #000000;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: archiYtFadeIn 0.5s ease-out forwards;
+}
+
+@keyframes archiYtFadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.archi-yt-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ==========================================================================
+   RIGHT SIDE CONTENT: BIGGER HEADLINE + ROUNDED CARDS + LEFT ALIGNED TEXT
+   ========================================================================== */
+
+.archi-right-content {
+  position: absolute;
+  left: 52.5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44.5%;
+  max-width: 620px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding-left: clamp(28px, 4vw, 64px);
+  padding-right: clamp(16px, 2.5vw, 40px);
+}
+
+/* 1. Bigger Headline (Left-aligned) */
+.archi-main-title-wrap {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.archi-main-title-wrap .headline-watermark-text {
+  left: clamp(-110px, -7vw, -48px);
+}
+
+.archi-main-title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(2.6rem, 4.4vw, 4.4rem);
+  font-weight: 700;
+  color: #0E0F11;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0;
+  text-align: left;
+  align-self: flex-start;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
+}
+
+/* Concise Lead Statement (Left-aligned) */
+.archi-lead-statement {
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(14px, 1.1vw, 15.5px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: #1A1D20;
+  margin: 0 0 20px 0;
+  max-width: 540px;
+  text-align: left;
+  align-self: flex-start;
+}
+
+/* ==========================================================================
+   3 ARCHITECTURAL SPECIFICATION CARDS (DISTINCT FROM EXPLORE BUTTON):
+   - Crisp architectural plate look with gold left marker & index
+   - Light translucent glass surface distinct from dark CTA button
+   - Right-aligned cards container
+   - Left-aligned text inside each card
+   - Different widths
+   ========================================================================== */
+
+.archi-feature-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: flex-end; /* Cards aligned to the right */
+  margin-bottom: 22px;
+}
+
+.archi-feature-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(220, 222, 226, 0.95);
+  border-left: 3.5px solid var(--gold-primary, #C5A059);
+  border-radius: 5px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+/* Different width styling */
+.card-width-1 {
+  width: fit-content;
+  max-width: 320px;
+}
+
+.card-width-2 {
+  width: fit-content;
+  max-width: 395px;
+}
+
+.card-width-3 {
+  width: fit-content;
+  max-width: 370px;
+}
+
+.archi-feature-card:hover {
+  background: #FFFFFF;
+  border-color: rgba(197, 160, 89, 0.45);
+  border-left: 3.5px solid var(--gold-light, #E0C58A);
+  transform: translateX(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card-index {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold-primary, #C5A059);
+  letter-spacing: 0.08em;
+}
+
+.card-divider {
+  color: rgba(0, 0, 0, 0.22);
+  font-size: 11px;
+  font-weight: 300;
+}
+
+.card-text {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #121418;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* Explore Button (Right Aligned) */
+.archi-action-strip {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Button aligned to the right */
+  width: 100%;
+}
+
+.archi-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 30px;
+  background-color: #0E0F11;
+  color: #FFFFFF;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid #0E0F11;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.archi-explore-btn:hover {
+  background-color: var(--gold-primary, #C5A059);
+  border-color: var(--gold-primary, #C5A059);
+  color: #0E0F11;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(197, 160, 89, 0.38);
+}
+
+.explore-arrow-icon {
+  transition: transform 0.25s ease;
+}
+
+.archi-explore-btn:hover .explore-arrow-icon {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   HALF-FADED DPABOUT IMAGE ON THE RIGHT BACKGROUND WITH FLOATING ANIMATION
+   ========================================================================== */
+
+.archi-bg-dpabout-wrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 52%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.archi-bg-dpabout-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  opacity: 0.36; /* Half-faded */
+  filter: contrast(1.08) brightness(1.02);
+  animation: floatDpAbout 14s ease-in-out infinite alternate;
+  transform-origin: center right;
+  will-change: transform;
+}
+
+@keyframes floatDpAbout {
+  0% {
+    transform: translateY(0px) scale(1.02);
+  }
+  50% {
+    transform: translateY(-16px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0px) scale(1.02);
+  }
+}
+
+.archi-dpabout-fade-mask {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #FFFFFF 0%,
+    rgba(255, 255, 255, 0.65) 28%,
+    rgba(255, 255, 255, 0.15) 70%,
+    rgba(255, 255, 255, 0.35) 100%
+  );
+}
+
+/* ==========================================================================
+   02. VERTICAL PILLARS ACCORDION (15 PILLARS WITH VERTICAL TEXT & IMAGES)
+   ========================================================================== */
+
+.archi-pillars-wrapper {
+  width: 100%;
+  margin-top: 50px;
+  padding: 20px 0 10px 0;
+}
+
+.archi-pillars-container {
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.archi-pillars-header {
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Shift towards the right */
+  text-align: right;
+  width: 100%;
+}
+
+.pillars-eyebrow {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--gold-primary, #C5A059);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.pillars-section-title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem); /* Bigger text size like other section headlines */
+  font-weight: 700;
+  color: #0E0F11;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+  text-align: right;
+}
+
+/* Accordion Strip (Increased by 15% from 520px to 600px) */
+.archi-pillars-accordion {
+  display: flex;
+  gap: 6px;
+  height: 600px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Individual Vertical Pillar */
+.archi-pillar-column {
+  flex: 1;
+  min-width: 44px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0E0F11;
+  transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Scrim overlay across image */
+.pillar-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 15, 17, 0.65) 0%,
+    rgba(14, 15, 17, 0.85) 60%,
+    rgba(14, 15, 17, 0.94) 100%
+  );
+  transition: background 0.4s ease;
+  z-index: 1;
+}
+
+/* Vertical Collapsed Header (shows when pillar is slender) */
+.pillar-vertical-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 24px 0;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.pillar-vertical-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--gold-light, #E0C58A);
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+
+.pillar-vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+/* Expanded State on Hover */
+.archi-pillar-column.is-expanded {
+  flex: 6.5;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  background-position: center 12%;
+}
+
+.archi-pillar-column.is-expanded .pillar-scrim {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(14, 15, 17, 0.40) 62%,
+    rgba(14, 15, 17, 0.88) 85%,
+    rgba(14, 15, 17, 0.96) 100%
+  );
+}
+
+.archi-pillar-column.is-expanded .pillar-vertical-wrap {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Expanded Content Overlay */
+.pillar-expanded-view {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 36px 32px;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+  pointer-events: none;
+}
+
+.archi-pillar-column.is-expanded .pillar-expanded-view {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+
+.pillar-expanded-title {
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px 0;
+}
+
+.pillar-expanded-desc {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 14px;
+  line-height: 1.55;
+  color: #D1D5DB;
+  max-width: 440px;
+  margin: 0 0 20px 0;
+}
+
+.pillar-expanded-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  background: var(--gold-primary, #C5A059);
+  color: #0E0F11;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+.pillar-expanded-link:hover {
+  background: #FFFFFF;
+  color: #0E0F11;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   RESPONSIVE RULES FOR TABLET AND MOBILE
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .archi-pillars-accordion {
+    height: 480px;
+    gap: 4px;
+  }
+
+  .pillar-expanded-view {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 860px) {
+  .archi-design-section {
+    padding: 20px 0 40px 0;
+  }
+
+  .archi-stage {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .archi-video-viewport {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1920 / 904;
+    height: auto;
+  }
+
+  .archi-right-content {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 20px 0 20px;
+  }
+
+  .archi-main-title {
+    font-size: 2.3rem;
+  }
+
+  .archi-main-title-wrap .headline-watermark-text {
+    left: -18px;
+  }
+
+  .archi-feature-cards {
+    width: 100%;
+  }
+
+  .card-width-1,
+  .card-width-2,
+  .card-width-3 {
+    max-width: 100%;
+  }
+
+  .archi-pillars-accordion {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+    height: 420px;
+    padding-bottom: 12px;
+  }
+
+  .archi-pillar-column {
+    min-width: 72px;
+    scroll-snap-align: start;
+  }
+
+  .archi-pillar-column.is-expanded {
+    min-width: 280px;
+    flex: none;
+  }
+}

@@ -1,0 +1,301 @@
+/* ==========================================================================
+   REVIEWS BAND SECTION
+   - Band layout with headline "Excellent" and five stars
+   - "Based on 78 reviews" and Google text
+   - Carousel of text boxes moving from left to right
+   - Each card: name, profile image, google logo, five stars, and review text
+   ========================================================================== */
+
+.reviews-band-section {
+  position: relative;
+  width: 100%;
+  background-color: #0E0F11;
+  background-image: linear-gradient(
+      180deg,
+      rgba(10, 11, 13, 0.66) 0%,
+      rgba(10, 11, 13, 0.74) 100%
+    ),
+    url('/dpaboutdark.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #FFFFFF;
+  padding: 60px 0 70px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.reviews-band-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   BAND HEADER:
+   Headline "Excellent" + Five Stars + "Based on 78 reviews" + Google Text
+   ========================================================================== */
+
+.reviews-band-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.reviews-band-headline-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.reviews-band-title {
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif) !important;
+  font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.reviews-band-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.band-star-icon {
+  filter: drop-shadow(0 0 6px rgba(251, 188, 5, 0.35));
+}
+
+.reviews-band-meta-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.72);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.reviews-based-text {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.reviews-meta-separator {
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 12px;
+}
+
+.reviews-google-attribution {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.reviews-google-name {
+  font-family: var(--font-sans, sans-serif);
+  font-weight: 600;
+  font-size: 15px;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.google-icon-svg {
+  display: block;
+}
+
+/* ==========================================================================
+   CAROUSEL OF TEXT BOXES (MOVING FROM LEFT TO RIGHT)
+   ========================================================================== */
+
+.reviews-carousel-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 36px 0 42px 0;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  /* Left and right fade scrims */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+}
+
+.reviews-carousel-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  /* Animates from -50% to 0% -> translates smoothly towards the RIGHT (Left to Right movement) */
+  animation: scrollLeftToRight 55s linear infinite;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+/* Pause scroll when hovering to allow easy reading */
+.reviews-carousel-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeftToRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Individual Review Text Box Card */
+.review-box-card {
+  width: 380px;
+  min-width: 380px;
+  max-width: 380px;
+  background: #17181C;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  user-select: none;
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* Card in Fish Bowl Focus (Center of Review Band) */
+.review-box-card.in-fishbowl-focus {
+  background: #1C1E23;
+  border-color: rgba(197, 160, 89, 0.55);
+  box-shadow: 
+    0 22px 52px rgba(0, 0, 0, 0.6),
+    0 0 32px rgba(197, 160, 89, 0.22);
+}
+
+.review-box-card:hover {
+  border-color: rgba(197, 160, 89, 0.7);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 20px rgba(197, 160, 89, 0.25);
+}
+
+/* Review Box Header */
+.review-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.review-profile-group {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.review-profile-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(197, 160, 89, 0.4);
+  background-color: #24262B;
+}
+
+.review-profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.review-profile-name {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.review-box-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.review-google-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Review Text */
+.review-box-text {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reviews-band-section {
+    padding: 45px 0 55px 0;
+  }
+
+  .reviews-band-header {
+    margin-bottom: 30px;
+    gap: 10px;
+  }
+
+  .reviews-band-headline-group {
+    gap: 12px;
+  }
+
+  .review-box-card {
+    width: 310px;
+    min-width: 310px;
+    max-width: 310px;
+    padding: 20px;
+  }
+
+  .reviews-carousel-viewport {
+    padding: 24px 0 28px 0;
+  }
+
+  .reviews-carousel-track {
+    animation-duration: 40s;
+  }
+}

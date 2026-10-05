@@ -1,0 +1,299 @@
+/* ==========================================================================
+   READY TO BRING YOUR ARCHITECTURAL VISION TO LIFE? (FORM CONTAINER)
+   ========================================================================== */
+
+.vision-contact-section {
+  position: relative;
+  background-color: #0E0F11;
+  padding: 100px 0 110px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vision-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.vision-form-card {
+  background: #14171D;
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  box-shadow: 
+    0 24px 70px rgba(0, 0, 0, 0.55),
+    0 0 25px rgba(197, 160, 89, 0.08);
+  border-radius: 20px;
+  padding: clamp(32px, 5vw, 60px);
+  position: relative;
+  overflow: hidden;
+}
+
+.vision-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #C5A059, #E0C58A, transparent);
+}
+
+/* Header */
+.vision-header {
+  margin-bottom: 38px;
+}
+
+.vision-eyebrow {
+  display: block;
+  font-family: var(--font-mono, monospace);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--gold-light, #E0C58A);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.vision-title {
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0 0 16px 0;
+}
+
+.vision-lead {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Form Layout */
+.vision-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.vision-inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+@media (max-width: 640px) {
+  .vision-inputs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.vision-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vision-field.full-col {
+  grid-column: 1 / -1;
+}
+
+.vision-field label {
+  font-family: var(--font-mono, monospace);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+}
+
+.vision-field input,
+.vision-field textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 13px 16px;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 14px;
+  color: #FFFFFF;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.vision-field input::placeholder,
+.vision-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.vision-field input:focus,
+.vision-field textarea:focus {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--gold-primary, #C5A059);
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
+}
+
+.vision-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Submit Row */
+.vision-submit-row {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.vision-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 42px;
+  background: linear-gradient(135deg, #E0C58A 0%, #C5A059 100%);
+  border: none;
+  border-radius: 50px;
+  color: #0E0F10;
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(197, 160, 89, 0.35);
+  transition: all 0.25s ease;
+  width: 100%;
+  max-width: 380px;
+}
+
+.vision-submit-btn:hover {
+  background: linear-gradient(135deg, #EED7A1 0%, #D4AE66 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(197, 160, 89, 0.5);
+}
+
+/* Coords Ribbon */
+.vision-coords-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-sans, sans-serif);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  flex-wrap: wrap;
+}
+
+.coord-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.coord-icon {
+  color: var(--gold-light, #E0C58A);
+}
+
+.coord-item a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.coord-item a:hover {
+  color: var(--gold-light, #E0C58A);
+  text-decoration: underline;
+}
+
+.coord-divider {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* Success Confirmation State */
+.vision-success-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.vision-success-icon-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.14);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.vision-success-icon {
+  color: var(--gold-light, #E0C58A);
+}
+
+.vision-success-title {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 12px 0;
+}
+
+.vision-success-desc {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 540px;
+  margin: 0 0 24px 0;
+}
+
+.vision-success-call {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 24px;
+}
+
+.vision-direct-phone-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold-light, #E0C58A);
+  font-family: var(--font-mono, monospace);
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.vision-direct-phone-link:hover {
+  text-decoration: underline;
+}
+
+.vision-reset-btn {
+  padding: 10px 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  color: #FFFFFF;
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vision-reset-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}

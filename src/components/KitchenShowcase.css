@@ -1,0 +1,424 @@
+/* Kitchen Showcase Section */
+.kitchen-section {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.kitchen-hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.kitchen-visual-bezel {
+  padding: 8px;
+  border-radius: var(--radius-xl);
+}
+
+.kitchen-visual-inner {
+  position: relative;
+  aspect-ratio: 4 / 3.2;
+  overflow: hidden;
+  border-radius: calc(var(--radius-xl) - 4px);
+  background-color: var(--bg-dark);
+}
+
+.kitchen-feature-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.kitchen-visual-bezel:hover .kitchen-feature-img {
+  transform: scale(1.03);
+}
+
+.kitchen-visual-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(15, 16, 17, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+}
+
+.badge-spec {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--gold-light);
+  letter-spacing: 0.1em;
+}
+
+/* Philosophy Card */
+.kitchen-philosophy-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.kitchen-card-title {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.kitchen-card-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.kitchen-styles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0.5rem 0;
+}
+
+.style-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.style-item strong {
+  color: var(--text-primary);
+}
+
+.style-bullet {
+  color: var(--gold-primary);
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+.kitchen-call-prompt {
+  background: var(--bg-surface-warm);
+  border: 1px solid var(--border-light);
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.kitchen-hotline {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--gold-deep);
+  text-decoration: none;
+}
+
+/* Layout Explorer */
+.layout-explorer-wrapper {
+  background: var(--bg-surface-warm);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem 3rem;
+  margin-bottom: 5rem;
+}
+
+.explorer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border-medium);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.explorer-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-top: 6px;
+}
+
+.explorer-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 48ch;
+}
+
+.layout-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.layout-pill-btn {
+  background: #FFFFFF;
+  border: 1px solid var(--border-medium);
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.layout-pill-btn:hover {
+  border-color: var(--gold-primary);
+  color: var(--text-primary);
+}
+
+.layout-pill-btn.active {
+  background: var(--bg-dark);
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(15, 16, 17, 0.15);
+}
+
+/* Display Box */
+.layout-display-inner {
+  padding: 32px 36px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.layout-tag-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--gold-deep);
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.layout-active-name {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.layout-active-desc {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.68;
+  margin-bottom: 1.5rem;
+}
+
+.layout-benefits {
+  background: var(--bg-surface-warm);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  border-left: 3px solid var(--gold-primary);
+}
+
+.benefits-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.benefits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.benefits-list li {
+  font-size: 13px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.check-gold {
+  color: var(--gold-deep);
+  font-weight: 700;
+}
+
+/* Blueprint Card */
+.layout-blueprint-card {
+  background: var(--bg-dark);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  padding: 26px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.blueprint-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blueprint-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--gold-primary);
+}
+
+.blueprint-spec {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted-on-dark);
+}
+
+.blueprint-schematic {
+  height: 120px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(197, 160, 89, 0.3);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.schematic-center-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.schematic-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted-on-dark);
+  letter-spacing: 0.1em;
+}
+
+.schematic-val {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--gold-light);
+}
+
+.blueprint-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Turnkey Package Section */
+.turnkey-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--border-medium);
+  padding-bottom: 12px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.turnkey-heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.turnkey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+.turnkey-item {
+  background: var(--bg-surface-warm);
+  border: 1px solid var(--border-light);
+  padding: 24px 22px;
+  border-radius: var(--radius-md);
+  position: relative;
+  transition: border-color 0.25s ease;
+}
+
+.turnkey-item:hover {
+  border-color: var(--gold-border);
+}
+
+.turnkey-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold-deep);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.turnkey-item-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.turnkey-item-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .kitchen-hero-split {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .layout-display-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .turnkey-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .turnkey-grid {
+    grid-template-columns: 1fr;
+  }
+  .layout-explorer-wrapper {
+    padding: 2rem 1.2rem;
+  }
+  .layout-display-inner {
+    padding: 20px 16px;
+  }
+}

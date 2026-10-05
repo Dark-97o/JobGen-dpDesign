@@ -1,0 +1,268 @@
+/* Meet The Architect Section */
+.architect-section {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.architect-feature-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+/* Portrait & Credentials Column */
+.architect-portrait-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.architect-bezel {
+  padding: 8px;
+  border-radius: var(--radius-xl);
+}
+
+.architect-bezel-inner {
+  position: relative;
+  aspect-ratio: 4 / 3.4;
+  overflow: hidden;
+  border-radius: calc(var(--radius-xl) - 4px);
+  background-color: var(--bg-dark);
+}
+
+.architect-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.architect-creds-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(15, 16, 17, 0.88);
+  backdrop-filter: blur(12px);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gold-border);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cred-arb {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold-primary);
+  letter-spacing: 0.12em;
+}
+
+.cred-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: #FFFFFF;
+  letter-spacing: 0.04em;
+}
+
+.cred-role {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  color: var(--text-muted-on-dark);
+  letter-spacing: 0.08em;
+}
+
+.certs-card {
+  background: var(--bg-surface-warm);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cert-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.cert-row strong {
+  color: var(--text-primary);
+}
+
+.cert-check {
+  color: var(--gold-deep);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Philosophy Column */
+.architect-philosophy-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.philosophy-quote-box {
+  background: var(--bg-surface-warm);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--gold-primary);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 2.4rem;
+  position: relative;
+  box-shadow: var(--shadow-subtle);
+}
+
+.quote-mark {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--gold-deep);
+  opacity: 0.4;
+  line-height: 1;
+  position: absolute;
+  top: 14px;
+  left: 20px;
+}
+
+.quote-text {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.quote-text-secondary {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding-left: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.quote-author {
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.author-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--gold-deep);
+  letter-spacing: 0.1em;
+}
+
+/* Q&A Tabs */
+.qa-wrapper {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.qa-lead-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--gold-deep);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.qa-tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.qa-tab-btn {
+  background: var(--bg-surface-warm);
+  border: 1px solid var(--border-light);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.qa-tab-btn:hover {
+  border-color: var(--gold-primary);
+  color: var(--text-primary);
+}
+
+.qa-tab-btn.active {
+  background: var(--bg-dark);
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.qa-display-panel {
+  background: var(--bg-surface-warm);
+  border: 1px solid var(--border-light);
+  padding: 20px 22px;
+  border-radius: var(--radius-sm);
+}
+
+.qa-display-q {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.qa-display-a {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.68;
+  margin-bottom: 1rem;
+}
+
+.qa-panel-footer {
+  border-top: 1px solid var(--border-light);
+  padding-top: 10px;
+}
+
+.qa-consult-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold-deep);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.qa-consult-link:hover {
+  color: var(--text-primary);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .architect-feature-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}

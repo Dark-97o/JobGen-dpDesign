@@ -1,0 +1,186 @@
+/* ==========================================================================
+   STATUTORY ACCREDITATION DARK BLACK BAND
+   ========================================================================== */
+
+.accreditation-dark-band {
+  background: #08090A;
+  border-top: 1px solid rgba(197, 160, 89, 0.22);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.22);
+  padding: 42px 0;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+}
+
+.accreditation-band-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+}
+
+/* Brand Column */
+.band-brand-col {
+  flex-shrink: 0;
+}
+
+.band-logo-title-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Large DP Logo without square box */
+.band-dplogo {
+  height: 84px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+  transition: transform 0.3s ease;
+}
+
+.band-dplogo:hover {
+  transform: scale(1.05);
+}
+
+.band-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.band-brand-name {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.band-disciplines {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--gold-light);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Vertical Hairline Divider */
+.band-vertical-divider {
+  width: 1px;
+  height: 64px;
+  background: linear-gradient(180deg, transparent, rgba(197, 160, 89, 0.35), transparent);
+  flex-shrink: 0;
+}
+
+/* Statement Column */
+.band-statement-col {
+  flex: 1;
+  max-width: 520px;
+}
+
+.band-statement-lead {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 6px 0;
+}
+
+.band-statement-lead strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.band-statement-nomination {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--gold-light);
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+.band-statement-nomination strong {
+  color: var(--gold-primary);
+}
+
+/* Credentials Images Column (Bigger, no surrounding squares) */
+.band-credentials-col {
+  flex-shrink: 0;
+}
+
+.band-cred-images {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.band-cred-img {
+  height: 96px;
+  width: auto;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.45));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.band-cred-img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 18px rgba(197, 160, 89, 0.35));
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1100px) {
+  .accreditation-band-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 26px;
+  }
+
+  .band-vertical-divider {
+    display: none;
+  }
+
+  .band-statement-col {
+    max-width: 100%;
+  }
+
+  .band-cred-images {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .accreditation-dark-band {
+    padding: 30px 0;
+  }
+
+  .band-dplogo {
+    height: 64px;
+  }
+
+  .band-brand-name {
+    font-size: 18px;
+  }
+
+  .band-disciplines {
+    font-size: 8.5px;
+    letter-spacing: 0.1em;
+  }
+
+  .band-cred-images {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .band-cred-img {
+    height: 76px;
+  }
+}

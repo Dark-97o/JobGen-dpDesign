@@ -1,0 +1,176 @@
+/* ==========================================================================
+   VIDEO SCRUB SHOWCASE — 36-FRAME SCROLL-DRIVEN KITCHEN → BATHROOM
+   ========================================================================== */
+
+/* ── Outer section: slides over the above section with higher z-index & elevation ── */
+.vscrub-section {
+  height: 220vh;
+  position: relative;
+  z-index: 10;
+  background: #0A0B0D;
+  box-shadow: 0 -35px 80px rgba(0, 0, 0, 0.75);
+}
+
+/* ── Sticky inner viewport (stays fixed while user scrolls through 220vh) ── */
+.vscrub-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #0A0B0D;
+}
+
+/* ── Short Black Fade on Top Edge (Smooth gradient transition with less height) ── */
+.vscrub-top-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  background: linear-gradient(180deg, #0A0B0D 0%, rgba(10, 11, 13, 0.72) 38%, transparent 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ── Instant fallback poster (ensures zero black flash on initial mount) ── */
+.vscrub-poster-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* ── Hardware-accelerated canvas for 60fps frame scrubbing ── */
+.vscrub-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* ── Localized Text Scrim (Keeps images punchy, protects bold typography) ── */
+.vscrub-text-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background:
+    radial-gradient(ellipse 75% 65% at 0% 100%, rgba(8, 9, 11, 0.78) 0%, rgba(8, 9, 11, 0.44) 48%, transparent 78%),
+    linear-gradient(180deg, transparent 80%, rgba(8, 9, 11, 0.45) 100%);
+}
+
+/* ── Text Container: Holds stacked text blocks for fluid zero-lag crossfade ── */
+.vscrub-text-container {
+  position: absolute;
+  bottom: clamp(70px, 12vh, 120px);
+  left: 6%;
+  max-width: 680px;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.vscrub-text-block {
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: opacity 0.12s linear, transform 0.12s ease-out;
+  will-change: opacity, transform;
+}
+
+/* Prominent Bold Stage Title */
+.vscrub-stage-title {
+  font-family: var(--font-sans);
+  font-size: clamp(3.4rem, 7.8vw, 6.4rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: #FFFFFF;
+  line-height: 1.02;
+  margin: 0 0 20px 0;
+  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.9);
+}
+
+/* Subtitle */
+.vscrub-stage-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(1.12rem, 1.75vw, 1.45rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.94);
+  margin: 0 0 28px 0;
+  max-width: 620px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+}
+
+/* CTA Button */
+.vscrub-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: rgba(14, 15, 17, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: var(--radius-full, 9999px);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+.vscrub-cta:hover {
+  background: var(--gold-primary, #C5A059);
+  border-color: var(--gold-primary, #C5A059);
+  color: #0E0F10;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(197, 160, 89, 0.45);
+}
+
+.vscrub-arrow {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.vscrub-cta:hover .vscrub-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .vscrub-section {
+    height: 190vh;
+  }
+
+  .vscrub-text-container {
+    left: 5%;
+    right: 5%;
+    max-width: 100%;
+    bottom: 56px;
+  }
+
+  .vscrub-stage-title {
+    font-size: clamp(2.4rem, 8.5vw, 3.6rem);
+  }
+
+  .vscrub-stage-sub {
+    font-size: 15px;
+    margin-bottom: 22px;
+  }
+}
