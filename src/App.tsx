@@ -13,7 +13,6 @@ import { VisionToLifeContact } from './components/VisionToLifeContact';
 import { CustomCursor } from './components/CustomCursor';
 import { Footer } from './components/Footer';
 import { AboutPage } from './components/AboutPage';
-import { MeetTheArchitect } from './components/MeetTheArchitect';
 
 export function App() {
   const [currentPage, setCurrentPage] = useState<'home' | 'about'>(() => {
@@ -91,9 +90,6 @@ export function App() {
 
             {/* 01C. dp Design Studio, Sydney Overview */}
             <AboutStudioSydney />
-
-            {/* 01C-2. Design Led by a Registered Architect and Licensed Builder */}
-            <MeetTheArchitect variant="light" />
 
             {/* 01D. Scroll-Driven Video Scrub: Kitchen → Bathroom */}
             <VideoScrubShowcase />
