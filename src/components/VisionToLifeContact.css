@@ -24,6 +24,21 @@
   overflow: hidden;
 }
 
+/* 4px grey line matching why-choose-us grey band on slanted top edge */
+.vision-contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #949494;
+  clip-path: polygon(0 40px, 100% 0, 100% 4px, 0 44px);
+  -webkit-clip-path: polygon(0 40px, 100% 0, 100% 4px, 0 44px);
+  pointer-events: none;
+  z-index: 2;
+}
+
 .vision-container {
   width: 100%;
   max-width: 1040px;
