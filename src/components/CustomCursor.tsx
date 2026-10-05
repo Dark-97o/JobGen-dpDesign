@@ -76,8 +76,13 @@ export function CustomCursor() {
       className={`custom-pointer-circle ${isVisible ? 'visible' : ''} ${isHovered ? 'hovered' : ''} ${isClicked ? 'clicked' : ''}`}
       aria-hidden="true"
     >
-      {/* 4px stroke circle with optical blur effect in the middle */}
-      <div className="custom-pointer-blur-core" />
+      {/* Scaling wrap for hover/click without breaking continuous rotation */}
+      <div className="custom-pointer-scale-wrap">
+        {/* Stroke circle: half black, half white, constantly rotating */}
+        <div className="custom-pointer-stroke-ring" />
+        {/* Blue in the middle */}
+        <div className="custom-pointer-blue-center" />
+      </div>
     </div>
   );
 }

@@ -227,7 +227,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 52px;
+  gap: 32px;
   padding-left: 12px;
 }
 
@@ -305,7 +305,7 @@
 .media-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10.5;
+  aspect-ratio: 16 / 7.6;
   background: #0E0F11;
   padding: 6px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);

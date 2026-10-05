@@ -1,25 +1,21 @@
 /* ==========================================================================
-   CUSTOM POINTER: 4PX BLACK CIRCLE STROKE WITH CENTER BLUR (NO SHADOWS/NO DOT)
+   CUSTOM POINTER: ROTATING HALF-BLACK HALF-WHITE STROKE CIRCLE WITH BLUE CENTER
    ========================================================================== */
 
-/* Outer 4px stroke circle (16px compact diameter in pure black, no shadows) */
 .custom-pointer-circle {
   position: fixed;
   top: 0;
   left: 0;
-  width: 16px;
-  height: 16px;
-  margin-top: -8px;
-  margin-left: -8px;
-  border-radius: 50%;
-  border: 2px solid #000000;
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
+  margin-left: -11px;
   pointer-events: none;
   z-index: 999999;
   opacity: 0;
-  box-shadow: none;
-  overflow: hidden;
+  overflow: visible;
   will-change: transform;
-  transition: opacity 0.2s ease, width 0.22s cubic-bezier(0.16, 1, 0.3, 1), height 0.22s cubic-bezier(0.16, 1, 0.3, 1), margin 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.2s ease;
 }
 
 /* Visibility */
@@ -27,38 +23,62 @@
   opacity: 1;
 }
 
-/* Pure blur effect in the middle (transparent, no white dot/disc) */
-.custom-pointer-blur-core {
+/* Scaling container for hover and click states */
+.custom-pointer-scale-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-pointer-circle.hovered .custom-pointer-scale-wrap {
+  transform: scale(1.35);
+}
+
+.custom-pointer-circle.clicked .custom-pointer-scale-wrap {
+  transform: scale(0.85);
+}
+
+/* Half black, half white stroke circle constantly rotating */
+.custom-pointer-stroke-ring {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  background: transparent;
+  background: conic-gradient(#000000 0deg 180deg, #FFFFFF 180deg 360deg);
+  mask: radial-gradient(circle, transparent 60%, #000 63%);
+  -webkit-mask: radial-gradient(circle, transparent 60%, #000 63%);
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.45));
+  animation: pointerStrokeSpin 1.8s linear infinite;
+  will-change: transform;
 }
 
-/* Interactive Hover State (Expands gently to 24px, remains clean black, no shadow) */
-.custom-pointer-circle.hovered {
-  width: 24px;
-  height: 24px;
-  margin-top: -12px;
-  margin-left: -12px;
-  border-color: #000000;
-  box-shadow: none;
+@keyframes pointerStrokeSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.custom-pointer-circle.hovered .custom-pointer-blur-core {
-  background: transparent;
+/* Vibrant blue core in the middle */
+.custom-pointer-blue-center {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #38A5FF 0%, #0066FF 100%);
+  box-shadow: 
+    0 0 7px 1.5px rgba(0, 118, 255, 0.85),
+    0 0 0 0.5px rgba(255, 255, 255, 0.4);
+  pointer-events: none;
 }
 
-/* Click feedback */
-.custom-pointer-circle.clicked {
-  transform: scale(0.8) !important;
-}
-
-/* Hide native cursor on desktop to let the 4px circular blur pointer shine */
+/* Hide native cursor on desktop to let the rotating pointer shine */
 @media (hover: hover) and (pointer: fine) {
-
   html,
   body,
   a,
