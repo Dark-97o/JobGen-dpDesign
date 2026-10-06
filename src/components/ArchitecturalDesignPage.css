@@ -506,19 +506,31 @@
   justify-content: space-between;
 }
 
-/* Full card scrim overlay covering the WHOLE expanded card */
+/* Black gradient fade ONLY in text areas (top header & bottom description), keeping image visible */
 .service-row-bg-scrim {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(8, 9, 11, 0.88) 0%,
-    rgba(8, 9, 11, 0.94) 100%
-  );
+  background: 
+    /* Top header text area soft gradient */
+    linear-gradient(
+      180deg,
+      rgba(8, 9, 11, 0.82) 0%,
+      rgba(8, 9, 11, 0.45) 14%,
+      transparent 32%
+    ),
+    /* Bottom description and CTA action text area soft gradient */
+    linear-gradient(
+      0deg,
+      rgba(8, 9, 11, 0.92) 0%,
+      rgba(8, 9, 11, 0.72) 28%,
+      rgba(8, 9, 11, 0.22) 46%,
+      transparent 64%
+    );
   z-index: 1;
   pointer-events: none;
+  transition: opacity 0.35s ease;
 }
 
 .service-row-main {
@@ -820,9 +832,11 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    180deg,
-    rgba(12, 14, 18, 0.92) 0%,
-    rgba(8, 10, 14, 0.95) 100%
+    90deg,
+    rgba(8, 10, 14, 0.82) 0%,
+    rgba(8, 10, 14, 0.55) 45%,
+    rgba(8, 10, 14, 0.15) 75%,
+    transparent 100%
   );
   transition: background 0.35s ease;
   z-index: 1;
@@ -831,11 +845,22 @@
 
 .horizontal-pillar-item:hover .horizontal-pillar-scrim,
 .horizontal-pillar-item.is-expanded .horizontal-pillar-scrim {
-  background: linear-gradient(
-    180deg,
-    rgba(12, 14, 18, 0.88) 0%,
-    rgba(8, 10, 14, 0.93) 100%
-  );
+  background: 
+    /* Horizontal soft fade across text on the left, clear on the right */
+    linear-gradient(
+      90deg,
+      rgba(8, 10, 14, 0.9) 0%,
+      rgba(8, 10, 14, 0.72) 44%,
+      rgba(8, 10, 14, 0.2) 72%,
+      transparent 94%
+    ),
+    /* Vertical soft fade from bottom across description text and enquire button */
+    linear-gradient(
+      0deg,
+      rgba(8, 10, 14, 0.88) 0%,
+      rgba(8, 10, 14, 0.38) 42%,
+      transparent 68%
+    );
 }
 
 .horizontal-pillar-content {

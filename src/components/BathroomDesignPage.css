@@ -210,12 +210,16 @@
 .factor-card-bg-scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(12, 14, 18, 0.84) 0%, rgba(8, 10, 14, 0.94) 100%);
+  background: 
+    /* Soft top badge fade */
+    linear-gradient(180deg, rgba(8, 10, 14, 0.45) 0%, transparent 26%),
+    /* Bottom text area black fade */
+    linear-gradient(0deg, rgba(8, 10, 14, 0.92) 0%, rgba(8, 10, 14, 0.72) 40%, rgba(8, 10, 14, 0.18) 64%, transparent 82%);
   transition: opacity 0.35s ease;
 }
 
 .factor-card-compact:hover .factor-card-bg-scrim {
-  opacity: 0.85;
+  opacity: 0.92;
 }
 
 /* Foreground Content Layers */
@@ -326,10 +330,6 @@
   border: 1px solid rgba(197, 160, 89, 0.38);
 }
 
-.factor-card-sanctuary .factor-card-bg-scrim {
-  background: linear-gradient(135deg, rgba(16, 20, 28, 0.82) 0%, rgba(8, 11, 16, 0.94) 100%);
-}
-
 .factor-card-sanctuary:hover {
   border-color: var(--gold-primary, #C5A059);
   box-shadow: 0 16px 44px rgba(197, 160, 89, 0.18);
@@ -366,10 +366,6 @@
   border-top-width: 2.5px;
 }
 
-.factor-card-climate .factor-card-bg-scrim {
-  background: linear-gradient(180deg, rgba(12, 16, 24, 0.84) 0%, rgba(7, 9, 14, 0.95) 100%);
-}
-
 .factor-card-climate:hover {
   border-top-color: var(--gold-light, #E0C58A);
   border-color: rgba(255, 255, 255, 0.3);
@@ -400,10 +396,6 @@
   border-left: 3.5px solid var(--gold-primary, #C5A059);
   border-color: rgba(197, 160, 89, 0.25);
   border-left-width: 3.5px;
-}
-
-.factor-card-blueprint .factor-card-bg-scrim {
-  background: linear-gradient(135deg, rgba(10, 14, 20, 0.86) 0%, rgba(6, 8, 12, 0.96) 100%);
 }
 
 .factor-card-blueprint:hover {
@@ -438,10 +430,6 @@
   border-top-width: 2px;
 }
 
-.factor-card-storage .factor-card-bg-scrim {
-  background: linear-gradient(180deg, rgba(14, 16, 22, 0.84) 0%, rgba(8, 10, 14, 0.95) 100%);
-}
-
 .factor-card-storage:hover {
   border-color: var(--gold-primary, #C5A059);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6);
@@ -470,10 +458,6 @@
   grid-column: span 1;
   border: 1px solid rgba(224, 197, 138, 0.4);
   box-shadow: inset 0 0 24px rgba(197, 160, 89, 0.08);
-}
-
-.factor-card-lighting .factor-card-bg-scrim {
-  background: radial-gradient(circle at 85% 15%, rgba(224, 197, 138, 0.14) 0%, rgba(12, 14, 18, 0.8) 50%, rgba(8, 9, 13, 0.94) 100%);
 }
 
 .factor-card-lighting:hover {
@@ -507,10 +491,6 @@
   border-bottom-width: 2.5px;
 }
 
-.factor-card-finishes .factor-card-bg-scrim {
-  background: linear-gradient(180deg, rgba(14, 16, 22, 0.83) 0%, rgba(8, 10, 14, 0.94) 100%);
-}
-
 .factor-card-finishes:hover {
   border-bottom-color: var(--gold-light, #E0C58A);
   border-color: rgba(197, 160, 89, 0.45);
@@ -539,10 +519,6 @@
 .factor-card-compact.factor-card-structural {
   grid-column: span 2;
   border: 1px solid rgba(197, 160, 89, 0.35);
-}
-
-.factor-card-structural .factor-card-bg-scrim {
-  background: linear-gradient(135deg, rgba(14, 18, 25, 0.82) 0%, rgba(8, 10, 14, 0.94) 100%);
 }
 
 .factor-card-structural:hover {

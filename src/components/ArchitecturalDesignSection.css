@@ -481,9 +481,10 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(14, 15, 17, 0.65) 0%,
-    rgba(14, 15, 17, 0.85) 60%,
-    rgba(14, 15, 17, 0.94) 100%
+    rgba(14, 15, 17, 0.3) 0%,
+    transparent 35%,
+    rgba(14, 15, 17, 0.75) 70%,
+    rgba(14, 15, 17, 0.92) 100%
   );
   transition: background 0.4s ease;
   z-index: 1;
