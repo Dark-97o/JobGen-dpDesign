@@ -110,6 +110,13 @@ export function Footer({ onNavigate }: FooterProps) {
               </div>
             </div>
 
+            {/* Studio Hours Pill Just Below Contacts */}
+            <div className="footer-hours-pill">
+              <span className="hours-dot" />
+              <Clock size={11} className="hours-clock-icon" />
+              <span className="hours-pill-text">Mon — Fri: 8:30 AM — 5:30 PM AEST</span>
+            </div>
+
           </div>
 
           {/* Column 2: Architectural Services */}
@@ -259,13 +266,6 @@ export function Footer({ onNavigate }: FooterProps) {
                 </a>
               </li>
             </ul>
-
-            {/* Compact Studio Hours */}
-            <div className="footer-hours-compact">
-              <span className="hours-dot" />
-              <Clock size={11} className="hours-clock-icon" />
-              <span className="hours-compact-text">Mon — Fri: 8:30 AM — 5:30 PM AEST</span>
-            </div>
           </div>
 
           {/* Column 5: Studio Location Map (Right Side) */}
@@ -279,7 +279,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.845218397058!2d151.0036056!3d-33.8163072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12a31d0c55ee37%3A0x9517a825d30268cc!2sdp%20Design%20Studio%20Pty.%20Ltd.!5e0!3m2!1sen!2sin!4v1791293034761!5m2!1sen!2sin" 
                 width="100%" 
-                height="155" 
+                height="100%" 
                 style={{ border: 0 }} 
                 allowFullScreen={true} 
                 loading="lazy" 
