@@ -73,77 +73,80 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 24px;
   border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(20, 22, 27, 0.85) 0%, rgba(10, 11, 14, 0.5) 68%, transparent 100%);
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.7), 0 0 24px rgba(197, 160, 89, 0.18);
+  background: radial-gradient(circle at center, rgba(20, 22, 27, 0.92) 0%, rgba(10, 11, 14, 0.55) 70%, transparent 100%);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.8), 0 0 38px rgba(197, 160, 89, 0.25);
   opacity: 0;
-  transform: scale(0.88);
-  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.85);
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1), transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .transition-dp-logo {
-  width: 96px;
-  height: 96px;
+  width: 154px;
+  height: 154px;
   object-fit: contain;
-  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.85));
+  filter: drop-shadow(0 6px 24px rgba(0, 0, 0, 0.9));
   user-select: none;
   pointer-events: none;
 }
 
 @media (max-width: 768px) {
+  .transition-center-logo-wrap {
+    padding: 18px;
+  }
   .transition-dp-logo {
-    width: 68px;
-    height: 68px;
+    width: 110px;
+    height: 110px;
   }
 }
 
 /* ==========================================================================
    ANIMATION PHASES
-   Phase 'in': Bars come down from top one after another rapidly (0% translation)
+   Phase 'in': Bars come down from top one after another gracefully (0% translation)
    Phase 'out': Bars continue down out of the viewport (100% translation)
    ========================================================================== */
 
 /* Phase IN (Descending from Top to 0) */
 .phase-in .transition-bar-1 {
   transform: translateY(0);
-  transition: transform 0.38s cubic-bezier(0.77, 0, 0.175, 1) 0ms;
+  transition: transform 0.52s cubic-bezier(0.77, 0, 0.175, 1) 0ms;
 }
 
 .phase-in .transition-bar-2 {
   transform: translateY(0);
-  transition: transform 0.38s cubic-bezier(0.77, 0, 0.175, 1) 70ms;
+  transition: transform 0.52s cubic-bezier(0.77, 0, 0.175, 1) 90ms;
 }
 
 .phase-in .transition-bar-3 {
   transform: translateY(0);
-  transition: transform 0.38s cubic-bezier(0.77, 0, 0.175, 1) 140ms;
+  transition: transform 0.52s cubic-bezier(0.77, 0, 0.175, 1) 180ms;
 }
 
 .phase-in .transition-center-logo-wrap {
   opacity: 1;
   transform: scale(1);
-  transition-delay: 180ms;
+  transition-delay: 240ms;
 }
 
 /* Phase OUT (Descending from 0 to 100%) */
 .phase-out .transition-bar-1 {
   transform: translateY(100%);
-  transition: transform 0.38s cubic-bezier(0.77, 0, 0.175, 1) 0ms;
+  transition: transform 0.52s cubic-bezier(0.77, 0, 0.175, 1) 0ms;
 }
 
 .phase-out .transition-bar-2 {
   transform: translateY(100%);
-  transition: transform 0.38s cubic-bezier(0.77, 0, 0.175, 1) 70ms;
+  transition: transform 0.52s cubic-bezier(0.77, 0, 0.175, 1) 90ms;
 }
 
 .phase-out .transition-bar-3 {
   transform: translateY(100%);
-  transition: transform 0.38s cubic-bezier(0.77, 0, 0.175, 1) 140ms;
+  transition: transform 0.52s cubic-bezier(0.77, 0, 0.175, 1) 180ms;
 }
 
 .phase-out .transition-center-logo-wrap {
   opacity: 0;
   transform: scale(0.92);
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }

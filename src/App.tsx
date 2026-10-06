@@ -14,6 +14,7 @@ import { WhyChooseUs } from './components/WhyChooseUs';
 import { VisionToLifeContact } from './components/VisionToLifeContact';
 import { CustomCursor } from './components/CustomCursor';
 import { Footer } from './components/Footer';
+import { ChatbotWidget } from './components/ChatbotWidget';
 import { PageTransitionOverlay, type TransitionPhase } from './components/PageTransitionOverlay';
 
 // Code-split subpages so their JS, styles, and media assets are loaded strictly on-demand
@@ -163,7 +164,7 @@ export function App() {
     else if (page === 'bathroom-design') void import('./components/BathroomDesignPage');
     else if (page === 'areas-we-serve') void import('./components/AreasWeServePage');
 
-    // After the 3 bars completely cover the screen (~480ms)
+    // After the 3 bars completely cover the screen (~720ms)
     setTimeout(() => {
       // 1. Swap active page component
       setCurrentPage(page);
@@ -194,12 +195,12 @@ export function App() {
       // Phase 2: Bars continue downward to reveal the new page
       setTransitionPhase('exiting');
 
-      // Once bars have fully exited (~520ms)
+      // Once bars have fully exited (~720ms)
       setTimeout(() => {
         setTransitionPhase('idle');
         isTransitioningRef.current = false;
-      }, 520);
-    }, 480);
+      }, 720);
+    }, 720);
   };
 
   useEffect(() => {
@@ -220,8 +221,8 @@ export function App() {
         setTimeout(() => {
           setTransitionPhase('idle');
           isTransitioningRef.current = false;
-        }, 520);
-      }, 480);
+        }, 720);
+      }, 720);
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -308,6 +309,9 @@ export function App() {
 
       {/* 07. Architectural Monolith Footer */}
       <Footer onNavigate={handleNavigate} />
+
+      {/* 08. Floating Circular Chatbot Widget on bottom right corner */}
+      <ChatbotWidget />
     </div>
   );
 }
