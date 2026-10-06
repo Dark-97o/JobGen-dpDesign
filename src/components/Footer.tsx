@@ -268,38 +268,38 @@ export function Footer({ onNavigate }: FooterProps) {
             </div>
           </div>
 
-        </div>
-
-        {/* Studio Location Map */}
-        <div className="footer-map-section">
-          <div className="footer-map-header">
-            <div className="footer-map-heading">
+          {/* Column 5: Studio Location Map (Right Side) */}
+          <div className="footer-col-map">
+            <div className="footer-nav-heading">
               <span className="heading-index">04 //</span>
-              <h4>STUDIO LOCATION</h4>
+              <h4>LOCATION</h4>
             </div>
+
+            <div className="footer-side-map-wrap">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.845218397058!2d151.0036056!3d-33.8163072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12a31d0c55ee37%3A0x9517a825d30268cc!2sdp%20Design%20Studio%20Pty.%20Ltd.!5e0!3m2!1sen!2sin!4v1791293034761!5m2!1sen!2sin" 
+                width="100%" 
+                height="130" 
+                style={{ border: 0 }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="dp Design Studio Pty. Ltd. Location Map"
+              />
+            </div>
+
             <a 
               href="https://maps.google.com/?cid=10743240316523014348&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAFKgSoqNcy"
               target="_blank"
               rel="noopener noreferrer"
-              className="footer-map-direct-link"
-              title="Open full interactive map on Google"
+              className="footer-side-map-link"
+              title="Get directions to DP Design Studio on Google Maps"
             >
               <span>Get Directions</span>
-              <ArrowUpRight size={11} />
+              <ArrowUpRight size={10.5} />
             </a>
           </div>
-          <div className="footer-map-frame-wrap">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.845218397058!2d151.0036056!3d-33.8163072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12a31d0c55ee37%3A0x9517a825d30268cc!2sdp%20Design%20Studio%20Pty.%20Ltd.!5e0!3m2!1sen!2sin!4v1791293034761!5m2!1sen!2sin" 
-              width="100%" 
-              height="200" 
-              style={{ border: 0 }} 
-              allowFullScreen={true} 
-              loading="lazy" 
-              referrerPolicy="strict-origin-when-cross-origin"
-              title="dp Design Studio Pty. Ltd. Location Map"
-            />
-          </div>
+
         </div>
 
         {/* Bottom Legal, Copyright & Powered by JobGen (Compact) */}
