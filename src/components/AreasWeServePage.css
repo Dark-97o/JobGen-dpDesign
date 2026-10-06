@@ -12,13 +12,13 @@
   overflow-x: hidden;
 }
 
-/* ── Hero Section (Increased Height, Right Side Transparent Scrim) ── */
+/* ── Hero Section (Streamlined Height, Crisp & Proportionate) ── */
 .areas-hero {
   position: relative;
   background-color: #08090A;
   color: #FFFFFF;
-  min-height: 80vh;
-  padding: 175px 0 125px 0;
+  min-height: auto;
+  padding: clamp(115px, 13vh, 135px) 0 clamp(42px, 5vh, 58px) 0;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -68,7 +68,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
   font-family: var(--font-mono, monospace);
   font-size: 11.5px;
   letter-spacing: 0.08em;
@@ -104,27 +104,27 @@
   color: var(--gold-light, #E0C58A);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .areas-hero-title {
   font-family: var(--font-display, 'Cinzel', serif);
-  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-size: clamp(2.1rem, 3.8vw, 3.2rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: #FFFFFF;
-  margin: 0 0 28px 0;
+  margin: 0 0 20px 0;
   max-width: 1050px;
 }
 
 /* Location text in hero made smaller so it fits completely in one line */
 .areas-hero-locations {
   display: block;
-  font-size: clamp(1.25rem, 2.2vw, 2.1rem);
+  font-size: clamp(1.15rem, 2vw, 1.85rem);
   white-space: nowrap;
   letter-spacing: 0.04em;
-  margin-top: 8px;
+  margin-top: 6px;
   font-weight: 600;
 }
 
