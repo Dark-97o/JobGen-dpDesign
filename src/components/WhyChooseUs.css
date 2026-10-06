@@ -108,29 +108,29 @@
 .point-card {
   display: flex;
   align-items: center;
-  padding: 17px 22px;
-  background: rgba(255, 255, 255, 0.58);
+  padding: 19px 26px;
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  border-left: 4px solid var(--gold-primary, #C5A059);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-left: 4.5px solid var(--gold-primary, #C5A059);
   border-radius: 10px;
   box-shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .point-card:hover {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.95);
   border-color: rgba(197, 160, 89, 0.55);
-  border-left: 4px solid var(--gold-light, #E0C58A);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+  border-left: 4.5px solid var(--gold-light, #E0C58A);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transform: translateX(5px);
 }
 
 .point-card-header {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 18px;
   margin-bottom: 0;
   width: 100%;
 }
@@ -138,6 +138,8 @@
 /* Clean standalone favicon icon on the card (no box) */
 .point-favicon-icon {
   flex-shrink: 0;
+  width: 22px;
+  height: 22px;
   color: var(--gold-primary, #C5A059);
   transition: transform 0.2s ease;
 }
@@ -148,21 +150,21 @@
 
 .point-title {
   font-family: var(--font-sans, sans-serif);
-  font-size: clamp(15.5px, 1.2vw, 17px);
+  font-size: clamp(17.5px, 1.4vw, 20.5px);
   font-weight: 700;
   color: #0E0F11;
   margin: 0;
   line-height: 1.35;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 .point-desc {
   font-family: var(--font-sans, sans-serif);
-  font-size: 12.5px;
-  line-height: 1.45;
-  color: #555A62;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #4F545D;
   margin: 0;
-  padding-left: 26px;
+  padding-left: 28px;
   /* Aligns neatly under the title */
 }
 
