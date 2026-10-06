@@ -128,6 +128,8 @@ export function Hero({ onNavigate }: HeroProps = {}) {
         })}
         {/* Cinematic Vignette Overlay */}
         <div className="hero-cinematic-overlay"></div>
+        {/* Soft, seamless black overlay fade in text area (no blur box) */}
+        <div className="hero-text-area-fade"></div>
       </div>
 
       {/* Main Hero Content (Bottom-Left Aligned matching reference image) */}
