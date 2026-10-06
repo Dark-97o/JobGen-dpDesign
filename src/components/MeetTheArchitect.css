@@ -23,12 +23,13 @@
   z-index: 0;
 }
 
-/* Black House Architectural Elevation Sketch — Brought more downward, attached to the bottom */
+/* Black House Architectural Elevation Sketch — Scaled 80% bigger */
 .mta-bg-sketch-wrap {
   position: absolute;
-  bottom: -50px;
+  bottom: -150px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scale(1.8);
+  transform-origin: center bottom;
   width: 110%;
   max-width: 440px;
   height: 290px;

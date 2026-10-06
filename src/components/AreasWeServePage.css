@@ -1,0 +1,899 @@
+/* ==========================================================================
+   AREAS WE SERVE PAGE STYLES
+   Theme: High-End Architectural Luxury (Obsidian, Brass, Alabaster)
+   Covering: Parramatta, Box Hill, Castle Hill & Greater Hills / Western Sydney
+   ========================================================================== */
+
+.areas-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-canvas, #FAF9F6);
+  color: var(--text-primary, #0E0F11);
+  overflow-x: hidden;
+}
+
+/* ── Hero Section (Increased Height, Right Side Transparent Scrim) ── */
+.areas-hero {
+  position: relative;
+  background-color: #08090A;
+  color: #FFFFFF;
+  min-height: 80vh;
+  padding: 175px 0 125px 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+}
+
+.areas-hero-bg-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.areas-hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85; /* Bright and clear video */
+  filter: saturate(0.95) brightness(0.95);
+}
+
+/* Right side black overlay removed: dark fade only on left for text legibility */
+.areas-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg, 
+    rgba(8, 9, 11, 0.95) 0%, 
+    rgba(8, 9, 11, 0.86) 38%, 
+    rgba(8, 9, 11, 0.45) 58%, 
+    rgba(8, 9, 11, 0.08) 75%, 
+    transparent 100%
+  );
+}
+
+.areas-hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 48px);
+}
+
+/* Breadcrumbs */
+.areas-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.areas-breadcrumbs .breadcrumb-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--gold-light, #E0C58A);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.areas-breadcrumbs .breadcrumb-link:hover {
+  color: #FFFFFF;
+}
+
+.areas-breadcrumbs .breadcrumb-sep {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.areas-breadcrumbs .breadcrumb-current {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.areas-hero-tag {
+  display: inline-block;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold-light, #E0C58A);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.areas-hero-title {
+  font-family: var(--font-display, 'Cinzel', serif);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin: 0 0 28px 0;
+  max-width: 1050px;
+}
+
+/* Location text in hero made smaller so it fits completely in one line */
+.areas-hero-locations {
+  display: block;
+  font-size: clamp(1.25rem, 2.2vw, 2.1rem);
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.areas-hero-title .gold-accent {
+  background: linear-gradient(135deg, #FFF0D0 0%, #E0C58A 50%, #C5A059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.areas-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.areas-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #E0C58A 0%, #C5A059 100%);
+  color: #0E0F11;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-mono, monospace);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 18px rgba(197, 160, 89, 0.35);
+}
+
+.areas-primary-btn:hover {
+  background: linear-gradient(135deg, #EED7A1 0%, #D4AE66 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(197, 160, 89, 0.5);
+}
+
+.areas-phone-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+  color: #FFFFFF;
+  font-family: var(--font-mono, monospace);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+}
+
+.areas-phone-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--gold-light, #E0C58A);
+  color: var(--gold-light, #E0C58A);
+  transform: translateY(-2px);
+}
+
+/* ── Full-Width Black Statutory & Credentials Band (Reduced Height & Modern Sans Font) ── */
+.areas-credentials-black-band {
+  width: 100%;
+  background: #08090C;
+  border-top: 1px solid rgba(197, 160, 89, 0.35);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.35);
+  padding: 16px 0; /* Reduced height of the band */
+  position: relative;
+  z-index: 5;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.areas-credentials-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.areas-cred-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 170px;
+  text-align: center;
+}
+
+.areas-cred-num {
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: clamp(19px, 1.8vw, 24px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #FFF6E5 0%, #E5CC94 50%, #C5A059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.15;
+}
+
+.areas-cred-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.areas-cred-sep {
+  width: 1px;
+  height: 28px;
+  background: rgba(197, 160, 89, 0.25);
+}
+
+@media (max-width: 820px) {
+  .areas-credentials-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .areas-cred-sep {
+    display: none;
+  }
+  .areas-cred-item {
+    text-align: left;
+  }
+}
+
+/* ── Section Title: Tailored Architectural Solutions (Bigger Text) ── */
+.areas-suburb-section-head-wrap {
+  width: 100%;
+  padding: 75px 0 40px 0;
+  background: var(--bg-canvas, #FAF9F6);
+}
+
+.areas-suburb-head {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.areas-suburb-head h2 {
+  font-family: var(--font-display, 'Cinzel', serif);
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem); /* Made bigger */
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0E0F11;
+  margin: 0;
+  line-height: 1.15;
+}
+
+/* ── Alternating Locations Showcase (Attached Blocks with 45° Angle Separation) ── */
+.locations-alternating-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.location-band-row {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  min-height: 640px;
+  position: relative;
+  background: #FFFFFF;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.location-band-row:nth-child(even) {
+  background: #F9F7F3;
+}
+
+/* 55% Text Box Attached to Left or Right Edge */
+.location-textbox {
+  flex: 0 0 55%;
+  width: 55%;
+  max-width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.location-textbox.attached-left {
+  padding-left: clamp(24px, 6vw, 110px);
+  padding-right: clamp(24px, 4vw, 64px);
+  padding-top: clamp(48px, 5vh, 72px);
+  padding-bottom: clamp(48px, 5vh, 72px);
+  background: inherit;
+}
+
+.location-textbox.attached-right {
+  padding-right: clamp(24px, 6vw, 110px);
+  padding-left: clamp(24px, 4vw, 64px);
+  padding-top: clamp(48px, 5vh, 72px);
+  padding-bottom: clamp(48px, 5vh, 72px);
+  background: inherit;
+}
+
+.location-textbox-content {
+  max-width: 680px;
+  width: 100%;
+}
+
+.location-textbox.attached-right .location-textbox-content {
+  margin-left: auto;
+}
+
+/* 45% Image Box Covering Opposite Side with 45° Slanted Cut */
+.location-imgbox {
+  flex: 0 0 50%;
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+  background: #090A0D;
+}
+
+/* Left-text layout: Image on right with 45° slant cut */
+.layout-text-left .location-imgbox.slant-img-left {
+  margin-left: -5%;
+  z-index: 1;
+  clip-path: polygon(140px 0, 100% 0, 100% 100%, 0% 100%);
+  -webkit-clip-path: polygon(140px 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* Right-text layout: Image on left with 45° slant cut */
+.layout-text-right .location-imgbox.slant-img-right {
+  margin-right: -5%;
+  z-index: 1;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 140px) 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, calc(100% - 140px) 100%, 0 100%);
+}
+
+.layout-text-right .location-textbox.attached-right {
+  z-index: 2;
+}
+
+/* 45-degree Slanted Divider Accent Line */
+.location-slanted-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2.5px;
+  background: linear-gradient(180deg, #E0C58A 0%, #C5A059 50%, #8C7449 100%);
+  box-shadow: 0 0 14px rgba(197, 160, 89, 0.6);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.location-slanted-divider.slant-right {
+  left: 50%;
+  transform: skewX(-12deg);
+  transform-origin: top center;
+}
+
+.location-slanted-divider.slant-left {
+  left: 50%;
+  transform: skewX(-12deg);
+  transform-origin: top center;
+}
+
+.location-img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.location-band-row:hover .location-img-cover {
+  transform: scale(1.035);
+}
+
+.location-img-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.location-img-scrim.to-left {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.05) 40%, transparent 100%);
+}
+
+.location-img-scrim.to-right {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.05) 40%, transparent 100%);
+}
+
+/* Location Card Typography */
+.location-title {
+  font-family: var(--font-display, 'Cinzel', serif);
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+  font-weight: 700;
+  color: #0E0F11;
+  margin: 0 0 14px 0;
+  line-height: 1.15;
+}
+
+.location-editorial-text {
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(14.5px, 1.1vw, 15.5px);
+  line-height: 1.65;
+  color: #4A4F56;
+  margin: 0 0 22px 0;
+}
+
+.location-subtitle {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: #15171B;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 12px 0;
+}
+
+.location-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.location-project-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: #FDFCF9;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.location-band-row:nth-child(even) .location-project-item {
+  background: #FFFFFF;
+}
+
+.location-project-item:hover {
+  border-color: rgba(197, 160, 89, 0.4);
+}
+
+.location-project-item svg {
+  color: var(--gold-primary, #C5A059);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.location-project-item span {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1E2024;
+  line-height: 1.35;
+}
+
+.location-suburbs-section {
+  margin-bottom: 20px;
+}
+
+.location-suburbs-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #7B6237;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 8px 0;
+}
+
+.location-suburbs-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.suburb-tag {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  color: #383C42;
+  transition: all 0.2s ease;
+}
+
+.suburb-tag:hover {
+  border-color: var(--gold-primary, #C5A059);
+  color: #0E0F11;
+  background: #FFFDF8;
+}
+
+.location-planning-callout {
+  padding: 12px 14px;
+  background: rgba(197, 160, 89, 0.08);
+  border-left: 3px solid var(--gold-primary, #C5A059);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #555A62;
+}
+
+.location-planning-callout strong {
+  color: #0E0F11;
+}
+
+/* Responsive Overrides for Alternating Locations */
+@media (max-width: 992px) {
+  .location-band-row {
+    flex-direction: column !important;
+    min-height: auto;
+  }
+
+  .layout-text-right {
+    flex-direction: column-reverse !important;
+  }
+
+  .location-textbox {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 40px 24px !important;
+    border: none !important;
+    margin: 0 !important;
+  }
+
+  .location-textbox-content {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .location-imgbox {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 360px;
+    height: 360px;
+    margin: 0 !important;
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
+  }
+
+  .location-slanted-divider {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .location-projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Section Structure ── */
+.areas-section {
+  padding: 85px 0;
+  position: relative;
+}
+
+.areas-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 48px);
+  box-sizing: border-box;
+}
+
+.areas-head {
+  max-width: 840px;
+  margin-bottom: 48px;
+}
+
+.areas-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold-primary, #C5A059);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.areas-head h2 {
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0 0 16px 0;
+  color: inherit;
+}
+
+.areas-head p {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary, #555A62);
+  margin: 0;
+}
+
+/* ── 02. Regional Council Planning Matrix (Dark Section with Blueprint BG) ── */
+.planning-matrix-section {
+  position: relative;
+  background-color: #080A0E;
+  background-image: 
+    linear-gradient(180deg, rgba(8, 10, 14, 0.88) 0%, rgba(8, 10, 14, 0.72) 50%, rgba(8, 10, 14, 0.92) 100%),
+    url('/images/planning-matrix-dark-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #FFFFFF;
+  border-top: 1px solid rgba(197, 160, 89, 0.35);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.35);
+  padding: 95px 0;
+}
+
+.planning-matrix-section .areas-head p {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.planning-matrix-section .matrix-table-wrap {
+  overflow-x: auto;
+  border: 1px solid rgba(197, 160, 89, 0.32);
+  border-radius: 12px;
+  background: rgba(14, 16, 21, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55);
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans, sans-serif);
+  text-align: left;
+}
+
+.matrix-table th {
+  background: rgba(17, 18, 24, 0.9);
+  color: var(--gold-light, #E0C58A);
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.matrix-table td {
+  padding: 18px 20px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  vertical-align: top;
+}
+
+.matrix-table tr:last-child td {
+  border-bottom: none;
+}
+
+.matrix-table tr:hover td {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.matrix-region-name {
+  font-family: var(--font-sans, sans-serif);
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+/* ── 03. Why Choose DP Design Studio (With dpabout background & compact cards) ── */
+.why-dp-suburb-section {
+  position: relative;
+  background-color: #FAF9F6;
+  padding: 85px 0;
+  overflow: hidden;
+}
+
+.why-dp-suburb-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/dpabout.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: contrast(1.05) brightness(1.2) grayscale(20%);
+  opacity: 0.12; /* Lighter background image */
+  pointer-events: none;
+  z-index: 0;
+}
+
+.why-dp-suburb-section .areas-container {
+  position: relative;
+  z-index: 1;
+}
+
+.compact-reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 1024px) {
+  .compact-reasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .compact-reasons-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.compact-reason-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(197, 160, 89, 0.28);
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s ease;
+}
+
+.compact-reason-card:hover {
+  border-color: var(--gold-primary, #C5A059);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(197, 160, 89, 0.16);
+}
+
+.compact-reason-card .reason-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: rgba(197, 160, 89, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-primary, #C5A059);
+  flex-shrink: 0;
+  margin-bottom: 0;
+}
+
+.compact-reason-card .reason-title {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0E0F11;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* ── 04. Regional FAQs Accordion ── */
+.areas-faqs-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 900px;
+}
+
+.areas-faq-item {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.areas-faq-item.open {
+  border-color: rgba(197, 160, 89, 0.5);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+.areas-faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  gap: 16px;
+}
+
+.areas-faq-q {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #0E0F11;
+  line-height: 1.35;
+}
+
+.areas-faq-icon {
+  color: var(--gold-primary, #C5A059);
+  font-size: 18px;
+  font-weight: 700;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.areas-faq-item.open .areas-faq-icon {
+  transform: rotate(45deg);
+}
+
+.areas-faq-ans {
+  padding: 0 22px 20px 22px;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555A62;
+}
+
+/* ── 05. Consultation CTA Banner ── */
+.areas-cta-banner {
+  background: linear-gradient(135deg, #111216 0%, #08090A 100%);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  border-radius: 16px;
+  padding: clamp(32px, 5vw, 60px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+.areas-cta-banner-text h3 {
+  font-family: var(--font-display, serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.areas-cta-banner-text p {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0;
+  max-width: 640px;
+  line-height: 1.55;
+}
+
+.areas-cta-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}

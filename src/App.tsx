@@ -15,24 +15,65 @@ import { VisionToLifeContact } from './components/VisionToLifeContact';
 import { CustomCursor } from './components/CustomCursor';
 import { Footer } from './components/Footer';
 import { AboutPage } from './components/AboutPage';
+import { ArchitecturalDesignPage } from './components/ArchitecturalDesignPage';
+import { KitchenDesignPage } from './components/KitchenDesignPage';
+import { BathroomDesignPage } from './components/BathroomDesignPage';
+import { AreasWeServePage } from './components/AreasWeServePage';
+
+export type PageType = 'home' | 'about' | 'architectural-design' | 'kitchen-design' | 'bathroom-design' | 'areas-we-serve';
+
+function getInitialPage(): PageType {
+  if (typeof window !== 'undefined') {
+    const path = window.location.pathname.toLowerCase();
+    const hash = window.location.hash.toLowerCase();
+    if (
+      path.includes('areas-we-serve') ||
+      path.includes('parramatta') ||
+      path.includes('box-hill') ||
+      path.includes('castle-hill') ||
+      hash.includes('areas-we-serve') ||
+      hash.includes('areas') ||
+      hash.includes('parramatta') ||
+      hash.includes('box-hill') ||
+      hash.includes('castle-hill')
+    ) {
+      return 'areas-we-serve';
+    }
+    if (
+      path.includes('architectural-design') ||
+      hash.includes('architectural-design')
+    ) {
+      return 'architectural-design';
+    }
+    if (
+      path.includes('kitchen-design') ||
+      hash.includes('kitchen-design') ||
+      hash === '#kitchens'
+    ) {
+      return 'kitchen-design';
+    }
+    if (
+      path.includes('bathroom-design') ||
+      hash.includes('bathroom-design') ||
+      hash === '#bathrooms'
+    ) {
+      return 'bathroom-design';
+    }
+    if (
+      path === '/about-us' || 
+      path === '/about' || 
+      hash === '#about-us' || 
+      hash === '#/about-us' || 
+      hash === '#about'
+    ) {
+      return 'about';
+    }
+  }
+  return 'home';
+}
 
 export function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'about'>(() => {
-    if (typeof window !== 'undefined') {
-      const path = window.location.pathname.toLowerCase();
-      const hash = window.location.hash.toLowerCase();
-      if (
-        path === '/about-us' || 
-        path === '/about' || 
-        hash === '#about-us' || 
-        hash === '#/about-us' || 
-        hash === '#about'
-      ) {
-        return 'about';
-      }
-    }
-    return 'home';
-  });
+  const [currentPage, setCurrentPage] = useState<PageType>(getInitialPage);
 
   // Initialize Lenis Frictionless Smooth Scrolling
   useEffect(() => {
@@ -61,7 +102,21 @@ export function App() {
       const target = (e.target as HTMLElement).closest('a');
       if (!target) return;
       const href = target.getAttribute('href');
-      if (href && href.startsWith('#') && href.length > 1 && !href.startsWith('#about-us') && !href.startsWith('#/about-us')) {
+      if (
+        href && 
+        href.startsWith('#') && 
+        href.length > 1 && 
+        !href.startsWith('#about-us') && 
+        !href.startsWith('#/about-us') &&
+        !href.startsWith('#architectural-design') &&
+        !href.startsWith('#kitchen-design') &&
+        !href.startsWith('#bathroom-design') &&
+        !href.startsWith('#areas-we-serve') &&
+        !href.startsWith('#areas') &&
+        !href.startsWith('#parramatta') &&
+        !href.startsWith('#box-hill') &&
+        !href.startsWith('#castle-hill')
+      ) {
         const el = document.querySelector(href);
         if (el) {
           e.preventDefault();
@@ -79,10 +134,18 @@ export function App() {
     };
   }, []);
 
-  const handleNavigate = (page: 'home' | 'about') => {
+  const handleNavigate = (page: PageType) => {
     setCurrentPage(page);
     if (page === 'about') {
       window.history.pushState({ page: 'about' }, 'About DP Design Studio | Sydney Architectural & Interior Firm', '#about-us');
+    } else if (page === 'architectural-design') {
+      window.history.pushState({ page: 'architectural-design' }, 'Architectural Design Sydney | DP Design Studio', '#architectural-design');
+    } else if (page === 'kitchen-design') {
+      window.history.pushState({ page: 'kitchen-design' }, 'Kitchen Design Sydney | DP Design Studio', '#kitchen-design');
+    } else if (page === 'bathroom-design') {
+      window.history.pushState({ page: 'bathroom-design' }, 'Bathroom Design Sydney | DP Design Studio', '#bathroom-design');
+    } else if (page === 'areas-we-serve') {
+      window.history.pushState({ page: 'areas-we-serve' }, 'Areas We Serve | Parramatta, Box Hill & Castle Hill | DP Design Studio', '#areas-we-serve');
     } else {
       window.history.pushState({ page: 'home' }, 'DP Design Studio | Registered Architects Sydney', '#');
     }
@@ -96,19 +159,7 @@ export function App() {
 
   useEffect(() => {
     const handlePopState = () => {
-      const path = window.location.pathname.toLowerCase();
-      const hash = window.location.hash.toLowerCase();
-      if (
-        path === '/about-us' || 
-        path === '/about' || 
-        hash === '#about-us' || 
-        hash === '#/about-us' || 
-        hash === '#about'
-      ) {
-        setCurrentPage('about');
-      } else {
-        setCurrentPage('home');
-      }
+      setCurrentPage(getInitialPage());
       const lenis = (window as unknown as { lenis?: Lenis }).lenis;
       if (lenis) {
         lenis.scrollTo(0, { immediate: true });
@@ -135,9 +186,22 @@ export function App() {
       <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
 
       <main id="main-content">
-        {currentPage === 'about' ? (
+        {currentPage === 'about' && (
           <AboutPage onNavigateHome={() => handleNavigate('home')} />
-        ) : (
+        )}
+        {currentPage === 'architectural-design' && (
+          <ArchitecturalDesignPage onNavigateHome={() => handleNavigate('home')} />
+        )}
+        {currentPage === 'kitchen-design' && (
+          <KitchenDesignPage onNavigateHome={() => handleNavigate('home')} />
+        )}
+        {currentPage === 'bathroom-design' && (
+          <BathroomDesignPage onNavigateHome={() => handleNavigate('home')} />
+        )}
+        {currentPage === 'areas-we-serve' && (
+          <AreasWeServePage onNavigateHome={() => handleNavigate('home')} />
+        )}
+        {currentPage === 'home' && (
           <>
             {/* 01. Hero: Spatial Authority & Minimalist Video */}
             <Hero />
@@ -149,7 +213,7 @@ export function App() {
             <AboutStudioSydney />
 
             {/* 01D. Scroll-Driven Video Scrub: Kitchen → Bathroom */}
-            <VideoScrubShowcase />
+            <VideoScrubShowcase onNavigate={handleNavigate} />
 
             {/* 01E. Architectural Design: Cinematic archi1 Video Background & Spatial Narrative */}
             <ArchitecturalDesignSection />

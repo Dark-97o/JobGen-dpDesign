@@ -5,8 +5,7 @@ import {
   ArrowRight, 
   Check, 
   Award,
-  ChevronRight,
-  HardHat
+  ChevronRight
 } from 'lucide-react';
 import { VisionToLifeContact } from './VisionToLifeContact';
 import { ContactModal } from './ContactModal';
@@ -177,12 +176,12 @@ export function AboutPage({ onNavigateHome }: AboutPageProps) {
             <div className="services-band-grid compact-grid">
               <div className="services-band-col">
                 <p>
-                  Our process begins by getting to know you and understanding what you want from your space. From there, we initiate the design and investigation phases, obtain all relevant permits, carefully select trusted tradespeople, and project manage every detail through to completion — including a follow-up after the work is done.
+                  We begin by understanding your vision, then guide your project through concept design, council permits, and hands-on management with trusted trades through to completion.
                 </p>
               </div>
               <div className="services-band-col">
                 <p>
-                  As a Sydney interior design studio &amp; architectural services provider, our goal is to deliver cost-effective solutions that align with your budget. Using high-quality materials and creative inspiration, we ensure your renovation or new build exceeds expectations.
+                  As Sydney architectural and interior designers, we deliver cost-effective, high-quality solutions that maximize your budget and exceed expectations.
                 </p>
               </div>
             </div>
@@ -201,6 +200,9 @@ export function AboutPage({ onNavigateHome }: AboutPageProps) {
           />
           <div className="choose-band-gradient-fade" />
         </div>
+
+        {/* Black thick straight line vertically on the right of the screen */}
+        <div className="choose-vertical-black-line" aria-hidden="true" />
 
         <div className="container about-container choose-band-container">
           {/* JUST TEXT — NO BOXED CONTAINER */}
@@ -241,10 +243,6 @@ export function AboutPage({ onNavigateHome }: AboutPageProps) {
           <div className="compact-bca-card">
             
             <div className="compact-bca-header">
-              <div className="compact-bca-badge">
-                <HardHat size={16} className="compact-bca-badge-icon" />
-                <span>NSW LICENSED BUILDER // LICENCE NO. 492271C</span>
-              </div>
               <h2 className="compact-bca-title">Our Building &amp; Construction Arm</h2>
               <span className="compact-bca-subtitle">From design to delivery, under one roof</span>
             </div>

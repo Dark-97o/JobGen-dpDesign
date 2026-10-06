@@ -3,8 +3,8 @@ import { ContactModal } from './ContactModal';
 import './Navbar.css';
 
 interface NavbarProps {
-  currentPage?: 'home' | 'about';
-  onNavigate?: (page: 'home' | 'about') => void;
+  currentPage?: 'home' | 'about' | 'architectural-design' | 'kitchen-design' | 'bathroom-design' | 'areas-we-serve';
+  onNavigate?: (page: 'home' | 'about' | 'architectural-design' | 'kitchen-design' | 'bathroom-design' | 'areas-we-serve') => void;
 }
 
 export function Navbar({ currentPage = 'home', onNavigate }: NavbarProps) {
@@ -44,9 +44,31 @@ export function Navbar({ currentPage = 'home', onNavigate }: NavbarProps) {
     }
   };
 
+  const handleServiceClick = (service: 'architectural-design' | 'kitchen-design' | 'bathroom-design') => (e: React.MouseEvent) => {
+    e.preventDefault();
+    setActiveDropdown(null);
+    if (onNavigate) {
+      onNavigate(service);
+    } else {
+      window.location.hash = `#${service}`;
+    }
+  };
+
+  const handleAreasClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setActiveDropdown(null);
+    if (onNavigate) {
+      onNavigate('areas-we-serve');
+    } else {
+      window.location.hash = '#areas-we-serve';
+    }
+  };
+
+  const isInnerPage = currentPage !== 'home';
+
   return (
     <>
-      <header className={`navbar-header ${scrolled || currentPage === 'about' ? 'scrolled' : 'transparent-hero'}`}>
+      <header className={`navbar-header ${scrolled || isInnerPage ? 'scrolled' : 'transparent-hero'}`}>
         <div className="navbar-pill">
           
           {/* Minimalist Architectural Wordmark matching reference */}
@@ -84,37 +106,50 @@ export function Navbar({ currentPage = 'home', onNavigate }: NavbarProps) {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button 
-                className={`nav-item nav-dropdown-trigger ${activeDropdown === 'services' ? 'open' : ''}`}
+                className={`nav-item nav-dropdown-trigger ${
+                  activeDropdown === 'services' || 
+                  ['architectural-design', 'kitchen-design', 'bathroom-design'].includes(currentPage) 
+                    ? 'open active-page' 
+                    : ''
+                }`}
                 aria-expanded={activeDropdown === 'services'}
               >
                 <span>Services</span>
                 <span className="dropdown-chevron">▾</span>
               </button>
               <div className={`nav-dropdown-menu ${activeDropdown === 'services' ? 'visible' : ''}`}>
-                <a href="#architectural-design" className="dropdown-link">Architectural Design</a>
-                <a href="#kitchens" className="dropdown-link">Kitchen Design</a>
-                <a href="#bathrooms" className="dropdown-link">Bathroom Design</a>
+                <a 
+                  href="#architectural-design" 
+                  className={`dropdown-link ${currentPage === 'architectural-design' ? 'active-item' : ''}`}
+                  onClick={handleServiceClick('architectural-design')}
+                >
+                  Architectural Design
+                </a>
+                <a 
+                  href="#kitchen-design" 
+                  className={`dropdown-link ${currentPage === 'kitchen-design' ? 'active-item' : ''}`}
+                  onClick={handleServiceClick('kitchen-design')}
+                >
+                  Kitchen Design
+                </a>
+                <a 
+                  href="#bathroom-design" 
+                  className={`dropdown-link ${currentPage === 'bathroom-design' ? 'active-item' : ''}`}
+                  onClick={handleServiceClick('bathroom-design')}
+                >
+                  Bathroom Design
+                </a>
               </div>
             </div>
 
-            {/* 4. Areas We Serve Dropdown */}
-            <div 
-              className="nav-dropdown-wrapper"
-              onMouseEnter={() => setActiveDropdown('areas')}
-              onMouseLeave={() => setActiveDropdown(null)}
+            {/* 4. Areas We Serve */}
+            <a 
+              href="#areas-we-serve" 
+              className={`nav-item ${currentPage === 'areas-we-serve' ? 'active-page' : ''}`}
+              onClick={handleAreasClick}
             >
-              <button 
-                className={`nav-item nav-dropdown-trigger ${activeDropdown === 'areas' ? 'open' : ''}`}
-                aria-expanded={activeDropdown === 'areas'}
-              >
-                <span>Areas We Serve</span>
-                <span className="dropdown-chevron">▾</span>
-              </button>
-              <div className={`nav-dropdown-menu ${activeDropdown === 'areas' ? 'visible' : ''}`}>
-                <a href="#areas" className="dropdown-link">Parramatta</a>
-                <a href="#areas" className="dropdown-link">All Areas We Serve</a>
-              </div>
-            </div>
+              Areas We Serve
+            </a>
 
             {/* 5. Blogs */}
             <a href="#blogs" className="nav-item">Blogs</a>

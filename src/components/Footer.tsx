@@ -1,14 +1,19 @@
-import { MapPin, Phone, Mail, Globe, ArrowUpRight, ArrowUp } from 'lucide-react';
+import { MapPin, Phone, Mail, Globe, ArrowUpRight } from 'lucide-react';
 import { FooterSmoke } from './FooterSmoke';
 import './Footer.css';
 
 interface FooterProps {
-  onNavigate?: (page: 'home' | 'about') => void;
+  onNavigate?: (page: 'home' | 'about' | 'architectural-design' | 'kitchen-design' | 'bathroom-design' | 'areas-we-serve') => void;
 }
 
 export function Footer({ onNavigate }: FooterProps) {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleNav = (page: 'home' | 'about' | 'architectural-design' | 'kitchen-design' | 'bathroom-design' | 'areas-we-serve') => (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate(page);
+    } else {
+      window.location.hash = page === 'home' ? '' : `#${page}`;
+    }
   };
 
   return (
@@ -34,16 +39,14 @@ export function Footer({ onNavigate }: FooterProps) {
 
       <div className="container footer-container">
         
-        {/* Main 3-Column Footer Grid (Compact) */}
+        {/* Main 4-Column Footer Grid (Compact) */}
         <div className="footer-main-grid">
           
           {/* Column 1: Studio Brand & Coordinates */}
           <div className="footer-col-brand">
             
             <div className="footer-brand-header">
-              <div className="footer-logo-bezel">
-                <img src="/dplogo.png" alt="DP Design Studio" className="footer-dplogo" />
-              </div>
+              <img src="/dplogo.png" alt="DP Design Studio" className="footer-dplogo" />
               <div className="footer-brand-meta">
                 <span className="footer-studio-name">DP DESIGN STUDIO</span>
                 <span className="footer-studio-tag">REGISTERED ARCHITECTS // NSW ARB #12156</span>
@@ -102,16 +105,20 @@ export function Footer({ onNavigate }: FooterProps) {
 
           </div>
 
-          {/* Column 2: Our Services (Compact) */}
+          {/* Column 2: Architectural Services */}
           <div className="footer-col-nav">
             <div className="footer-nav-heading">
               <span className="heading-index">01 //</span>
-              <h4>OUR SERVICES</h4>
+              <h4>ARCHITECTURAL SERVICES</h4>
             </div>
 
             <ul className="footer-nav-list">
               <li>
-                <a href="#services" className="footer-nav-item">
+                <a 
+                  href="#architectural-design" 
+                  className="footer-nav-item"
+                  onClick={handleNav('architectural-design')}
+                >
                   <span className="item-bullet" />
                   <span>Architectural Designs</span>
                 </a>
@@ -129,39 +136,9 @@ export function Footer({ onNavigate }: FooterProps) {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://www.dpdesignstudio.com.au/kitchen-design/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="footer-nav-item external"
-                >
-                  <span className="item-bullet" />
-                  <span>Kitchen Design and Renovation</span>
-                  <ArrowUpRight size={10.5} className="link-ext-arrow" />
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://www.dpdesignstudio.com.au/bathroom-design/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="footer-nav-item external"
-                >
-                  <span className="item-bullet" />
-                  <span>Bathroom Design and Renovation</span>
-                  <ArrowUpRight size={10.5} className="link-ext-arrow" />
-                </a>
-              </li>
-              <li>
                 <a href="#services" className="footer-nav-item">
                   <span className="item-bullet" />
                   <span>Survey Plans</span>
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="footer-nav-item">
-                  <span className="item-bullet" />
-                  <span>Project Management</span>
                 </a>
               </li>
               <li>
@@ -173,10 +150,47 @@ export function Footer({ onNavigate }: FooterProps) {
             </ul>
           </div>
 
-          {/* Column 3: Quick Links & Studio Hours (Compact) */}
+          {/* Column 3: Renovation & Living */}
           <div className="footer-col-nav">
             <div className="footer-nav-heading">
               <span className="heading-index">02 //</span>
+              <h4>RENOVATION & INTERIOR</h4>
+            </div>
+
+            <ul className="footer-nav-list">
+              <li>
+                <a 
+                  href="#kitchen-design" 
+                  className="footer-nav-item"
+                  onClick={handleNav('kitchen-design')}
+                >
+                  <span className="item-bullet" />
+                  <span>Kitchen Design & Renovation</span>
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#bathroom-design" 
+                  className="footer-nav-item"
+                  onClick={handleNav('bathroom-design')}
+                >
+                  <span className="item-bullet" />
+                  <span>Bathroom Design & Renovation</span>
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="footer-nav-item">
+                  <span className="item-bullet" />
+                  <span>Project Management</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Quick Links & Studio Hours */}
+          <div className="footer-col-nav">
+            <div className="footer-nav-heading">
+              <span className="heading-index">03 //</span>
               <h4>STUDIO DIRECTORY</h4>
             </div>
 
@@ -213,6 +227,16 @@ export function Footer({ onNavigate }: FooterProps) {
                 >
                   <span className="item-bullet" />
                   <span>About Us</span>
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#areas-we-serve" 
+                  className="footer-nav-item"
+                  onClick={handleNav('areas-we-serve')}
+                >
+                  <span className="item-bullet" />
+                  <span>Areas We Serve</span>
                 </a>
               </li>
               <li>
@@ -255,7 +279,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
           <div className="footer-bottom-right">
             
-            {/* Powered by JobGen Badge (Compact) */}
+            {/* Powered by JobGen */}
             <a 
               href="https://jobgen.ai" 
               target="_blank" 
@@ -273,18 +297,6 @@ export function Footer({ onNavigate }: FooterProps) {
               </div>
               <span className="jobgen-brand-text">JobGen</span>
             </a>
-
-            {/* Button-in-Button Back to Top (Compact) */}
-            <button 
-              className="footer-top-btn" 
-              onClick={scrollToTop} 
-              aria-label="Back to top"
-            >
-              <span className="top-btn-label">TOP</span>
-              <span className="top-btn-icon-disc">
-                <ArrowUp size={10} />
-              </span>
-            </button>
 
           </div>
 

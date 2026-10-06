@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import './ArchitecturalDesignSection.css';
 
 interface PillarService {
@@ -296,11 +296,6 @@ export function ArchitecturalDesignSection() {
                   <div className="pillar-expanded-view">
                     <h4 className="pillar-expanded-title">{service.title}</h4>
                     <p className="pillar-expanded-desc">{service.desc}</p>
-
-                    <a href="#designs" className="pillar-expanded-link">
-                      <span>Explore Scope</span>
-                      <ArrowUpRight size={15} />
-                    </a>
                   </div>
                 </div>
               );

@@ -70,10 +70,9 @@ export function WhyChooseUs({ onKnowMore }: WhyChooseUsProps) {
                 return (
                   <div key={i} className="point-card">
                     <div className="point-card-header">
-                      <IconComponent size={16} className="point-favicon-icon" />
+                      <IconComponent size={20} className="point-favicon-icon" />
                       <h3 className="point-title">{pt.title}</h3>
                     </div>
-                    <p className="point-desc">{pt.desc}</p>
                   </div>
                 );
               })}

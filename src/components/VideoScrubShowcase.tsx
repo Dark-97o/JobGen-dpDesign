@@ -9,7 +9,11 @@ const getFrameSrc = (index: number) => {
   return `/frames/frame_${padded}.webp`;
 };
 
-export function VideoScrubShowcase() {
+interface VideoScrubShowcaseProps {
+  onNavigate?: (page: 'kitchen-design' | 'bathroom-design') => void;
+}
+
+export function VideoScrubShowcase({ onNavigate }: VideoScrubShowcaseProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -239,7 +243,15 @@ export function VideoScrubShowcase() {
             <p className="vscrub-stage-sub">
               Tailored culinary spaces featuring waterfall natural stone islands, bespoke joinery, concealed storage, and turnkey trade delivery.
             </p>
-            <a href="#kitchens" className="vscrub-cta">
+            <a 
+              href="#kitchen-design" 
+              className="vscrub-cta"
+              onClick={(e) => {
+                e.preventDefault();
+                if (onNavigate) onNavigate('kitchen-design');
+                else window.location.hash = '#kitchen-design';
+              }}
+            >
               <span>EXPLORE KITCHENS</span>
               <span className="vscrub-arrow">↗</span>
             </a>
@@ -259,7 +271,15 @@ export function VideoScrubShowcase() {
             <p className="vscrub-stage-sub">
               Private spa sanctuaries with bookmatched porcelain, curbless walk-in showers, freestanding soak tubs, and AS 3740 certified waterproofing.
             </p>
-            <a href="#bathrooms" className="vscrub-cta">
+            <a 
+              href="#bathroom-design" 
+              className="vscrub-cta"
+              onClick={(e) => {
+                e.preventDefault();
+                if (onNavigate) onNavigate('bathroom-design');
+                else window.location.hash = '#bathroom-design';
+              }}
+            >
               <span>EXPLORE BATHROOMS</span>
               <span className="vscrub-arrow">↗</span>
             </a>

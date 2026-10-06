@@ -106,13 +106,18 @@
 /* Subtitle */
 .vscrub-stage-sub {
   font-family: var(--font-sans);
-  font-size: clamp(1.12rem, 1.75vw, 1.45rem);
+  font-size: clamp(0.88rem, 1.1vw, 1.02rem);
   font-weight: 300;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.94);
-  margin: 0 0 28px 0;
-  max-width: 620px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 24px 0;
+  max-width: 580px;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* CTA Button */
@@ -170,7 +175,13 @@
   }
 
   .vscrub-stage-sub {
-    font-size: 15px;
-    margin-bottom: 22px;
+    font-size: 13.5px;
+    line-height: 1.45;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }

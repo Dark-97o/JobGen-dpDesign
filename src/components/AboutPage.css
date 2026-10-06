@@ -399,7 +399,7 @@
   background-image: 
     linear-gradient(180deg, rgba(10, 11, 13, 0.74) 0%, rgba(10, 11, 13, 0.52) 48%, rgba(10, 11, 13, 0.82) 100%),
     url('/dpaboutdark.jpg');
-  background-size: cover;
+  background-size: 180% auto;
   background-position: center bottom;
   background-repeat: no-repeat;
   position: relative;
@@ -501,7 +501,19 @@
   padding: clamp(80px, 12vh, 120px) 0;
   background-color: #FAF9F6;
   overflow: hidden;
-  border-bottom: 1px solid var(--border-light, #E8E5DD);
+  border-bottom: none;
+}
+
+/* Vertical thick straight black line touching top and bottom (scaled 1.7x to 22px) */
+.choose-vertical-black-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: clamp(12px, 1.8vw, 24px);
+  width: 22px;
+  background-color: #000000;
+  z-index: 4;
+  pointer-events: none;
 }
 
 /* Background image spanning full width, continuing under the text */
@@ -522,17 +534,21 @@
   display: block;
 }
 
-/* Gradient fade allowing the image to continue subtly underneath the text */
+/* Gradient fade making the image behind the text heavily faded and soft */
 .choose-band-gradient-fade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg, 
-    rgba(250, 249, 246, 0.15) 0%, 
-    rgba(250, 249, 246, 0.42) 32%, 
-    rgba(250, 249, 246, 0.78) 58%, 
-    rgba(250, 249, 246, 0.88) 100%
-  );
+  background: 
+    radial-gradient(ellipse 700px 500px at 78% 50%, rgba(250, 249, 246, 0.98) 0%, rgba(250, 249, 246, 0.90) 45%, transparent 95%),
+    linear-gradient(
+      90deg, 
+      rgba(250, 249, 246, 0.05) 0%, 
+      rgba(250, 249, 246, 0.22) 24%, 
+      rgba(250, 249, 246, 0.68) 40%, 
+      rgba(250, 249, 246, 0.92) 52%, 
+      rgba(250, 249, 246, 0.975) 68%, 
+      rgba(250, 249, 246, 0.99) 100%
+    );
   pointer-events: none;
 }
 

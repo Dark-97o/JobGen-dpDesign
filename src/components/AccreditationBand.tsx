@@ -28,7 +28,7 @@ export function AccreditationBand() {
         {/* Statutory Accreditation Statement */}
         <div className="band-statement-col">
           <p className="band-statement-lead">
-            We are a fully licensed practicing Architect firm and registered with <strong>NSW Architect Registration Board</strong> and <strong>Australian Institute of Architects</strong>.
+            <strong>NSW Architect Registration Board</strong> and <strong>Australian Institute of Architects</strong>.
           </p>
           <p className="band-statement-nomination">
             <strong>D. P. Perera</strong> is the nominated Architect, registration number <strong>12156</strong>.
