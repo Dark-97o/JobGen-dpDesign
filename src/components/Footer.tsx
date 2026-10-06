@@ -56,7 +56,7 @@ export function Footer({ onNavigate }: FooterProps) {
             <div className="footer-coords-list">
               <div className="coords-row">
                 <div className="coords-icon-wrap">
-                  <MapPin size={12} className="coords-icon" />
+                  <MapPin size={13.5} className="coords-icon" />
                 </div>
                 <a 
                   href="https://maps.google.com/?cid=10743240316523014348&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAFKgSoqNcy"
@@ -66,7 +66,7 @@ export function Footer({ onNavigate }: FooterProps) {
                   title="View on Google Maps"
                 >
                   <span>PO BOX 3528, PARRAMATTA, NSW 2150, AUSTRALIA</span>
-                  <ArrowUpRight size={11} className="coords-ext-arrow" />
+                  <ArrowUpRight size={12} className="coords-ext-arrow" />
                 </a>
               </div>
 
@@ -74,7 +74,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <div className="coords-row coords-split-row">
                 <div className="coords-inline-item">
                   <div className="coords-icon-wrap">
-                    <Phone size={12} className="coords-icon" />
+                    <Phone size={13.5} className="coords-icon" />
                   </div>
                   <span className="coords-lbl">p :</span>
                   <a href="tel:1300373374" className="coords-link">1300 373 374</a>
@@ -84,7 +84,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
                 <div className="coords-inline-item">
                   <div className="coords-icon-wrap">
-                    <Mail size={12} className="coords-icon" />
+                    <Mail size={13.5} className="coords-icon" />
                   </div>
                   <span className="coords-lbl">e :</span>
                   <a href="mailto:admin@dpdesignstudio.com.au" className="coords-link">admin@dpdesignstudio.com.au</a>
@@ -93,7 +93,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
               <div className="coords-row">
                 <div className="coords-icon-wrap">
-                  <Globe size={12} className="coords-icon" />
+                  <Globe size={13.5} className="coords-icon" />
                 </div>
                 <div className="coords-val-group">
                   <span className="coords-lbl">w :</span>
@@ -112,7 +112,7 @@ export function Footer({ onNavigate }: FooterProps) {
             {/* Studio Hours Pill Just Below Contacts */}
             <div className="footer-hours-pill">
               <span className="hours-dot" />
-              <Clock size={11} className="hours-clock-icon" />
+              <Clock size={13} className="hours-clock-icon" />
               <span className="hours-pill-text">Mon — Fri: 8:30 AM — 5:30 PM AEST</span>
             </div>
 
