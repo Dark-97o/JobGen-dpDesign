@@ -37,13 +37,15 @@ export function PageTransitionOverlay({ phase }: PageTransitionOverlayProps) {
         <div className="transition-bar-accent-top" />
       </div>
 
-      {/* Bar 2: Center Vertical Pillar with dp Design Studio Signature Monogram */}
+      {/* Bar 2: Center Vertical Pillar with DP Logo */}
       <div className="transition-bar transition-bar-2">
         <div className="transition-bar-accent-top" />
-        <div className="transition-center-crest">
-          <span className="transition-crest-sub">DP DESIGN STUDIO</span>
-          <span className="transition-crest-bar" />
-          <span className="transition-crest-title">REGISTERED ARCHITECTS</span>
+        <div className="transition-center-logo-wrap">
+          <img 
+            src="/dplogo.png" 
+            alt="DP Design Studio" 
+            className="transition-dp-logo" 
+          />
         </div>
       </div>
 
