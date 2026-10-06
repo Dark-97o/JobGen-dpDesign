@@ -49,7 +49,6 @@ export function Footer({ onNavigate }: FooterProps) {
               <img src="/dplogo.png" alt="DP Design Studio" className="footer-dplogo" />
               <div className="footer-brand-meta">
                 <span className="footer-studio-name">DP DESIGN STUDIO</span>
-                <span className="footer-studio-tag">REGISTERED ARCHITECTS // NSW ARB #12156</span>
               </div>
             </div>
 
@@ -308,9 +307,6 @@ export function Footer({ onNavigate }: FooterProps) {
           <div className="footer-bottom-left">
             <span className="footer-copy-text">
               &copy; 2000 — 2026 DP Design Studio Pty Ltd. All Rights Reserved.
-            </span>
-            <span className="footer-copy-sub">
-              Nominated Registered Architect Prasad Perera (ARB #12156)
             </span>
           </div>
 
