@@ -260,23 +260,46 @@ export function Footer({ onNavigate }: FooterProps) {
               </li>
             </ul>
 
-            {/* Prominent Studio Hours Card */}
-            <div className="footer-hours-prominent">
-              <div className="hours-head-row">
-                <div className="hours-status-badge">
-                  <span className="hours-dot" />
-                  <span className="hours-status-text">SYDNEY STUDIO</span>
-                </div>
-                <Clock size={13} className="hours-clock-icon" />
-              </div>
-              <div className="hours-content">
-                <span className="hours-days">Monday — Friday</span>
-                <span className="hours-time-highlight">8:30 AM — 5:30 PM AEST</span>
-              </div>
-              <span className="hours-note">Consultations by Appointment</span>
+            {/* Compact Studio Hours */}
+            <div className="footer-hours-compact">
+              <span className="hours-dot" />
+              <Clock size={11} className="hours-clock-icon" />
+              <span className="hours-compact-text">Mon — Fri: 8:30 AM — 5:30 PM AEST</span>
             </div>
           </div>
 
+        </div>
+
+        {/* Studio Location Map */}
+        <div className="footer-map-section">
+          <div className="footer-map-header">
+            <div className="footer-map-heading">
+              <span className="heading-index">04 //</span>
+              <h4>STUDIO LOCATION</h4>
+            </div>
+            <a 
+              href="https://maps.google.com/?cid=10743240316523014348&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAFKgSoqNcy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-map-direct-link"
+              title="Open full interactive map on Google"
+            >
+              <span>Get Directions</span>
+              <ArrowUpRight size={11} />
+            </a>
+          </div>
+          <div className="footer-map-frame-wrap">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.845218397058!2d151.0036056!3d-33.8163072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12a31d0c55ee37%3A0x9517a825d30268cc!2sdp%20Design%20Studio%20Pty.%20Ltd.!5e0!3m2!1sen!2sin!4v1791293034761!5m2!1sen!2sin" 
+              width="100%" 
+              height="200" 
+              style={{ border: 0 }} 
+              allowFullScreen={true} 
+              loading="lazy" 
+              referrerPolicy="strict-origin-when-cross-origin"
+              title="dp Design Studio Pty. Ltd. Location Map"
+            />
+          </div>
         </div>
 
         {/* Bottom Legal, Copyright & Powered by JobGen (Compact) */}
