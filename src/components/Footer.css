@@ -117,30 +117,16 @@
   font-weight: 600;
 }
 
-/* Coordinates Glass Card (Compact Double-Bezel) */
-.footer-coords-card {
-  background: rgba(20, 22, 28, 0.55);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: 
-    0 8px 24px rgba(0, 0, 0, 0.3),
-    inset 0 1px 1px rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  padding: 10px 14px;
+/* Coordinates List (Unboxed, Seamless) */
+.footer-coords-list {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 7px;
-}
-
-.coords-entity-title {
-  font-family: var(--font-mono, monospace);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  color: #FFFFFF;
-  padding-bottom: 5px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  gap: 8px;
+  margin-top: 2px;
 }
 
 .coords-row {
@@ -305,51 +291,95 @@
   transform: translate(2px, -2px);
 }
 
-/* Studio Hours Capsule (Compact) */
-.footer-hours-capsule {
-  margin-top: 6px;
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
-  padding: 6px 10px;
+/* Prominent Studio Hours Card */
+.footer-hours-prominent {
+  margin-top: 14px;
+  background: rgba(18, 21, 28, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(197, 160, 89, 0.38);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 12px 14px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 8px;
 }
 
+.hours-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hours-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(39, 201, 63, 0.1);
+  padding: 2.5px 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(39, 201, 63, 0.25);
+}
+
+.hours-status-text {
+  font-family: var(--font-mono, monospace);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #27C93F;
+}
+
+.hours-clock-icon {
+  color: var(--gold-primary, #C5A059);
+}
+
 .hours-dot {
-  width: 6px;
-  height: 6px;
+  width: 6.5px;
+  height: 6.5px;
   border-radius: 50%;
   background: #27C93F;
-  box-shadow: 0 0 6px rgba(39, 201, 63, 0.7);
+  box-shadow: 0 0 8px rgba(39, 201, 63, 0.85);
   animation: pulseDot 2.2s infinite ease-in-out;
   flex-shrink: 0;
 }
 
 @keyframes pulseDot {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.85); }
+  50% { opacity: 0.45; transform: scale(0.8); }
 }
 
-.hours-meta {
+.hours-content {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 3px;
 }
 
-.hours-label {
-  font-family: var(--font-mono, monospace);
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--gold-light, #E0C58A);
-}
-
-.hours-time {
+.hours-days {
   font-family: var(--font-sans, sans-serif);
-  font-size: 10.5px;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.hours-time-highlight {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold-light, #E0C58A);
+  letter-spacing: 0.02em;
+}
+
+.hours-note {
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.04em;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 6px;
 }
 
 /* ==========================================================================

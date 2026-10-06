@@ -204,7 +204,7 @@ export function KitchenDesignPage({ onNavigateHome }: KitchenDesignPageProps) {
             className="service-hero-video"
             poster="/images/kitchen-architecture.jpg"
           >
-            <source src="/page.mp4" type="video/mp4" />
+            <source src="/kitchen.mp4" type="video/mp4" />
           </video>
           <div className="service-hero-scrim" />
         </div>

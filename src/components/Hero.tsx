@@ -9,9 +9,14 @@ interface Slide {
   subtitle: string;
   btnText: string;
   btnLink: string;
+  videoSrc: string;
 }
 
-export function Hero() {
+interface HeroProps {
+  onNavigate?: (page: 'kitchen-design' | 'bathroom-design' | 'architectural-design') => void;
+}
+
+export function Hero({ onNavigate }: HeroProps = {}) {
   const slides: Slide[] = [
     {
       id: 0,
@@ -20,7 +25,8 @@ export function Hero() {
       title: 'Architecture Shaped for Living.',
       subtitle: 'Custom single & double-storey homes, duplexes, townhouses, alterations, and seamless DA/CDC council approvals across Sydney.',
       btnText: 'EXPLORE ARCHITECTURE',
-      btnLink: '#services'
+      btnLink: '#services',
+      videoSrc: '/hero.mp4'
     },
     {
       id: 1,
@@ -29,7 +35,8 @@ export function Hero() {
       title: 'Best Kitchen Design, Sydney.',
       subtitle: 'Turnkey luxury culinary spaces with bespoke cabinetry, waterfall stone islands, premium tapware, and full trade project management.',
       btnText: 'EXPLORE KITCHENS',
-      btnLink: '#kitchens'
+      btnLink: '#kitchens',
+      videoSrc: '/kitchen.mp4'
     },
     {
       id: 2,
@@ -38,26 +45,56 @@ export function Hero() {
       title: 'Bespoke Bathroom Sanctuaries.',
       subtitle: 'Balancing beauty with functionality: freestanding bathtubs, curbless walk-in showers, custom vanities, and certified waterproofing.',
       btnText: 'EXPLORE BATHROOMS',
-      btnLink: '#bathrooms'
+      btnLink: '#bathrooms',
+      videoSrc: '/bathroom.mp4'
     }
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // On-demand video loading: initial load only downloads hero.mp4 (Slide 0).
+  // Subsequent videos (kitchen.mp4, bathroom.mp4) load only when needed or on tab hover.
+  const [loadedVideos, setLoadedVideos] = useState<Set<number>>(() => new Set([0]));
+
+  useEffect(() => {
+    setLoadedVideos((prev) => {
+      if (prev.has(currentSlide)) return prev;
+      const next = new Set(prev);
+      next.add(currentSlide);
+      return next;
+    });
+  }, [currentSlide]);
+
+  const preloadVideo = (idx: number) => {
+    setLoadedVideos((prev) => {
+      if (prev.has(idx)) return prev;
+      const next = new Set(prev);
+      next.add(idx);
+      return next;
+    });
+  };
+
   // Auto-advance slides every 8 seconds
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentSlide((prev) => {
+        const next = (prev + 1) % slides.length;
+        return next;
+      });
     }, 8000);
     return () => clearInterval(timer);
   }, [slides.length]);
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    const prev = (currentSlide - 1 + slides.length) % slides.length;
+    preloadVideo(prev);
+    setCurrentSlide(prev);
   };
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    const next = (currentSlide + 1) % slides.length;
+    preloadVideo(next);
+    setCurrentSlide(next);
   };
 
   const scrollToNextSection = () => {
@@ -71,18 +108,24 @@ export function Hero() {
 
   return (
     <section className="hero-minimal-section">
-      {/* Background Fullscreen Video */}
+      {/* Background Fullscreen Cross-fading Videos with On-Demand Loading */}
       <div className="hero-video-wrapper">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="hero-video-element"
-          poster="/images/hero-poster.jpg"
-        >
-          <source src="/hero.mp4" type="video/mp4" />
-        </video>
+        {slides.map((slide, idx) => {
+          const isLoaded = loadedVideos.has(idx);
+          return (
+            <video
+              key={slide.id}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={`hero-video-element ${currentSlide === idx ? 'is-active' : 'is-inactive'}`}
+              preload={idx === 0 ? 'auto' : isLoaded ? 'auto' : 'none'}
+            >
+              {isLoaded && <source src={slide.videoSrc} type="video/mp4" />}
+            </video>
+          );
+        })}
         {/* Cinematic Vignette Overlay */}
         <div className="hero-cinematic-overlay"></div>
       </div>
@@ -106,7 +149,21 @@ export function Hero() {
               <p className="hero-display-subtitle">
                 {active.subtitle}
               </p>
-              <a href={active.btnLink} className="hero-scopri-btn">
+              <a 
+                href={active.btnLink} 
+                className="hero-scopri-btn"
+                onClick={(e) => {
+                  if (active.btnLink === '#kitchens' && onNavigate) {
+                    e.preventDefault();
+                    onNavigate('kitchen-design');
+                  } else if (active.btnLink === '#bathrooms' && onNavigate) {
+                    e.preventDefault();
+                    onNavigate('bathroom-design');
+                  } else if (active.btnLink === '#services' && onNavigate) {
+                    // Let in-page smooth scroll happen
+                  }
+                }}
+              >
                 <span>{active.btnText}</span>
                 <span className="btn-arrow">↗</span>
               </a>
@@ -147,7 +204,12 @@ export function Hero() {
                   role="tab"
                   aria-selected={isCurrent}
                   className={`hero-nav-tab ${isCurrent ? 'active' : ''}`}
-                  onClick={() => setCurrentSlide(index)}
+                  onClick={() => {
+                    preloadVideo(index);
+                    setCurrentSlide(index);
+                  }}
+                  onMouseEnter={() => preloadVideo(index)}
+                  onFocus={() => preloadVideo(index)}
                 >
                   <span className="tab-title">{slide.tabLabel}</span>
                   {isCurrent && <span className="tab-active-indicator"></span>}

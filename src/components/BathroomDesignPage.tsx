@@ -323,7 +323,7 @@ export function BathroomDesignPage({ onNavigateHome }: BathroomDesignPageProps) 
             className="service-hero-video"
             poster="/images/bathroom-sanctuary.jpg"
           >
-            <source src="/page.mp4" type="video/mp4" />
+            <source src="/bathroom.mp4" type="video/mp4" />
           </video>
           <div className="service-hero-scrim" />
         </div>

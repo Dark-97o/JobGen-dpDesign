@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Globe, ArrowUpRight } from 'lucide-react';
+import { MapPin, Phone, Mail, Globe, ArrowUpRight, Clock } from 'lucide-react';
 import { FooterSmoke } from './FooterSmoke';
 import './Footer.css';
 
@@ -53,22 +53,29 @@ export function Footer({ onNavigate }: FooterProps) {
               </div>
             </div>
 
-            {/* Architectural Coordinates Card (Compact) */}
-            <div className="footer-coords-card">
-              <div className="coords-entity-title">DP DESIGN STUDIO PTY LTD</div>
-              
+            {/* Architectural Coordinates List (Clean, Unboxed) */}
+            <div className="footer-coords-list">
               <div className="coords-row">
                 <div className="coords-icon-wrap">
-                  <MapPin size={11} className="coords-icon" />
+                  <MapPin size={12} className="coords-icon" />
                 </div>
-                <span className="coords-val">PO BOX 3528, PARRAMATTA, NSW 2150, AUSTRALIA</span>
+                <a 
+                  href="https://maps.google.com/?cid=10743240316523014348&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAFKgSoqNcy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="coords-link coords-address-link"
+                  title="View on Google Maps"
+                >
+                  <span>PO BOX 3528, PARRAMATTA, NSW 2150, AUSTRALIA</span>
+                  <ArrowUpRight size={11} className="coords-ext-arrow" />
+                </a>
               </div>
 
-              {/* Combined Phone & Email Row for Compact Layout */}
+              {/* Combined Phone & Email Row */}
               <div className="coords-row coords-split-row">
                 <div className="coords-inline-item">
                   <div className="coords-icon-wrap">
-                    <Phone size={11} className="coords-icon" />
+                    <Phone size={12} className="coords-icon" />
                   </div>
                   <span className="coords-lbl">p :</span>
                   <a href="tel:1300373374" className="coords-link">1300 373 374</a>
@@ -78,7 +85,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
                 <div className="coords-inline-item">
                   <div className="coords-icon-wrap">
-                    <Mail size={11} className="coords-icon" />
+                    <Mail size={12} className="coords-icon" />
                   </div>
                   <span className="coords-lbl">e :</span>
                   <a href="mailto:admin@dpdesignstudio.com.au" className="coords-link">admin@dpdesignstudio.com.au</a>
@@ -87,7 +94,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
               <div className="coords-row">
                 <div className="coords-icon-wrap">
-                  <Globe size={11} className="coords-icon" />
+                  <Globe size={12} className="coords-icon" />
                 </div>
                 <div className="coords-val-group">
                   <span className="coords-lbl">w :</span>
@@ -127,7 +134,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 <a 
                   href="https://www.dpdesignstudio.com.au/architectural-design/#Interior_Designs" 
                   target="_blank" 
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer" 
                   className="footer-nav-item external"
                 >
                   <span className="item-bullet" />
@@ -253,13 +260,20 @@ export function Footer({ onNavigate }: FooterProps) {
               </li>
             </ul>
 
-            {/* Studio Hours Micro-Pill (Compact) */}
-            <div className="footer-hours-capsule">
-              <span className="hours-dot" />
-              <div className="hours-meta">
-                <span className="hours-label">SYDNEY STUDIO HOURS</span>
-                <span className="hours-time">Mon — Fri · 8:30 AM — 5:30 PM AEST</span>
+            {/* Prominent Studio Hours Card */}
+            <div className="footer-hours-prominent">
+              <div className="hours-head-row">
+                <div className="hours-status-badge">
+                  <span className="hours-dot" />
+                  <span className="hours-status-text">SYDNEY STUDIO</span>
+                </div>
+                <Clock size={13} className="hours-clock-icon" />
               </div>
+              <div className="hours-content">
+                <span className="hours-days">Monday — Friday</span>
+                <span className="hours-time-highlight">8:30 AM — 5:30 PM AEST</span>
+              </div>
+              <span className="hours-note">Consultations by Appointment</span>
             </div>
           </div>
 
