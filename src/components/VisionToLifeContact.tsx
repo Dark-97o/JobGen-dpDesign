@@ -109,84 +109,20 @@ export function VisionToLifeContact() {
                     {/* Screen Glare Layer */}
                     <div className="pc-glare" />
 
-                    {/* Architectural CAD Workstation Interface */}
-                    <div className="pc-cad-viewport">
-                      <div className="pc-cad-header">
-                        <div className="pc-cad-dots">
-                          <span className="dot red" />
-                          <span className="dot yellow" />
-                          <span className="dot green" />
-                        </div>
-                        <div className="pc-cad-title-wrap">
-                          <img src="/dplogo.png" alt="dp" className="pc-cad-header-logo" />
-                          <span className="pc-cad-title">DP STUDIO // CAD 3D WORKSTATION</span>
-                        </div>
-                        <span className="pc-cad-status">● LIVE</span>
-                      </div>
-
-                      {/* Wireframe Architectural House Blueprint Graphic */}
-                      <div className="pc-blueprint-canvas">
-                        <div className="pc-blueprint-logo-badge" aria-hidden="true">
-                          <img src="/dplogo.png" alt="dp Design Studio" className="pc-blueprint-dplogo-img" />
-                          <span className="pc-blueprint-logo-text">dp STUDIO</span>
-                        </div>
-                        <svg className="blueprint-svg" viewBox="0 0 320 170" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <defs>
-                            <pattern id="cadGrid" width="16" height="16" patternUnits="userSpaceOnUse">
-                              <path d="M 16 0 L 0 0 0 16" fill="none" stroke="rgba(197, 160, 89, 0.12)" strokeWidth="0.5"/>
-                            </pattern>
-                          </defs>
-                          <rect width="320" height="170" fill="url(#cadGrid)" />
-
-                          {/* Architectural Elevation Wireframe */}
-                          <polygon points="40,135 160,45 280,135" stroke="#C5A059" strokeWidth="1.5" fill="rgba(197, 160, 89, 0.05)" />
-                          <rect x="60" y="90" width="200" height="55" stroke="rgba(224, 197, 138, 0.7)" strokeWidth="1.2" fill="rgba(10, 15, 25, 0.4)" />
-                          <line x1="160" y1="45" x2="160" y2="145" stroke="#C5A059" strokeWidth="1" strokeDasharray="3 3" />
-                          
-                          {/* Fenestration / Windows */}
-                          <rect x="80" y="100" width="35" height="35" stroke="#E0C58A" strokeWidth="1" fill="rgba(197, 160, 89, 0.15)" />
-                          <rect x="130" y="100" width="35" height="35" stroke="#E0C58A" strokeWidth="1" fill="rgba(197, 160, 89, 0.15)" />
-                          <rect x="205" y="95" width="38" height="50" stroke="#C5A059" strokeWidth="1.2" fill="rgba(197, 160, 89, 0.2)" />
-                          
-                          {/* Dimension Lines */}
-                          <line x1="40" y1="154" x2="280" y2="154" stroke="#E0C58A" strokeWidth="0.8" />
-                          <line x1="40" y1="150" x2="40" y2="158" stroke="#E0C58A" strokeWidth="0.8" />
-                          <line x1="280" y1="150" x2="280" y2="158" stroke="#E0C58A" strokeWidth="0.8" />
-                          <text x="135" y="165" fill="#E0C58A" fontSize="7.5" fontFamily="monospace">24.80m SPAN</text>
-
-                          {/* Radar Scanline */}
-                          <line x1="0" y1="75" x2="320" y2="75" stroke="rgba(197, 160, 89, 0.4)" strokeWidth="1" className="radar-scanline" />
-                        </svg>
-                      </div>
-
-                      {/* Real-time Project Consultation Telemetry */}
-                      <div className="pc-telemetry-hud">
-                        <div className="telemetry-row">
-                          <span className="t-label">PROJECT:</span>
-                          <span className="t-val gold">CUSTOM SYDNEY RESIDENCE</span>
-                        </div>
-                        <div className="telemetry-row">
-                          <span className="t-label">NOMINATED:</span>
-                          <span className="t-val">PRASAD PERERA (NSW ARB #12156)</span>
-                        </div>
-                        <div className="telemetry-row">
-                          <span className="t-label">APPLICANT:</span>
-                          <span className="t-val glow">{formData.name ? formData.name.toUpperCase() : 'AWAITING INTAKE...'}</span>
-                        </div>
-                        <div className="telemetry-row">
-                          <span className="t-label">CONTACT:</span>
-                          <span className="t-val">{formData.phone || formData.email || 'READY FOR TRANSMISSION'}</span>
-                        </div>
-                      </div>
+                    {/* Big DP Logo Display */}
+                    <div className="pc-screen-display">
+                      <div className="pc-logo-ambient-glow" />
+                      <img 
+                        src="/dplogo.png" 
+                        alt="dp Design Studio" 
+                        className="pc-big-screen-logo" 
+                      />
                     </div>
                   </div>
 
                   {/* Monitor Bottom Chin with Brand & Power LED */}
                   <div className="pc-bezel-bottom">
-                    <div className="pc-bezel-brand">
-                      <img src="/dplogo.png" alt="dp" className="pc-chin-logo" />
-                      <span className="pc-brand">DP // DESIGN STUDIO</span>
-                    </div>
+                    <span className="pc-brand">DP // DESIGN STUDIO</span>
                     <span className="pc-power-led" />
                   </div>
                 </div>

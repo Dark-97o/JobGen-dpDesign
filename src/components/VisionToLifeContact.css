@@ -198,171 +198,49 @@
   transition: opacity 0.2s ease;
 }
 
-/* CAD Viewport Interface */
-.pc-cad-viewport {
-  padding: 5px 7px 5px 7px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  background: #080A0E;
-}
-
-/* CAD Header */
-.pc-cad-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--font-mono, monospace);
-  font-size: 8px;
-  color: rgba(255, 255, 255, 0.7);
-  padding-bottom: 3px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.pc-cad-dots {
-  display: flex;
-  gap: 3px;
-}
-
-.pc-cad-dots .dot {
-  width: 4.5px;
-  height: 4.5px;
-  border-radius: 50%;
-}
-
-.pc-cad-dots .red { background: #FF5F56; }
-.pc-cad-dots .yellow { background: #FFBD2E; }
-.pc-cad-dots .green { background: #27C93F; }
-
-.pc-cad-title-wrap {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.pc-cad-header-logo {
-  width: 11px;
-  height: 11px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 3px rgba(197, 160, 89, 0.6));
-}
-
-.pc-cad-title {
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: #E0C58A;
-}
-
-.pc-cad-status {
-  font-weight: 700;
-  color: #27C93F;
-  letter-spacing: 0.06em;
-  font-size: 7.5px;
-  animation: pulseLive 2s infinite ease-in-out;
-}
-
-@keyframes pulseLive {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-/* Blueprint Canvas */
-.pc-blueprint-canvas {
+/* PC Screen Display - Big DP Logo */
+.pc-screen-display {
   position: relative;
   width: 100%;
-  height: 72px;
-  border-radius: 4px;
+  height: 154px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #141720 0%, #08090C 85%);
   overflow: hidden;
-  background: #050608;
-  border: 1px solid rgba(197, 160, 89, 0.25);
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
-.pc-blueprint-logo-badge {
+.pc-logo-ambient-glow {
   position: absolute;
-  top: 5px;
-  right: 6px;
-  z-index: 4;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 1.5px 5px;
-  background: rgba(10, 14, 20, 0.85);
-  border: 0.8px solid rgba(197, 160, 89, 0.45);
-  border-radius: 3px;
-  box-shadow: 0 0 8px rgba(197, 160, 89, 0.25);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.28) 0%, rgba(197, 160, 89, 0.08) 45%, transparent 70%);
   pointer-events: none;
+  animation: logoGlowPulse 4s ease-in-out infinite alternate;
 }
 
-.pc-blueprint-dplogo-img {
-  width: 13px;
-  height: 13px;
+@keyframes logoGlowPulse {
+  0% { transform: scale(0.9); opacity: 0.65; }
+  100% { transform: scale(1.2); opacity: 1; }
+}
+
+.pc-big-screen-logo {
+  position: relative;
+  z-index: 2;
+  width: 65%;
+  max-width: 140px;
+  max-height: 95px;
   object-fit: contain;
-  filter: drop-shadow(0 0 3px rgba(197, 160, 89, 0.5));
+  filter: drop-shadow(0 0 20px rgba(197, 160, 89, 0.6)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.85));
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-.pc-blueprint-logo-text {
-  font-family: var(--font-mono, monospace);
-  font-size: 7px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #E0C58A;
-  text-shadow: 0 0 4px rgba(197, 160, 89, 0.5);
-}
-
-.blueprint-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.radar-scanline {
-  animation: scanlineMove 3s infinite linear;
-}
-
-@keyframes scanlineMove {
-  0% { transform: translateY(-70px); opacity: 0; }
-  20% { opacity: 0.7; }
-  80% { opacity: 0.7; }
-  100% { transform: translateY(80px); opacity: 0; }
-}
-
-/* Real-time Telemetry HUD */
-.pc-telemetry-hud {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 3px 6px;
-  background: rgba(14, 17, 23, 0.75);
-  border-radius: 3px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  font-family: var(--font-mono, monospace);
-  font-size: 8px;
-}
-
-.telemetry-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.t-label {
-  color: rgba(255, 255, 255, 0.45);
-  letter-spacing: 0.04em;
-}
-
-.t-val {
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 600;
-}
-
-.t-val.gold {
-  color: #E0C58A;
-}
-
-.t-val.glow {
-  color: #C5A059;
-  text-shadow: 0 0 6px rgba(197, 160, 89, 0.4);
+.pc-3d-wrapper:hover .pc-big-screen-logo {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 26px rgba(224, 197, 138, 0.85)) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.9));
 }
 
 /* Monitor Bottom Chin with Brand & Power LED */
@@ -371,20 +249,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 5px 3px 0 3px;
-}
-
-.pc-bezel-brand {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.pc-chin-logo {
-  width: 10px;
-  height: 10px;
-  object-fit: contain;
-  opacity: 0.9;
-  filter: drop-shadow(0 0 3px rgba(197, 160, 89, 0.45));
 }
 
 .pc-brand {
