@@ -13,19 +13,20 @@ export function CustomCursor() {
       return;
     }
 
-    let mouseX = -200;
-    let mouseY = -200;
-    let currentX = -200;
-    let currentY = -200;
-    let rafId: number;
-
     const onMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+      }
       if (!isVisible) setIsVisible(true);
     };
 
-    const onMouseEnter = () => setIsVisible(true);
+    const onMouseEnter = (e: MouseEvent) => {
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+      }
+      setIsVisible(true);
+    };
+
     const onMouseLeave = () => setIsVisible(false);
 
     const onMouseDown = () => setIsClicked(true);
@@ -40,33 +41,12 @@ export function CustomCursor() {
       setIsHovered(!!interactive);
     };
 
-    const loop = () => {
-      // Ultra-snappy, direct responsive pointer physics (zero spongy drag)
-      const dx = mouseX - currentX;
-      const dy = mouseY - currentY;
-      if (Math.abs(dx) < 0.2 && Math.abs(dy) < 0.2) {
-        currentX = mouseX;
-        currentY = mouseY;
-      } else {
-        currentX += dx * 0.88;
-        currentY += dy * 0.88;
-      }
-
-      if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
-      }
-
-      rafId = requestAnimationFrame(loop);
-    };
-
     window.addEventListener('mousemove', onMouseMove, { passive: true });
     window.addEventListener('mouseenter', onMouseEnter);
     window.addEventListener('mouseleave', onMouseLeave);
     window.addEventListener('mousedown', onMouseDown);
     window.addEventListener('mouseup', onMouseUp);
     document.addEventListener('mouseover', onMouseOver, { passive: true });
-
-    rafId = requestAnimationFrame(loop);
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
@@ -75,7 +55,6 @@ export function CustomCursor() {
       window.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mouseup', onMouseUp);
       document.removeEventListener('mouseover', onMouseOver);
-      cancelAnimationFrame(rafId);
     };
   }, [isVisible]);
 
