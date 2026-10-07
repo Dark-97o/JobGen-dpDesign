@@ -577,7 +577,8 @@ export function LatestArticles() {
   }, [selectedArticle]);
 
   return (
-    <section id="articles" className="articles-section">
+    <section id="blogs" className="articles-section">
+      <span id="articles" style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none', height: 0, width: 0 }} aria-hidden="true" />
       <div className="container articles-container">
         
         {/* Section Header with Left/Right Navigation Arrows */}

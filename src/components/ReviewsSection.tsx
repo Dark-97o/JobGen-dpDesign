@@ -15,15 +15,15 @@ const REVIEWS_LIST: ReviewItem[] = [
   {
     id: 'rev-1',
     name: 'ManoRu M',
-    profileImg: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80',
+    profileImg: 'https://lh3.googleusercontent.com/a/ACg8ocJeWXJfUB06pKrh_W-Li8k38zSjRRtEI5c2ib3Kr_5VWSdnIg=w120-h120-c-rp-mo-br100',
     stars: 5,
     projectType: 'Home Renovation & Ensuite',
     text: 'We engaged dp Design Studio Pty Ltd for the second time to undertake Stage 2 renovations to our family home in Pymble. Based on the quality and reliability of our first project, we felt completely confident re-engaging Architect Prasad Perera. Works included roofing, luxury ensuite bathroom, and joinery. Completed in just two months with flawless quality.'
   },
   {
     id: 'rev-2',
-    name: 'Nate & Amanda Hewa',
-    profileImg: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80',
+    name: 'Amanda Hewa',
+    profileImg: 'https://lh3.googleusercontent.com/a-/ALV-UjVTyy2NNb8MzMB453cY5CfXd5IbExwYnEzO54oIzDleIqP_EZSBzg=w120-h120-c-rp-mo-br100',
     stars: 5,
     projectType: 'Council Compliance & BIC',
     text: 'After our pool builder left us facing council compliance issues and penalty notices, Prasad personally inspected the property, prepared comprehensive architectural plans, and coordinated surveys. Council issued the Section 6.26 certificate with zero delays. Prasad saved our family considerable stress.'
@@ -31,7 +31,7 @@ const REVIEWS_LIST: ReviewItem[] = [
   {
     id: 'rev-3',
     name: 'C&A Surveyors',
-    profileImg: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&auto=format&fit=crop&q=80',
+    profileImg: 'https://lh3.googleusercontent.com/a/ACg8ocI1HOEzFMYiU8lTORRyOJk3IhsvpM3BQKTL3CkrTR7Tj5PM2w=w120-h120-c-rp-mo-br100',
     stars: 5,
     projectType: 'Survey & Architectural Plans',
     text: 'Working with Prasad and the team at DP Design Studio has been an outstanding experience. Their professionalism, creativity, and attention to detail are second to none. As surveyors, we greatly value clear communication, prompt responses, and precision drafting on every project.'
@@ -39,42 +39,26 @@ const REVIEWS_LIST: ReviewItem[] = [
   {
     id: 'rev-4',
     name: 'Shankar Vamadevan',
-    profileImg: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=80',
+    profileImg: 'https://lh3.googleusercontent.com/a/ACg8ocL9BhXhORUHEYt-o_QI6420f4jxfa-xoHWyVavnR9i-vQ0jew=w120-h120-c-rp-mo-br100',
     stars: 5,
     projectType: 'Alterations & Additions',
     text: 'We engaged Architect Prasad Perera to modernise our family home in Beecroft, and the experience was exceptional. During the initial consultation, Prasad thoroughly understood our needs and budget. He completed the first stage within just 10 weeks while we continued living in the house with zero disruption.'
   },
   {
     id: 'rev-5',
-    name: 'James Harrison',
-    profileImg: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&auto=format&fit=crop&q=80',
-    stars: 5,
-    projectType: 'Construction Certificate (CC)',
-    text: 'Referred by Skymax, we arranged an initial site consultation with Prasad. We were thoroughly impressed by the professionalism, clear communication, and proactive solutions. Prasad was readily available and efficiently obtained CC approval. Looking forward to the build!'
-  },
-  {
-    id: 'rev-6',
     name: 'Alan de Zwaan',
-    profileImg: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=120&auto=format&fit=crop&q=80',
+    profileImg: 'https://lh3.googleusercontent.com/a-/ALV-UjUCe8oIACmZOIWG5I-FMAoua8fqgHmQ9PrcmrREwA4tj92XXFixUA=w120-h120-c-rp-mo-br100',
     stars: 5,
     projectType: 'Spatial Refurbishment',
     text: 'We worked with DP Design Studio to update our staircase balustrades and close off a shaft opening. Prasad provided various design options and was extremely responsive from start to finish, completing the work while we were overseas with high quality and regular photo updates.'
   },
   {
-    id: 'rev-7',
-    name: 'David & Karen Chen',
-    profileImg: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&auto=format&fit=crop&q=80',
+    id: 'rev-6',
+    name: 'James Harrison',
+    profileImg: 'https://lh3.googleusercontent.com/a/ACg8ocLkofal-NRJ-leG0tkCjS8GCm6sDN2jNF5tTbGq8gzXeynafQ=w120-h120-c-rp-mo-br100',
     stars: 5,
-    projectType: 'Dual Occupancy Duplex',
-    text: 'Prasad designed our duplex project in Epping with brilliant solar orientation and spatial efficiency. Council DA approval was obtained smoothly. His architectural insight and council knowledge made the entire process seamless.'
-  },
-  {
-    id: 'rev-8',
-    name: 'Sarah & Michael Jenkins',
-    profileImg: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=120&auto=format&fit=crop&q=80',
-    stars: 5,
-    projectType: 'Kitchen & Master Ensuite',
-    text: 'Our kitchen and master ensuite transformation exceeded every expectation. The craftsmanship, joinery detail, and space planning created an absolute sanctuary in our home. Would recommend DP Design Studio without hesitation.'
+    projectType: 'Construction Certificate (CC)',
+    text: 'Referred by Skymax, we arranged an initial site consultation with Prasad. We were thoroughly impressed by the professionalism, clear communication, and proactive solutions. Prasad was readily available and efficiently obtained CC approval. Looking forward to the build!'
   }
 ];
 

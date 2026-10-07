@@ -64,6 +64,41 @@ export function Navbar({ currentPage = 'home', onNavigate }: NavbarProps) {
     }
   };
 
+  const handleBlogsClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setActiveDropdown(null);
+    if (currentPage !== 'home') {
+      if (onNavigate) {
+        onNavigate('home');
+        setTimeout(() => {
+          const el = document.getElementById('blogs') || document.getElementById('articles');
+          if (el) {
+            const lenis = (window as unknown as { lenis?: { scrollTo: (target: HTMLElement, opts?: { offset?: number; duration?: number }) => void } }).lenis;
+            if (lenis) {
+              lenis.scrollTo(el, { offset: -70, duration: 1.25 });
+            } else {
+              el.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        }, 800);
+      } else {
+        window.location.hash = '#blogs';
+      }
+    } else {
+      const el = document.getElementById('blogs') || document.getElementById('articles');
+      if (el) {
+        const lenis = (window as unknown as { lenis?: { scrollTo: (target: HTMLElement, opts?: { offset?: number; duration?: number }) => void } }).lenis;
+        if (lenis) {
+          lenis.scrollTo(el, { offset: -70, duration: 1.25 });
+        } else {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        window.location.hash = '#blogs';
+      }
+    }
+  };
+
   const isInnerPage = currentPage !== 'home';
 
   return (
@@ -152,7 +187,7 @@ export function Navbar({ currentPage = 'home', onNavigate }: NavbarProps) {
             </a>
 
             {/* 5. Blogs */}
-            <a href="#blogs" className="nav-item">Blogs</a>
+            <a href="#blogs" className="nav-item" onClick={handleBlogsClick}>Blogs</a>
 
             {/* 6. Contact */}
             <a href="#contact" className="nav-item">Contact</a>
