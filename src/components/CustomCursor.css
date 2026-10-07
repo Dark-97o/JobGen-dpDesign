@@ -104,16 +104,11 @@
   stroke: rgba(255, 255, 255, 0.75);
 }
 
-/* Hide native cursor on desktop to let the custom pointer shine */
+/* Completely eliminate native browser cursor (including hand pointer) across all elements */
 @media (hover: hover) and (pointer: fine) {
-  html,
-  body,
-  a,
-  button,
-  input,
-  select,
-  textarea,
-  [role="button"] {
+  *,
+  *::before,
+  *::after {
     cursor: none !important;
   }
 }

@@ -34,7 +34,9 @@ export function CustomCursor() {
     const onMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
       if (!target) return;
-      const interactive = target.closest('a, button, input, select, textarea, [role="button"], .vscrub-cta');
+      const interactive = target.closest(
+        'a, button, input, select, textarea, label, summary, [role="button"], [role="link"], [role="tab"], [tabindex]:not([tabindex="-1"]), [onclick], .nav-item, .nav-book-pill, .vscrub-cta, .articles-nav-btn, .breadcrumb-home-link, .interactive, .clickable'
+      );
       setIsHovered(!!interactive);
     };
 
