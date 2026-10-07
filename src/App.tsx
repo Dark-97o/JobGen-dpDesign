@@ -84,12 +84,12 @@ export function App() {
   // Initialize Lenis Frictionless Smooth Scrolling
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential frictionless glide
+      duration: 0.85,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Snappy exponential frictionless glide
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1.05,
+      wheelMultiplier: 1.1,
       touchMultiplier: 1.6,
       infinite: false,
     });
@@ -126,7 +126,7 @@ export function App() {
         const el = document.querySelector(href);
         if (el) {
           e.preventDefault();
-          lenis.scrollTo(el as HTMLElement, { offset: -70, duration: 1.25 });
+          lenis.scrollTo(el as HTMLElement, { offset: -70, duration: 0.85 });
         }
       }
     };
@@ -164,7 +164,7 @@ export function App() {
     else if (page === 'bathroom-design') void import('./components/BathroomDesignPage');
     else if (page === 'areas-we-serve') void import('./components/AreasWeServePage');
 
-    // After the 3 bars completely cover the screen (~720ms)
+    // After the 3 bars completely cover the screen (~480ms)
     setTimeout(() => {
       // 1. Swap active page component
       setCurrentPage(page);
@@ -195,12 +195,12 @@ export function App() {
       // Phase 2: Bars continue downward to reveal the new page
       setTransitionPhase('exiting');
 
-      // Once bars have fully exited (~720ms)
+      // Once bars have fully exited (~480ms)
       setTimeout(() => {
         setTransitionPhase('idle');
         isTransitioningRef.current = false;
-      }, 720);
-    }, 720);
+      }, 480);
+    }, 480);
   };
 
   useEffect(() => {
@@ -221,8 +221,8 @@ export function App() {
         setTimeout(() => {
           setTransitionPhase('idle');
           isTransitioningRef.current = false;
-        }, 720);
-      }, 720);
+        }, 480);
+      }, 480);
     };
 
     window.addEventListener('popstate', handlePopState);

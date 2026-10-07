@@ -41,9 +41,16 @@ export function CustomCursor() {
     };
 
     const loop = () => {
-      // Fast, ultra-buttery lerp for responsive modern pointer physics
-      currentX += (mouseX - currentX) * 0.65;
-      currentY += (mouseY - currentY) * 0.65;
+      // Ultra-snappy, direct responsive pointer physics (zero spongy drag)
+      const dx = mouseX - currentX;
+      const dy = mouseY - currentY;
+      if (Math.abs(dx) < 0.2 && Math.abs(dy) < 0.2) {
+        currentX = mouseX;
+        currentY = mouseY;
+      } else {
+        currentX += dx * 0.88;
+        currentY += dy * 0.88;
+      }
 
       if (cursorRef.current) {
         cursorRef.current.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;

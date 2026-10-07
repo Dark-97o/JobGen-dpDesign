@@ -75,12 +75,12 @@ export function Navbar({ currentPage = 'home', onNavigate }: NavbarProps) {
           if (el) {
             const lenis = (window as unknown as { lenis?: { scrollTo: (target: HTMLElement, opts?: { offset?: number; duration?: number }) => void } }).lenis;
             if (lenis) {
-              lenis.scrollTo(el, { offset: -70, duration: 1.25 });
+              lenis.scrollTo(el, { offset: -70, duration: 0.85 });
             } else {
               el.scrollIntoView({ behavior: 'smooth' });
             }
           }
-        }, 800);
+        }, 520);
       } else {
         window.location.hash = '#blogs';
       }
@@ -89,7 +89,7 @@ export function Navbar({ currentPage = 'home', onNavigate }: NavbarProps) {
       if (el) {
         const lenis = (window as unknown as { lenis?: { scrollTo: (target: HTMLElement, opts?: { offset?: number; duration?: number }) => void } }).lenis;
         if (lenis) {
-          lenis.scrollTo(el, { offset: -70, duration: 1.25 });
+          lenis.scrollTo(el, { offset: -70, duration: 0.85 });
         } else {
           el.scrollIntoView({ behavior: 'smooth' });
         }

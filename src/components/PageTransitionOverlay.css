@@ -110,43 +110,43 @@
 /* Phase IN (Descending from Top to 0) */
 .phase-in .transition-bar-1 {
   transform: translateY(0);
-  transition: transform 0.52s cubic-bezier(0.77, 0, 0.175, 1) 0ms;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1) 0ms;
 }
 
 .phase-in .transition-bar-2 {
   transform: translateY(0);
-  transition: transform 0.52s cubic-bezier(0.77, 0, 0.175, 1) 90ms;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1) 50ms;
 }
 
 .phase-in .transition-bar-3 {
   transform: translateY(0);
-  transition: transform 0.52s cubic-bezier(0.77, 0, 0.175, 1) 180ms;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1) 100ms;
 }
 
 .phase-in .transition-center-logo-wrap {
   opacity: 1;
   transform: scale(1);
-  transition-delay: 240ms;
+  transition-delay: 120ms;
 }
 
 /* Phase OUT (Descending from 0 to 100%) */
 .phase-out .transition-bar-1 {
   transform: translateY(100%);
-  transition: transform 0.52s cubic-bezier(0.77, 0, 0.175, 1) 0ms;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1) 0ms;
 }
 
 .phase-out .transition-bar-2 {
   transform: translateY(100%);
-  transition: transform 0.52s cubic-bezier(0.77, 0, 0.175, 1) 90ms;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1) 50ms;
 }
 
 .phase-out .transition-bar-3 {
   transform: translateY(100%);
-  transition: transform 0.52s cubic-bezier(0.77, 0, 0.175, 1) 180ms;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1) 100ms;
 }
 
 .phase-out .transition-center-logo-wrap {
   opacity: 0;
   transform: scale(0.92);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.16s ease, transform 0.16s ease;
 }

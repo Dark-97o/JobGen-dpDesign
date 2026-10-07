@@ -333,16 +333,17 @@ h1, h2, h3,
   gap: 12px;
   text-decoration: none;
   box-shadow: var(--shadow-gold);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-gold:hover {
-  transform: translateY(-1px) scale(1.01);
+  transform: translateY(-2px) scale(1.015);
   box-shadow: 0 12px 30px -4px rgba(197, 160, 89, 0.45);
 }
 
 .btn-gold:active {
-  transform: translateY(1px) scale(0.99);
+  transform: translateY(1px) scale(0.985);
+  transition: transform 0.06s ease;
 }
 
 .btn-gold-icon {
@@ -353,7 +354,7 @@ h1, h2, h3,
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-gold:hover .btn-gold-icon {
@@ -376,14 +377,19 @@ h1, h2, h3,
   align-items: center;
   gap: 12px;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-dark:hover {
   background: #1C1E22;
   border-color: var(--gold-primary);
   color: var(--gold-light);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+}
+
+.btn-dark:active {
+  transform: translateY(1px) scale(0.985);
+  transition: transform 0.06s ease;
 }
 
 /* Ghost Outline Button */
@@ -401,13 +407,14 @@ h1, h2, h3,
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-outline:hover {
   border-color: var(--gold-primary);
   color: var(--gold-deep);
   background: var(--gold-muted);
+  transform: translateY(-1px);
 }
 
 /* Monolith Dark Section Styling */

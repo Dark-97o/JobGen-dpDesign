@@ -35,15 +35,16 @@
   width: 100%;
   height: 100%;
   transform-origin: 2px 2px;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.14s cubic-bezier(0.2, 0.9, 0.3, 1.25);
 }
 
 .custom-pointer-arrow.hovered .custom-pointer-scale-wrap {
-  transform: scale(1.15);
+  transform: scale(1.18);
 }
 
 .custom-pointer-arrow.clicked .custom-pointer-scale-wrap {
-  transform: scale(0.88);
+  transform: scale(0.85);
+  transition: transform 0.06s ease-out;
 }
 
 /* Arrowhead SVG styling */
@@ -52,19 +53,19 @@
   width: 24px;
   height: 24px;
   overflow: visible;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
-  transition: filter 0.22s ease;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.65)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+  transition: filter 0.15s ease-out;
 }
 
 /* Default state: Obsidian & Charcoal dual-tone with crisp white hairline outline */
 .arrowhead-facet-left {
   fill: #111215;
-  transition: fill 0.22s ease;
+  transition: fill 0.14s ease-out;
 }
 
 .arrowhead-facet-right {
   fill: #22262C;
-  transition: fill 0.22s ease;
+  transition: fill 0.14s ease-out;
 }
 
 .arrowhead-outline {
@@ -72,14 +73,14 @@
   stroke-width: 1.25px;
   stroke-linejoin: round;
   stroke-linecap: round;
-  transition: stroke 0.22s ease;
+  transition: stroke 0.14s ease-out;
 }
 
 .arrowhead-ridge {
   stroke: rgba(255, 255, 255, 0.35);
   stroke-width: 0.9px;
   stroke-linecap: round;
-  transition: stroke 0.22s ease;
+  transition: stroke 0.14s ease-out;
 }
 
 /* Hover state on interactive elements: Gold illumination */
