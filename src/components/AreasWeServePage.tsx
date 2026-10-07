@@ -415,6 +415,9 @@ export function AreasWeServePage({ onNavigateHome }: AreasWeServePageProps) {
         </div>
       </section>
 
+      {/* ── Full-Width Thick Architectural Separator ── */}
+      <div className="why-choose-dp-full-separator" aria-hidden="true" />
+
       {/* ── 04. Regional FAQs Accordion ── */}
       <section className="areas-section areas-faq-section" style={{ paddingTop: '80px' }}>
         <div className="areas-container">

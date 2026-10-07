@@ -274,10 +274,11 @@
   background-image: url('/dpabout.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.12;
+  opacity: 0.07;
   pointer-events: none;
   z-index: 0;
   mix-blend-mode: multiply;
+  filter: contrast(0.95);
 }
 
 .planning-white-inner {
@@ -369,13 +370,13 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: contrast(1.08) brightness(0.9);
+  filter: contrast(1.02) brightness(0.85);
 }
 
 .planning-video-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(10, 11, 13, 0.25) 0%, rgba(10, 11, 13, 0.5) 100%);
+  background: linear-gradient(135deg, rgba(10, 11, 13, 0.42) 0%, rgba(10, 11, 13, 0.65) 100%);
   pointer-events: none;
 }
 
@@ -391,13 +392,13 @@
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   SECTION 4: DP DESIGN STUDIO SERVICES (DARK THEME BAND WITH DPABOUTDARK BG)
+   SECTION 4: DP DESIGN STUDIO SERVICES (DARK THEME BAND WITH FADED DPABOUTDARK BG)
    ────────────────────────────────────────────────────────────────────────── */
 .about-services-band-section {
   padding: clamp(64px, 9vh, 92px) 0;
   background-color: #0A0B0D;
   background-image: 
-    linear-gradient(180deg, rgba(10, 11, 13, 0.74) 0%, rgba(10, 11, 13, 0.52) 48%, rgba(10, 11, 13, 0.82) 100%),
+    linear-gradient(180deg, rgba(10, 11, 13, 0.88) 0%, rgba(10, 11, 13, 0.74) 48%, rgba(10, 11, 13, 0.90) 100%),
     url('/dpaboutdark.jpg');
   background-size: 180% auto;
   background-position: center bottom;
