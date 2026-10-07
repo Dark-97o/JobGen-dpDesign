@@ -39,9 +39,9 @@ export function CustomCursor() {
     };
 
     const loop = () => {
-      // Snappy lerp for natural buttery cursor physics
-      currentX += (mouseX - currentX) * 0.45;
-      currentY += (mouseY - currentY) * 0.45;
+      // Fast, ultra-buttery lerp for responsive modern pointer physics
+      currentX += (mouseX - currentX) * 0.65;
+      currentY += (mouseY - currentY) * 0.65;
 
       if (cursorRef.current) {
         cursorRef.current.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
@@ -73,13 +73,42 @@ export function CustomCursor() {
   return (
     <div
       ref={cursorRef}
-      className={`custom-pointer-circle ${isVisible ? 'visible' : ''} ${isHovered ? 'hovered' : ''} ${isClicked ? 'clicked' : ''}`}
+      className={`custom-pointer-arrow ${isVisible ? 'visible' : ''} ${isHovered ? 'hovered' : ''} ${isClicked ? 'clicked' : ''}`}
       aria-hidden="true"
     >
-      {/* Scaling wrap for hover/click without breaking continuous rotation */}
+      {/* Scaling wrap for hover/click interaction states */}
       <div className="custom-pointer-scale-wrap">
-        {/* Stroke circle: half black, half white, constantly rotating */}
-        <div className="custom-pointer-stroke-ring" />
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="custom-arrowhead-svg"
+        >
+          <g className="arrowhead-group">
+            {/* Left Dark Facet */}
+            <path
+              d="M2 2L6.2 20.8L10.6 13.6Z"
+              className="arrowhead-facet-left"
+            />
+            {/* Right Elevated Facet */}
+            <path
+              d="M2 2L10.6 13.6L18.4 10.2Z"
+              className="arrowhead-facet-right"
+            />
+            {/* Crisp Outer Hairline Contour */}
+            <path
+              d="M2 2L6.2 20.8L10.6 13.6L18.4 10.2Z"
+              className="arrowhead-outline"
+            />
+            {/* Central Architectural Ridge */}
+            <path
+              d="M2 2L10.6 13.6"
+              className="arrowhead-ridge"
+            />
+          </g>
+        </svg>
       </div>
     </div>
   );

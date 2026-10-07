@@ -1,72 +1,110 @@
 /* ==========================================================================
-   CUSTOM POINTER: ROTATING HALF-BLACK HALF-WHITE THICK STROKE WITH BLACK SHADOW
+   CUSTOM POINTER: MODERN ARCHITECTURAL FACETED ARROWHEAD
+   - Pixel-accurate tip hotspot at (0, 0)
+   - Dual-tone obsidian and elevated charcoal facets
+   - Crisp white hairline border for ultra-clear visibility on dark & light
+   - Architectural champagne gold illumination on interactive hover
+   - Snappy responsive scaling for clicks and hover states
    ========================================================================== */
 
-.custom-pointer-circle {
+.custom-pointer-arrow {
   position: fixed;
   top: 0;
   left: 0;
-  width: 16px;
-  height: 16px;
-  margin-top: -8px;
-  margin-left: -8px;
+  width: 24px;
+  height: 24px;
+  /* Precisely align the SVG arrow tip (at coordinates 2px, 2px) to the mouse hotspot */
+  margin-top: -2px;
+  margin-left: -2px;
   pointer-events: none;
   z-index: 999999;
   opacity: 0;
   overflow: visible;
   will-change: transform;
   transition: opacity 0.2s ease;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.92)) drop-shadow(0 0 2px #000000);
 }
 
 /* Visibility */
-.custom-pointer-circle.visible {
+.custom-pointer-arrow.visible {
   opacity: 1;
 }
 
-/* Scaling container for hover and click states */
+/* Scaling container for hover and click states with tip anchored at (2px, 2px) */
 .custom-pointer-scale-wrap {
   position: relative;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: 2px 2px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.custom-pointer-circle.hovered .custom-pointer-scale-wrap {
-  transform: scale(1.35);
+.custom-pointer-arrow.hovered .custom-pointer-scale-wrap {
+  transform: scale(1.15);
 }
 
-.custom-pointer-circle.clicked .custom-pointer-scale-wrap {
-  transform: scale(0.85);
+.custom-pointer-arrow.clicked .custom-pointer-scale-wrap {
+  transform: scale(0.88);
 }
 
-/* Half-black, half-white stroke circle constantly rotating with thicker stroke & black shadow */
-.custom-pointer-stroke-ring {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: conic-gradient(#000000 0deg 180deg, #FFFFFF 180deg 360deg);
-  /* Thicker stroke: mask out only 38% in center, leaving ~4.5px thick stroke */
-  mask: radial-gradient(circle, transparent 38%, #000 44%);
-  -webkit-mask: radial-gradient(circle, transparent 38%, #000 44%);
-  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 1.5px #000000);
-  animation: pointerStrokeSpin 1.8s linear infinite;
-  will-change: transform;
+/* Arrowhead SVG styling */
+.custom-arrowhead-svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  overflow: visible;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+  transition: filter 0.22s ease;
 }
 
-@keyframes pointerStrokeSpin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Default state: Obsidian & Charcoal dual-tone with crisp white hairline outline */
+.arrowhead-facet-left {
+  fill: #111215;
+  transition: fill 0.22s ease;
 }
 
-/* Hide native cursor on desktop to let the rotating pointer shine */
+.arrowhead-facet-right {
+  fill: #22262C;
+  transition: fill 0.22s ease;
+}
+
+.arrowhead-outline {
+  stroke: #FFFFFF;
+  stroke-width: 1.25px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  transition: stroke 0.22s ease;
+}
+
+.arrowhead-ridge {
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 0.9px;
+  stroke-linecap: round;
+  transition: stroke 0.22s ease;
+}
+
+/* Hover state on interactive elements: Gold illumination */
+.custom-pointer-arrow.hovered .custom-arrowhead-svg {
+  filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.75)) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.7));
+}
+
+.custom-pointer-arrow.hovered .arrowhead-facet-left {
+  fill: #C5A059;
+}
+
+.custom-pointer-arrow.hovered .arrowhead-facet-right {
+  fill: #DFBE7A;
+}
+
+.custom-pointer-arrow.hovered .arrowhead-outline {
+  stroke: #FFFFFF;
+  stroke-width: 1.35px;
+}
+
+.custom-pointer-arrow.hovered .arrowhead-ridge {
+  stroke: rgba(255, 255, 255, 0.75);
+}
+
+/* Hide native cursor on desktop to let the custom pointer shine */
 @media (hover: hover) and (pointer: fine) {
   html,
   body,
@@ -82,7 +120,7 @@
 
 /* Disable custom cursor entirely on mobile / touch displays */
 @media (hover: none) or (pointer: coarse) {
-  .custom-pointer-circle {
+  .custom-pointer-arrow {
     display: none !important;
   }
 }
