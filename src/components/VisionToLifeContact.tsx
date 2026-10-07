@@ -73,6 +73,9 @@ export function VisionToLifeContact() {
 
   return (
     <section id="contact" className="vision-contact-section">
+      {/* Golden Architectural Full-Width Separator at Top of Contact Section */}
+      <div className="vision-top-gold-separator" aria-hidden="true" />
+
       <div className="container vision-container">
         
         {/* Main Card Container */}
@@ -114,12 +117,19 @@ export function VisionToLifeContact() {
                           <span className="dot yellow" />
                           <span className="dot green" />
                         </div>
-                        <span className="pc-cad-title">DP STUDIO // CAD 3D WORKSTATION</span>
+                        <div className="pc-cad-title-wrap">
+                          <img src="/dplogo.png" alt="dp" className="pc-cad-header-logo" />
+                          <span className="pc-cad-title">DP STUDIO // CAD 3D WORKSTATION</span>
+                        </div>
                         <span className="pc-cad-status">● LIVE</span>
                       </div>
 
                       {/* Wireframe Architectural House Blueprint Graphic */}
                       <div className="pc-blueprint-canvas">
+                        <div className="pc-blueprint-logo-badge" aria-hidden="true">
+                          <img src="/dplogo.png" alt="dp Design Studio" className="pc-blueprint-dplogo-img" />
+                          <span className="pc-blueprint-logo-text">dp STUDIO</span>
+                        </div>
                         <svg className="blueprint-svg" viewBox="0 0 320 170" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <defs>
                             <pattern id="cadGrid" width="16" height="16" patternUnits="userSpaceOnUse">
@@ -173,7 +183,10 @@ export function VisionToLifeContact() {
 
                   {/* Monitor Bottom Chin with Brand & Power LED */}
                   <div className="pc-bezel-bottom">
-                    <span className="pc-brand">DP // DESIGN STUDIO</span>
+                    <div className="pc-bezel-brand">
+                      <img src="/dplogo.png" alt="dp" className="pc-chin-logo" />
+                      <span className="pc-brand">DP // DESIGN STUDIO</span>
+                    </div>
                     <span className="pc-power-led" />
                   </div>
                 </div>

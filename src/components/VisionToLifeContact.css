@@ -22,6 +22,33 @@
   clip-path: none;
   -webkit-clip-path: none;
   overflow: hidden;
+  border-top: 1px solid rgba(197, 160, 89, 0.28);
+}
+
+/* Full-width Glowing Golden Separator at Top of Contact Section */
+.vision-top-gold-separator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(197, 160, 89, 0.3) 10%, 
+    #C5A059 40%, 
+    #E0C58A 50%, 
+    #C5A059 60%, 
+    rgba(197, 160, 89, 0.3) 90%, 
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 16px rgba(197, 160, 89, 0.75), 
+    0 0 32px rgba(197, 160, 89, 0.4), 
+    0 1px 3px rgba(224, 197, 138, 0.9);
+  z-index: 10;
+  pointer-events: none;
 }
 
 .vision-container {
@@ -207,6 +234,19 @@
 .pc-cad-dots .yellow { background: #FFBD2E; }
 .pc-cad-dots .green { background: #27C93F; }
 
+.pc-cad-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pc-cad-header-logo {
+  width: 11px;
+  height: 11px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 3px rgba(197, 160, 89, 0.6));
+}
+
 .pc-cad-title {
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -228,6 +268,7 @@
 
 /* Blueprint Canvas */
 .pc-blueprint-canvas {
+  position: relative;
   width: 100%;
   height: 72px;
   border-radius: 4px;
@@ -235,6 +276,38 @@
   background: #050608;
   border: 1px solid rgba(197, 160, 89, 0.25);
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.pc-blueprint-logo-badge {
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1.5px 5px;
+  background: rgba(10, 14, 20, 0.85);
+  border: 0.8px solid rgba(197, 160, 89, 0.45);
+  border-radius: 3px;
+  box-shadow: 0 0 8px rgba(197, 160, 89, 0.25);
+  pointer-events: none;
+}
+
+.pc-blueprint-dplogo-img {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 3px rgba(197, 160, 89, 0.5));
+}
+
+.pc-blueprint-logo-text {
+  font-family: var(--font-mono, monospace);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #E0C58A;
+  text-shadow: 0 0 4px rgba(197, 160, 89, 0.5);
 }
 
 .blueprint-svg {
@@ -300,11 +373,25 @@
   padding: 5px 3px 0 3px;
 }
 
+.pc-bezel-brand {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pc-chin-logo {
+  width: 10px;
+  height: 10px;
+  object-fit: contain;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 3px rgba(197, 160, 89, 0.45));
+}
+
 .pc-brand {
   font-family: var(--font-mono, monospace);
   font-size: 8px;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.42);
   font-weight: 600;
 }
 
