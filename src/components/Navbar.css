@@ -45,12 +45,12 @@
 }
 
 .navbar-header.scrolled .navbar-pill {
-  /* Truly transparent frosted blur - NO heavy black overlay */
-  background: rgba(18, 20, 24, 0.22);
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  /* Architectural Obsidian Black Overlay with Frosted Glass Blur */
+  background: rgba(8, 9, 12, 0.696);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-full);
   padding: 7px 22px;
   animation: navPopOut 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -61,6 +61,7 @@
     transform: translateY(-6px);
     opacity: 0.7;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -131,7 +132,8 @@
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-.nav-item:hover, .nav-item.open {
+.nav-item:hover,
+.nav-item.open {
   color: #FFFFFF;
 }
 
@@ -299,5 +301,4 @@
   .navbar-links {
     display: none;
   }
-}
-
+}
