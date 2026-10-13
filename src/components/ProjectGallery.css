@@ -150,11 +150,12 @@
   position: relative;
   height: 100%;
   overflow: hidden;
-  border-radius: 12px;
-  background-color: #121417;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  background-color: #0d0f12;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.06);
   user-select: none;
+  cursor: pointer;
 }
 
 /* Row 1: 1 Rectangle (1.85) + 1 Square (1) */
@@ -168,30 +169,73 @@
   max-width: 380px;
 }
 
-/* Carousel Image with Smooth 0.35s Fade */
+/* Slide Layers for True Seamless Crossfade (Zero Pop, Zero Flicker) */
+.carousel-slide-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Base layer remains locked at opacity 1 beneath incoming layer */
+.carousel-slide-base {
+  z-index: 1;
+  opacity: 1;
+}
+
+/* Active incoming layer crossfades smoothly on top */
+.carousel-slide-active.is-crossfading {
+  z-index: 2;
+  animation: velvetCrossfadeIn 1000ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.carousel-slide-active.is-settled {
+  z-index: 1;
+  opacity: 1;
+}
+
+@keyframes velvetCrossfadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.025);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Image Element with hardware-accelerated smooth zoom on hover */
 .carousel-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
-  animation: carouselImageFade 0.35s ease-in-out;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
 }
 
 .carousel-slot:hover .carousel-img {
-  transform: scale(1.03);
+  transform: scale(1.035);
 }
 
-@keyframes carouselImageFade {
-  0% {
-    opacity: 0.72;
-    transform: scale(1.015);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+/* Subtle luxury architectural glass vignette */
+.carousel-slot-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 15, 17, 0) 65%,
+    rgba(14, 15, 17, 0.22) 100%
+  );
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 /* Responsive Adaptability */
